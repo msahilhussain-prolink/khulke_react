@@ -238,6 +238,7 @@ const Post = ({
       setTextData("");
     }
   }, [post_res]);
+
   function getHashTags(inputText, symbol) {
     const hash_regex = /(?:^|\s)(?:#)([a-zA-Z\d]+)/gm;
     const at_regex = /(?:^|\s)(?:@)([a-zA-Z._-\d]+)/gm;
@@ -352,14 +353,14 @@ const Post = ({
     });
   };
 
-  console.log(
-    "title && !videoFile && !audioFile && !docsFile && !imgData",
-    ppt,
-    videoFile,
-    audioFile,
-    docsFile,
-    imgData
-  );
+  // console.log(
+  //   "title && !videoFile && !audioFile && !docsFile && !imgData",
+  //   ppt,
+  //   videoFile,
+  //   audioFile,
+  //   docsFile,
+  //   imgData
+  // );
 
   const handleShare = async () => {
     navigator.clipboard
@@ -1680,7 +1681,6 @@ const Post = ({
                       }
                       handleReply();
                       setactiontype("gtmEventReply");
-                      set;
                     }}
                     onNumClick={handleReplyClick}
                   />
@@ -1926,6 +1926,7 @@ const Post = ({
           title={title}
           GetAllPostDataProfile={GetAllPostDataProfile}
           src={src}
+          setUserAction={setUserAction}
         />
       )}
       {/* menu */}

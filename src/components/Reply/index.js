@@ -61,6 +61,7 @@ const Reply = ({
   parentType,
   GetAllPostDataProfile,
   src,
+  setUserAction,
 }) => {
   const replyData = useSelector((state) => state.post.replyData);
 
@@ -495,6 +496,7 @@ const Reply = ({
     );
     setPostReply(false);
     setReplyFlg(true);
+    setUserAction((prev) => !prev);
   };
 
   const handleCrop = () => {
@@ -590,18 +592,17 @@ const Reply = ({
     }
   }, [replyData]);
 
-  console.log("test123456", audioFile,
-pdf,
-ppt,
-doc,
-docsFile,
-excel,
-imgData,
-videoFile,
-formatted_created_at,
-src
-)
-
+  //   console.log("test123456", audioFile,
+  // pdf,
+  // ppt,
+  // doc,
+  // docsFile,
+  // excel,
+  // imgData,
+  // videoFile,
+  // formatted_created_at,
+  // src
+  // )
 
   return (
     <Dialog
@@ -655,34 +656,36 @@ src
           </div>
           <div className="reply_body">
             {/* {title && !videoFile && !audioFile && !docsFile && !imgData && ( */}
-              <Post
-                post_media={post_media}
-                post_id={post_id}
-                hideIconContainer
-                circulate_user={circulate_user}
-                username={username}
-                name={name}
-                title={title}
-              videoFile={videoFile?videoFile:""}
-                audioFile={audioFile?audioFile:""}
-                docsFile={docsFile?docsFile:""}
-                imgData={imgData?imgData:[]}
-                pdf={pdf?pdf:""}
-                ppt={ppt?ppt:""}
-                excel={excel?excel:""}
-                doc={doc?doc:""}
-                src={src?src:""}
-                formatted_created_at={formatted_created_at?formatted_created_at:""}
-                // audio={audio?audio:""}
-                className={"post_card"}
-                totalLike={likeCount}
-                like_self={like_self}
-                dislike_self={dislike_self}
-                post_circulated_count={post_circulated_count}
-                totalComment={totalComment}
-                noShowReplyLine={true}
-              />
-            
+            <Post
+              post_media={post_media}
+              post_id={post_id}
+              hideIconContainer
+              circulate_user={circulate_user}
+              username={username}
+              name={name}
+              title={title}
+              videoFile={videoFile ? videoFile : ""}
+              audioFile={audioFile ? audioFile : ""}
+              docsFile={docsFile ? docsFile : ""}
+              imgData={imgData ? imgData : []}
+              pdf={pdf ? pdf : ""}
+              ppt={ppt ? ppt : ""}
+              excel={excel ? excel : ""}
+              doc={doc ? doc : ""}
+              src={src ? src : ""}
+              formatted_created_at={
+                formatted_created_at ? formatted_created_at : ""
+              }
+              // audio={audio?audio:""}
+              className={"post_card"}
+              totalLike={likeCount}
+              like_self={like_self}
+              dislike_self={dislike_self}
+              post_circulated_count={post_circulated_count}
+              totalComment={totalComment}
+              noShowReplyLine={true}
+            />
+
             <div className="reply_input_container">
               <UserProfile
                 username={current_user?.["username"]}
@@ -769,7 +772,6 @@ src
                           />
                         </Grid>
                       )}
-                      
                     </>
                   );
                 })}
