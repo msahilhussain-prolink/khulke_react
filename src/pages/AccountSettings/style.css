@@ -1,0 +1,106 @@
+.input_text {
+  margin-top: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.outerdeactivePages {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.passLine:hover {
+  cursor: pointer;
+}
+
+.txt_area {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.6rem;
+  color: black;
+  font-size: 14px;
+}
+
+.restore_btn {
+  text-transform: capitalize;
+  color: black;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 0.5rem 0.5rem;
+  outline: none;
+  font-size: 0.8rem;
+  max-height: 3rem;
+  margin-top: 1rem;
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .as-uni-outer {
+    margin-left: 0rem;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.deactivate_bold {
+  font-family: "WorkSans-Bold";
+  font-size: 1.5rem;
+}
+
+.deactivate_p {
+  color: #63779c;
+}
+
+.continue_btn {
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5rem 5rem;
+  border-radius: 50px;
+}
+
+.profleCont {
+  width: 190px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 0px 1px 1px hwb(0 93% 7%);
+  border-radius: 50px;
+}
+
+.profleCont .imgInLeft {
+  border-radius: 50px;
+  margin-left: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.profleCont .right .name {
+  font-family: "WorkSans-Bold";
+  font-size: 1.1rem;
+  margin: 0;
+  padding-left: 10px;
+}
+
+.profleCont .right .usernamep {
+  font-size: 0.95rem;
+  color: #161f3a;
+  margin: 0;
+  padding-left: 10px;
+}
+
+.formDiv {
+  height: auto;
+  width: 450px;
+  min-width: 400px;
+  padding: 2rem 0 0 0;
+  margin-top: -1rem;
+}
+
+.errorLine {
+  color: red;
+}

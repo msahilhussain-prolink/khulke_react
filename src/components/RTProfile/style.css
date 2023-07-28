@@ -1,0 +1,228 @@
+.user-profile-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.rt-title-for-past-rt {
+  margin-top: 0.5rem;
+}
+
+.rt-title-for-past-rt h1 {
+  font-size: 22px;
+  font-size: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* .profile-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #EC5A61;
+  background: transparent  0% 0% no-repeat padding-box;
+}
+
+.live-rectangle {
+  position: absolute;
+  bottom: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 18px;
+  background: #ec5a61 0% 0% no-repeat padding-box;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.profile-circle {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: transparent 0% 0% no-repeat padding-box;
+}
+
+.profile-circle.red-border {
+  border: 2px solid #ec5a61;
+}
+
+.live-rectangle {
+  position: absolute; /* Use absolute positioning */
+  bottom: -12px; /* Adjust the value to align it properly with the bottom of the circle */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 18px;
+  background: #ec5a61 0% 0% no-repeat padding-box;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.live-text {
+  margin: 0;
+  width: 26px;
+  height: 14px;
+  text-align: center;
+  font: normal normal 600 12px/14px "Work Sans";
+  color: #ffffff;
+  opacity: 1;
+}
+
+.profile-name {
+  cursor: "pointer";
+  text-align: left;
+  font: normal normal bold 16px/19px "Work Sans";
+  letter-spacing: 0px;
+  color: #161f3a;
+  opacity: 1;
+  margin-left: -10px;
+}
+
+.follwers-count {
+  text-align: left;
+  font: normal normal normal 14px/16px "Work Sans";
+  letter-spacing: 0px;
+  color: #161f3a;
+  opacity: 1;
+  margin-left: -10px;
+}
+
+.pastProfile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftBottom {
+  margin-top: 0rem;
+  width: 95%;
+}
+
+@media only screen and (max-width: 600px) {
+  .leftBottom {
+    /* display: none; */
+    /* align-items: flex-start;
+    flex-direction: column;
+    width: auto;
+    justify-content: space-between; */
+  }
+
+  .pastProfile {
+    width: auto;
+    padding: 10px 0px;
+  }
+
+  .rt-title-for-past-rt {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .leftBottom {
+    /* display: none; */
+    /* align-items: flex-start;
+    flex-direction: column;
+    width: auto;
+    justify-content: space-between; */
+  }
+
+  .pastProfile {
+    width: auto;
+    padding: 20px 0px;
+    justify-content: space-between;
+  }
+
+  .rt-title-for-past-rt {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .leftBottom {
+    /* display: none; */
+    /* align-items: center;
+    flex-direction: row;
+    width: auto;
+    justify-content: space-between; */
+  }
+
+  .pastProfile {
+    width: auto;
+    padding: 20px 0px;
+  }
+
+  .rt-title-for-past-rt {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .leftBottom {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 98%;
+    justify-content: space-between;
+  }
+
+  .pastProfile {
+    width: auto;
+    padding: 20px 0px;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1439px) {
+  .leftBottom {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 98%;
+    justify-content: space-between;
+  }
+
+  .pastProfile {
+    width: auto;
+    padding: 10px 0px;
+  }
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1700px) {
+  .leftBottom {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: auto;
+    justify-content: space-between;
+    width: 95%;
+  }
+
+  .pastProfile {
+    width: auto;
+    padding: 10px 0px;
+  }
+}
+
+@media only screen and (min-width: 1701px) {
+  .leftBottom {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto;
+  }
+
+  .pastProfile {
+    width: auto;
+    padding: 20px 0px;
+  }
+}

@@ -1,0 +1,6 @@
+.react-player-style {
+  width: 100% !important;
+  height: 425px !important;
+  object-fit: cover;
+  margin: 0 auto;
+}

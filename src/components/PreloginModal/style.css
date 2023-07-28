@@ -1,0 +1,203 @@
+.login_btn {
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  margin-top: 40px;
+  font-weight: 600;
+}
+
+.login_btn:hover {
+  cursor: pointer;
+}
+
+.signup_btn {
+  background-color: white;
+  color: var(--success-color);
+  border: 1px solid var(--success-color);
+  margin-top: 16px;
+}
+
+.logUp_btn {
+  font-size: 14px;
+  height: fit-content;
+  border-radius: 18px;
+  padding: 5px 8px;
+  outline: none;
+  align-items: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.emField label {
+  font-size: 16px;
+  font-family: "WorkSans-medium";
+  padding-bottom: 0.5rem;
+}
+.emField input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  width: 89%;
+  font-size: 14px;
+}
+.emField input ::-moz-placeholder {
+  /* Edge */
+  background-color: red;
+}
+.emField input :-ms-input-placeholder {
+  /* Edge */
+  background-color: red;
+}
+.emField input ::placeholder {
+  /* Edge */
+  background-color: red;
+}
+
+.errormsg {
+  padding-top: 6px;
+  display: block;
+  color: #c94c56;
+  margin-top: -4px;
+}
+
+.radioBtnGrp {
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
+}
+.radioBtnGrp .loginP {
+  margin-bottom: 1rem;
+  font-size: 16px;
+  font-family: "WorkSans-medium";
+  color: #000;
+  margin: 0;
+}
+.radioBtnGrp .otpSpan {
+  width: 100px;
+  font-size: 0.95rem;
+}
+.radioBtnGrp .otpSpan label {
+  margin-left: 6px;
+  font-size: 14px;
+  font-family: "WorkSans-medium";
+  color: #000;
+}
+.radioBtnGrp .passSpan {
+  font-size: 0.95rem;
+  margin-left: 1rem;
+}
+.radioBtnGrp .passSpan label {
+  margin-left: 6px;
+  font-size: 14px;
+  font-family: "WorkSans-medium";
+  color: #000;
+}
+.radioBtnGrp .radioIp {
+  margin-left: 3rem;
+}
+
+.enterP {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.phone-link {
+  text-align: end;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  padding-top: 8px;
+  transition: all 200ms linear;
+  font-weight: bold;
+  user-select: none;
+  color: #3c7c68;
+}
+
+.phone-email-link {
+  margin-top: 0.3rem;
+  padding-bottom: 1.4rem;
+  cursor: pointer;
+}
+
+.ca span {
+  color: #54b798;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+.ca span:hover {
+  color: #3c7c68;
+}
+
+.sLine {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "WorkSans-Regular";
+  color: rgb(32, 32, 32);
+  padding-bottom: 0.5rem;
+  display: block;
+}
+
+.forgot_pass {
+  font-size: 0.85rem;
+  font-weight: bold;
+  /* color: #222222; */
+  display: block;
+  text-align: right;
+}
+
+.entPass {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "WorkSans-Regular";
+  color: rgb(32, 32, 32);
+  display: block;
+}
+
+.iPbox {
+  height: 4rem;
+}
+
+.icon_button {
+  height: 50;
+  width: 50;
+}
+
+.signupUsing_email {
+  padding-bottom: 1rem;
+  cursor: pointer;
+}
+
+.signUpContainer {
+  width: 100%;
+  top: 5px
+}
+
+.signUpTitle {
+  margin-left: 10px;
+}
+
+.signUpDesc {
+  margin-left: 10px;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.loginContainer {
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+  width: 87%;
+}
+
+.otpContainer {
+  text-align: end;
+  padding-right: 20px;
+  margin-top: 1rem;
+}
+
+.resendOtpMessage {
+  font-size: 14px;
+  font-weight: bold;
+}

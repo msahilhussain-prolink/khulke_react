@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <g id="Group_21616" data-name="Group 21616" transform="translate(-348 -134)">
+    <g id="Group_21614" data-name="Group 21614">
+      <circle id="Ellipse_1413" data-name="Ellipse 1413" cx="100" cy="100" r="100" transform="translate(348 134)" fill="#737e86"/>
+      <path id="Icon_material-group" data-name="Icon material-group" d="M75.136,36.643A14.572,14.572,0,1,0,60.409,22.071,14.588,14.588,0,0,0,75.136,36.643Zm-39.273,0A14.572,14.572,0,1,0,21.136,22.071,14.588,14.588,0,0,0,35.864,36.643Zm0,9.714c-11.438,0-34.364,5.683-34.364,17V75.5H70.227V63.357C70.227,52.04,47.3,46.357,35.864,46.357Zm39.273,0c-1.424,0-3.044.1-4.762.243,5.695,4.08,9.671,9.569,9.671,16.757V75.5H109.5V63.357C109.5,52.04,86.575,46.357,75.136,46.357Z" transform="translate(392.5 192.5)" fill="#fff" opacity="0.05"/>
+    </g>
+    <path id="Icon_awesome-camera" data-name="Icon awesome-camera" d="M36,10.25V30.821a3.4,3.4,0,0,1-3.375,3.429H3.375A3.4,3.4,0,0,1,0,30.821V10.25A3.4,3.4,0,0,1,3.375,6.821H9.563l.865-2.35A3.373,3.373,0,0,1,13.584,2.25h8.824a3.373,3.373,0,0,1,3.157,2.221l.872,2.35h6.188A3.4,3.4,0,0,1,36,10.25ZM26.438,20.536A8.439,8.439,0,1,0,18,29.107,8.512,8.512,0,0,0,26.438,20.536Zm-2.25,0A6.188,6.188,0,1,1,18,14.25,6.246,6.246,0,0,1,24.188,20.536Z" transform="translate(430 190.75)" fill="#fff"/>
+    <text id="Add_Klub_Icon" data-name="Add Klub
+Icon" transform="translate(448 252)" fill="#fff" font-size="16" font-family="WorkSans-SemiBold, Work Sans" font-weight="600"><tspan x="-35" y="0">Add Klub</tspan><tspan x="-16" y="20">Icon</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,316 @@
+.ow {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  width: 30rem;
+  white-space: break-spaces;
+}
+
+.profileImg {
+  border-radius: 50% !important;
+  width: 130px !important;
+  height: 130px !important;
+  object-fit: cover;
+}
+
+.profileImg:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 4px 3px rgb(204, 204, 204);
+}
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+/* The Modal (background) */
+.modal {
+  /* display: none;  */
+  position: fixed;
+  z-index: 1000;
+  /* Sit on top */
+  /* padding-top: 100px; */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.75);
+  /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: auto;
+  /* max-width: 40vw; */
+
+  max-height: 70vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mcImg {
+  object-fit: contain;
+  box-shadow: 0 2px 4px 2px #3d3d3d;
+}
+
+/* Add Animation */
+.modal-content,
+#caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.5s;
+  animation-name: zoom;
+  animation-duration: 0.4s;
+}
+
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(0) translate(-50%, -50%);
+  }
+
+  to {
+    -webkit-transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0) translate(-50%, -50%);
+  }
+
+  to {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+
+  .profileImg {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+}
+
+/* profile header */
+.headiheadi {
+  position: -webkit-sticky;
+  position: sticky !important;
+  top: 0;
+  z-index: 3;
+  background-color: white;
+  z-index: 3;
+  padding-bottom: 10px;
+}
+
+.containerstick {
+  /* border: 1px solid yellow; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2147483647;
+  background-color: white;
+}
+
+.usernBesidesArrow {
+  margin: 0rem 0 0 0.5rem;
+  font-size: 1.8rem;
+}
+
+.leftck {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 0.5rem;
+}
+
+/* .newBottom {
+  border: 2px solid blue;
+} */
+
+.imgNStats {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0.5rem;
+  margin-bottom: 5px;
+  /* border: 2px solid blue; */
+}
+
+.divForStatsTop {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.statparent {
+  cursor: pointer;
+  text-decoration: none;
+  /* width: 2rem; */
+}
+
+.statparent:nth-child(2) {
+  margin-left: 1.5rem;
+}
+
+.sharebtnn {
+  margin-right: 1.5rem;
+  background: transparent;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  .bioP {
+    width: 100%;
+  }
+
+  .sharebtnn {
+    margin-right: 0.5rem;
+  }
+
+  .divForStatsTop {
+    /* margin-right: 2rem; */
+    margin-top: -0.3rem;
+  }
+
+  .statparent:nth-child(2) {
+    margin-left: 0.8rem;
+  }
+}
+
+.newDataDiv {
+  /* border: 2px solid blue; */
+  margin: 1rem 0.5rem 0;
+}
+
+.divNamenBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .nameDiv3 {
+  border: 1px solid black;
+} */
+
+.usernamenVip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nameIn3 {
+  font-weight: bold;
+  font-family: "Work Sans";
+  font-size: 1.15rem;
+  color: #000;
+  margin: 0;
+}
+
+.usernameIn3 {
+  font-family: "Work Sans";
+  color: #181818;
+  margin: 0;
+  margin-top: -3px;
+  font-size: 0.95rem;
+}
+
+.dataDivbelow {
+  /* border: 2px solid yellow; */
+  margin: 0.5rem 0.5rem 5px;
+}
+
+.bioP {
+  color: #31323b;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+  /* border: 2px solid yellow; */
+  width: 70%;
+}
+
+@media screen and (max-width: 768px) {
+  .bioP {
+    width: 100%;
+  }
+}
+
+.interestNwDiv {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.dobDiv {
+  font: 0.9rem;
+  color: #31323b;
+  display: flex;
+  align-items: center;
+}
+
+.websiteDiv {
+  color: #009ad3;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.websiteDiv a {
+  color: #009ad3 !important;
+  text-decoration: none;
+}
+
+.websiteDiv:hover {
+  text-decoration: underline;
+}
+
+.biol {
+  margin-bottom: 0.25rem;
+  /* border: 1px solid pink; */
+}
+
+.nodataGifDiv {
+  display: flex;
+  justify-content: center;
+  height: 15rem;
+}
+
+.nodataGifDiv img {
+  height: auto;
+  width: 250px;
+  object-fit: contain;
+}

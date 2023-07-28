@@ -1,0 +1,18 @@
+.add-more-btn {
+  position: absolute;
+  padding: 0 2rem;
+  margin-top: 1.5rem;
+}
+
+.asterikMark {
+  font-weight: 600px;
+  color: var(--alert-color);
+  margin-left: 5px;
+}
+
+.make-co-owner {
+  display: inline;
+  color: #7ab788;
+  font-size: 12px;
+  font-weight: bold;
+}

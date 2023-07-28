@@ -1,0 +1,57 @@
+.create-edit-parent,
+.preview-main-rt-div {
+  padding: 1rem 0.5rem 1rem 1rem;
+  max-height: 100vh;
+}
+
+.ceMainDiv {
+  overflow: hidden;
+}
+
+.create-edit-parent {
+  width: 100%;
+  overflow: hidden scroll;
+  max-height: 100vh;
+}
+
+.preview-container {
+  max-height: 100vh;
+  overflow-y: clip;
+}
+
+.create-rt-head-div {
+  display: contents;
+}
+
+.back-img-create {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.create-rt-heading {
+  font-size: 24px;
+  width: max-content;
+}
+
+.create-rt-radio-btn,
+.rt-nature-div,
+.rt-topic-div {
+  margin-bottom: 1.5rem;
+}
+
+.create-rt-nature {
+  color: var(--muted-light-color);
+  margin-bottom: 1rem;
+}
+
+.create-edit-main {
+  border: 1px solid var(--muted-gray-color);
+  max-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .create-edit-parent {
+    padding: 0;
+  }
+}

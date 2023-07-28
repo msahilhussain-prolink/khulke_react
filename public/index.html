@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" data-react-helmet="true" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+      data-react-helmet="true"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+      data-react-helmet="true"
+    />
+
+    <!--Browser cache prevent -->
+    <meta
+      http-equiv="cache-control"
+      content="no-cache"
+      data-react-helmet="true"
+    />
+    <meta http-equiv="expires" content="0" data-react-helmet="true" />
+    <meta http-equiv="pragma" content="no-cache" data-react-helmet="true" />
+      
+    <!-- og meta tags -->
+    <!--initial meta tags data is coming from express server, after first render react-helment takes over-->
+
+    <!--Title-->
+    <title>{{title}}</title>
+    <meta name="title" content="{{title}}" data-react-helmet="true" />
+    <meta property="og:title" content="{{title}}" data-react-helmet="true" />
+    <meta name="twitter:title" content="{{title}}" data-react-helmet="true" />
+
+    <!--Keywords-->
+    <meta name="keywords" content="{{keywords}}" data-react-helmet="true" />
+
+    <!--image-->
+    <meta property="og:image" content="{{image}}" data-react-helmet="true" />
+
+    <!--description-->
+    <meta
+      name="description"
+      content="{{description}}"
+      data-react-helmet="true"
+    />
+    <meta
+      property="og:description"
+      content="{{description}}"
+      data-react-helmet="true"
+    />
+    <meta
+      name="twitter:description"
+      content="{{description}}"
+      data-react-helmet="true"
+    />
+
+    <meta property="og:type" content="website" data-react-helmet="true" />
+    <!--  -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" type="image/webp" href="/KhulKe_logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <script type="text/javascript">
+      (function (i, s, o, g, r, a, m, n) {
+        i.moengage_object = r;
+        t = {};
+        q = function (f) {
+          return function () {
+            (i.moengage_q = i.moengage_q || []).push({ f: f, a: arguments });
+          };
+        };
+        (f = [
+          "track_event",
+          "add_user_attribute",
+          "add_first_name",
+          "add_last_name",
+          "add_email",
+          "add_mobile",
+          "add_user_name",
+          "add_gender",
+          "add_birthday",
+          "destroy_session",
+          "add_unique_user_id",
+          "moe_events",
+          "call_web_push",
+          "track",
+          "location_type_attribute",
+        ]),
+          (h = { onsite: ["getData", "registerCallback"] });
+        for (k in f) {
+          t[f[k]] = q(f[k]);
+        }
+        for (k in h)
+          for (l in h[k]) {
+            null == t[k] && (t[k] = {}), (t[k][h[k][l]] = q(k + "." + h[k][l]));
+          }
+        a = s.createElement(o);
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+        i.moe =
+          i.moe ||
+          function () {
+            n = arguments[0];
+            return;
+            t;
+          };
+        a.onload = function () {
+          if (n) {
+            i[r] = moe(n);
+          }
+        };
+      })(
+        window,
+        document,
+        "script",
+        "https://cdn.moengage.com/webpush/moe_webSdk.min.latest.js",
+        "Moengage"
+      );
+
+      Moengage = moe({
+        app_id: "NR2HDKOZX9B5CB6690XIBELW",
+        debug_logs: window.location.origin === "https://khulke.com" ? 0 : 1,
+        // While deploying on beta, uncomment below line(connect with shivani)
+        // window.location.origin === "https://khulke.com" ? 0 : 0,
+        cluster: "DC_3",
+        swPath: "/serviceworker.js",
+        disable_onsite: false,
+      });
+    </script>
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!-- this is a portal div containing modal with playstore links -->
+    <div id="portalStoreLinks"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/agora-rtm-sdk@1.3.1/index.js"></script>
+  </body>
+</html>

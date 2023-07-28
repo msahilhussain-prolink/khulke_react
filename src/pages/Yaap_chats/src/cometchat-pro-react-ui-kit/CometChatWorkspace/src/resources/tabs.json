@@ -1,0 +1,8 @@
+{
+    "SIDEBAR_CHATS": "chats",
+    "SIDEBAR_CALLS": "calls",
+    "SIDEBAR_GROUPS": "groups",
+    "SIDEBAR_USERS": "users",
+    "SIDEBAR_MOREINFO": "user_settings",
+    "SIDEBAR_CREATE_GROUP": "create_group"
+}

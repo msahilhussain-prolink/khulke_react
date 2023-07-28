@@ -1,0 +1,22 @@
+.static-create-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0.8rem 4rem;
+  border-radius: 8px;
+  background: white;
+  color: red;
+}
+
+@media (max-width: 1201px) {
+  .static-create-btn {
+    padding: 0.5rem 2rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .static-create-btn {
+    padding: 0.5rem 1rem;
+  }
+}

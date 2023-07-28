@@ -1,0 +1,155 @@
+.outerWel {
+  background-color: rgba(0, 0, 0, 0.1607843137);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.outerWel .mainWel {
+  width: 530px;
+  min-height: 600px;
+  background-color: white;
+  text-align: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1215686275);
+  border: 1px solid rgba(0, 0, 0, 0.1607843137);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.outerWel .mainWel .thankImg {
+  width: 100%;
+  height: 250px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  padding-top: 1.5rem;
+}
+.outerWel .mainWel .pWelcome {
+  /* UI Properties */
+  text-align: center;
+  font: normal normal bold 40px/36px "WorkSans-Bold", Arial, Helvetica,
+    sans-serif;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+.outerWel .mainWel .username {
+  text-align: center;
+  font-family: "WorkSans-Regular";
+  font-size: 1.3rem;
+  letter-spacing: 0px;
+  font-weight: bold;
+  color: #54b798;
+  opacity: 1;
+  margin-bottom: 10px;
+}
+.outerWel .mainWel .contentWel {
+  text-align: center;
+  letter-spacing: 0px;
+  opacity: 1;
+  padding: 0.5rem 2rem;
+  font-size: 1.015;
+  font-family: "WorkSans-Regular";
+  font-weight: bold;
+}
+.outerWel .mainWel .btn {
+  background: #1a1a1a 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  opacity: 1;
+  color: white;
+  padding: 1rem 2rem;
+  width: 350px;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+.outerWel .mainWel .lk {
+  color: #0052ee;
+  text-decoration: none !important;
+  font-weight: bold;
+}
+.outerWel .mainWel .lk:hover {
+  cursor: pointer;
+}
+
+.welcome-lang-select .MuiOutlinedInput-notchedOutline {
+  border: 1px solid #66b984 !important;
+}
+
+.MuiSelect-select .done-icon-select {
+  display: none;
+}
+
+ul:has(> .language-popup-list) {
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 8px;
+}
+
+.box-style {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 80%;
+  margin-right: 30px;
+}
+
+.updateInput {
+  width: 100%;
+  margin-right: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.errorMessage {
+  width: 80%;
+  margin: auto;
+  font: normal normal normal 15px Work Sans;
+  color: #54b798;
+}
+
+.errorMessage.error {
+  color: red;
+}
+
+.loginMessage {
+  text-align: center;
+  font: normal normal normal 1rem Work Sans;
+  color: black;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.loginMessage a {
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+.profileMessage {
+  text-align: center;
+  font: normal normal 600 1rem Work Sans;
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.profileMessage .languageMessage {
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 320px) {
+  .errorMessage {
+    font-size: 0.375;
+  }
+
+  .loginMessage {
+    font-size: 0.375;
+  }
+  .profileMessage,
+  .languageMessage {
+    font-size: 0.375;
+  }
+}

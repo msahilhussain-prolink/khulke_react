@@ -1,0 +1,244 @@
+.rolespeakers {
+  color: #ffc200;
+  background: linear-gradient(to right, #ffc200 30%, #f15b29 70%);
+  padding: .3rem;
+}
+
+.rolemoderator {
+  color: #7ab788;
+  background-image: linear-gradient(to right, #7ab788 30%, #009bff 70%);
+  padding: .3rem;
+}
+
+.roleaudience {
+  color: #000000;
+  background: linear-gradient(to right, #000000 30%, #63779c 70%);
+  padding: .3rem;
+}
+
+.role {
+  font-size: 2rem;
+  font-weight: bolder;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 1;
+  text-transform: capitalize;
+}
+
+.invBtn {
+  border-radius: 50px;
+  padding: 0.7rem;
+  font: normal normal medium 18px/54px Work Sans;
+  width: 8rem;
+  text-transform: capitalize;
+}
+
+.invRejectBtn {
+  background-color: white;
+  border: 1px solid #ed4d29;
+  color: #ed4d29;
+}
+
+.invAcceptBtn {
+  background-color: #66b984;
+  border: aliceblue;
+  color: white;
+}
+
+.skipSent {
+  padding: 1rem 0px;
+}
+
+.invitationDiv {
+  text-align: center;
+  margin-top: -2rem;
+  width: 100%;
+  height: 100%;
+  padding: 0px 30px 30px;
+}
+
+.h1Class {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.h1ClassNE {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.invitedByClass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.invitedBySpan {
+  font-weight: bolder;
+  color: #4498ce;
+}
+
+.forTheRtClass {
+  padding: 1rem 0;
+  /* display: flex; */
+  align-items: baseline;
+  justify-content: center;
+}
+
+.nameH6Class {
+  font-weight: bolder;
+}
+
+.aboutStartIn {
+  flex-direction: column;
+}
+
+.aboutStartSpan {
+  font-size: 20px;
+}
+
+.noteSpan {
+  font-size: 13px;
+}
+
+.skipBtnClass {
+  justify-content: center;
+}
+
+.numSpan {
+  color: #63779c;
+  font-size: 0.875rem;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.d-none {
+  display: none;
+}
+
+.parent2 {
+  background-color: beige;
+}
+
+.seeYouThere {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.box {
+  width: 650px;
+  position: absolute;
+  /* height: 200px; */
+  background: transparent;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box2 {
+  width: 100%;
+  height: 100%;
+  background: white;
+  text-align: center;
+  border-radius: 20px;
+  color: black;
+}
+
+.animUp {
+  animation: animName 0.5s linear;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  display: block;
+}
+
+.animRightSlide {
+  animation: animName2 2s linear;
+  animation-fill-mode: forwards;
+  display: block;
+}
+
+.animRotateRight {
+  animation: animName3 2s linear;
+  animation-fill-mode: forwards;
+}
+.animLeftSlide {
+  animation: animName4 2s linear;
+  animation-fill-mode: forwards;
+}
+.animRotateLeft {
+  animation: animName5 2s linear;
+  animation-fill-mode: forwards;
+}
+
+@media screen and (max-width: 1200px) {
+  .box {
+    width: 95%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .forTheRtClass {
+    display: flex;
+  }
+}
+@keyframes animName {
+  0% {
+    transform: translateY(50vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animName2 {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes animName3 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+@keyframes animName4 {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes animName5 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}

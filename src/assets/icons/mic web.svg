@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51" height="51" viewBox="0 0 51 51">
+  <defs>
+    <filter id="Ellipse_1407" x="0" y="0" width="51" height="51" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="mic_web" data-name="mic web" transform="translate(0.5 0.5)">
+    <g transform="matrix(1, 0, 0, 1, -0.5, -0.5)" filter="url(#Ellipse_1407)">
+      <g id="Ellipse_1407-2" data-name="Ellipse 1407" transform="translate(0.5 0.5)" fill="#fff" stroke="#e4e9f0" stroke-width="1">
+        <circle cx="24" cy="24" r="24" stroke="none"/>
+        <circle cx="24" cy="24" r="23.5" fill="none"/>
+      </g>
+    </g>
+    <path id="Icon_awesome-microphone" data-name="Icon awesome-microphone" d="M10,20.625A5.542,5.542,0,0,0,15.455,15V5.625A5.542,5.542,0,0,0,10,0,5.542,5.542,0,0,0,4.545,5.625V15A5.542,5.542,0,0,0,10,20.625Zm9.091-9.375h-.909a.923.923,0,0,0-.909.938V15a7.371,7.371,0,0,1-8,7.464c-3.778-.38-6.546-3.883-6.546-7.8V12.188a.923.923,0,0,0-.909-.937H.909A.923.923,0,0,0,0,12.188v2.353c0,5.252,3.635,9.935,8.636,10.646v2H5.455a.923.923,0,0,0-.909.938v.938A.923.923,0,0,0,5.455,30h9.091a.923.923,0,0,0,.909-.937v-.937a.923.923,0,0,0-.909-.937H11.364V25.209A10.223,10.223,0,0,0,20,15V12.188A.923.923,0,0,0,19.091,11.25Z" transform="translate(14 9)" fill="#66b984" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>

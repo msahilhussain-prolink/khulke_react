@@ -1,0 +1,11 @@
+.rt_container {
+  width: 100%;
+  height: 92%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.rt_container::-webkit-scrollbar {
+  width: 5px;
+  margin-right: 2px;
+}

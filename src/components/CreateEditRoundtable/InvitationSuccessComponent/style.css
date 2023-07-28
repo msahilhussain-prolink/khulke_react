@@ -1,0 +1,20 @@
+.invite-parent {
+  height: 100vh;
+  width: 100vw;
+}
+
+.invite-main-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.invite-lottie-parent-div {
+  display: flex;
+  justify-content: center;
+}
+
+.text-content-for-invite {
+  text-align: center;
+  font-weight: 500;
+}

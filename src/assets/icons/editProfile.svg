@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Group_21857" data-name="Group 21857" transform="translate(-711 -306)">
+    <g id="Ellipse_1448" data-name="Ellipse 1448" transform="translate(711 306)" fill="#fff" stroke="rgba(0,0,0,0.5)" stroke-width="1">
+      <circle cx="16" cy="16" r="16" stroke="none"/>
+      <circle cx="16" cy="16" r="15.5" fill="none"/>
+    </g>
+    <g id="Icon_material-camera-alt" data-name="Icon material-camera-alt" transform="translate(716 312)" opacity="0.5">
+      <path id="Path_21367" data-name="Path 21367" d="M18.32,15.689A2.561,2.561,0,1,1,15.76,13.2,2.525,2.525,0,0,1,18.32,15.689Z" transform="translate(-4.76 -4.911)"/>
+      <path id="Path_21368" data-name="Path 21368" d="M8.6,3,7.136,4.556H4.6A1.583,1.583,0,0,0,3,6.111v9.333A1.583,1.583,0,0,0,4.6,17H17.4A1.583,1.583,0,0,0,19,15.444V6.111a1.583,1.583,0,0,0-1.6-1.556H14.864L13.4,3ZM11,14.667a3.947,3.947,0,0,1-4-3.889,4,4,0,0,1,8,0A3.947,3.947,0,0,1,11,14.667Z" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+.h6-style {
+  font-weight: 600px;
+  font-size: 1.125rem;
+  color: var(--secondary-heading-color);
+  text-transform: capitalize;
+}
+
+.full-custom-div {
+  display: block;
+  width: 100%;
+}
+
+.participateMenuDiv {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.participateMenuItem {
+  width: 100%px;
+  padding: 0.5rempx;
+  margin: 0px;
+}

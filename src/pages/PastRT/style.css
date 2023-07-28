@@ -1,0 +1,1335 @@
+.past-rt-parent {
+  position: relative;
+  height: 7vh;
+}
+
+.pastHeader {
+  position: fixed;
+  width: 100%;
+  border: 1px solid #d3d6db;
+  box-shadow: 0px 3px 6px #00000029;
+  background: #fff;
+  z-index: 5;
+}
+
+.timer-past-rt,
+.icon-past-rt {
+  color: var(--primary-heading-color);
+}
+
+.timer-past-rt {
+  cursor: pointer;
+  margin-left: 0.2rem;
+  font-size: 0.85rem;
+  width: max-content;
+  font-weight: bold;
+  margin-right: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.timer-icon-past-rt {
+  width: 26px;
+  height: 26px;
+  margin-right: 0.5rem;
+}
+
+.search-past-rt {
+  display: flex;
+  align-items: center;
+}
+
+.moreVert {
+  margin-left: 1rem;
+  width: 40px;
+  height: 40px;
+}
+
+.viewers-past-rt {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  width: max-content;
+  font-weight: bold;
+  color: #ec5a61;
+  margin-right: 1rem;
+}
+
+.pastPanel {
+  font-size: 1rem;
+  font-family: "Work Sans";
+  font-weight: bold;
+  background-color: #fafafa;
+  padding: 1rem;
+  padding-left: 14px;
+  box-shadow: 0px 3px 6px #ccc;
+}
+
+.pastMain {
+  /* width: 350px; */
+  overflow: hidden;
+  padding-left: 0px !important;
+  padding-top: 0px !important;
+}
+
+.grid_container {
+  margin-top: 1rem !important;
+}
+
+.classContPast {
+  border: 1px solid lightgray !important;
+  border-radius: 0.5rem !important;
+  /* margin-top: 0.4rem !important; */
+  background-color: white;
+  margin: 6px 0;
+}
+
+.classContPast .classContPastInner {
+  margin: 0.6rem 0.6rem 0 0.6rem;
+}
+
+.rightSide {
+  position: fixed;
+  z-index: 4;
+  right: 0;
+  background: #fff;
+}
+
+.title {
+  color: #161f3a;
+  padding-left: 1rem;
+  margin-bottom: 0 !important;
+  font-size: 1.45rem;
+  text-transform: capitalize;
+}
+
+.pastAudInt {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  background: #fafafa;
+  margin-top: 1rem;
+}
+
+.pastAudInt::-webkit-scrollbar {
+  width: 0;
+}
+
+.rtScroll_div {
+  background: transparent linear-gradient(180deg, #00000000 0%, #000000 100%) 0%
+    0% no-repeat padding-box;
+  padding: 20px;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  column-gap: 20px;
+  border-radius: 8px;
+}
+
+.rtScroll_div::-webkit-scrollbar {
+  display: none;
+}
+
+.video_btn {
+  bottom: 50%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  column-gap: 80px;
+  color: white;
+  justify-content: center;
+  font-weight: bolder;
+}
+
+.iconClass {
+  border-radius: 50px;
+  font-weight: bold;
+  padding: 5px;
+  color: #fff;
+  background: #000000 0% 0% no-repeat padding-box;
+  opacity: 0.55;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
+
+.refreshClass {
+  width: 4rem !important;
+  height: 4rem !important;
+}
+
+.skipNextClass {
+  display: flex;
+  align-self: center;
+}
+
+.scroll_title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: #54b798;
+  width: fit-content;
+}
+
+.backclass:disabled {
+  background: #000000 0% 0% no-repeat padding-box;
+  opacity: 0.55;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  color: white;
+}
+
+.video_player {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  aspect-ratio: 16/9;
+}
+
+.rtScroll_img {
+  background-image: linear-gradient(
+    to bottom,
+    #000000,
+    #151515,
+    #222222,
+    #303030,
+    #3e3e3e
+  );
+  width: 13.25rem;
+  height: 7.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+}
+
+.rt_scroll_img {
+  max-width: 13.25rem;
+  max-height: 7.5rem;
+  border-radius: 10px;
+}
+
+.doc_text_past {
+  font-size: 1.5rem;
+  font-family: "Work Sans";
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+
+.doc_text_past:hover {
+  white-space: normal;
+  font-size: medium;
+  margin-left: -1rem;
+  max-width: 175px;
+}
+
+.download_icon {
+  position: absolute;
+  bottom: 85%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+}
+
+.audioDiv {
+  background-image: linear-gradient(
+    to bottom,
+    #000000,
+    #151515,
+    #222222,
+    #303030,
+    #3e3e3e
+  );
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+}
+
+.audio_player {
+  width: 100%;
+  /* height: auto; */
+  max-height: 100%;
+  object-fit: fill;
+  border-radius: 1rem;
+  position: absolute;
+  bottom: 2px;
+}
+
+.aud_cover_img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.swipeBtn {
+  background-color: #e4e9f0;
+  padding: 5px 20px;
+  width: fit-content;
+  border: transparent;
+  font-size: 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.parent-div {
+  width: auto;
+  padding: 10px 10px;
+  justify-content: space-between;
+}
+
+.parent-container {
+  display: flex;
+  align-items: center;
+  max-width: 440px;
+  height: 40px;
+  border-radius: 20px;
+  padding: 5px;
+  background: #e4e9f0;
+  opacity: 1;
+}
+
+.like-button,
+.dislike-button {
+  width: 105px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.like-icon {
+  filter: brightness(50%); /* Adjust the brightness value as needed */
+}
+
+.count {
+  font-weight: bold;
+  margin-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.divider {
+  height: 25px;
+  border-left: 1px solid grey;
+  margin: 0 10px;
+  opacity: 1;
+}
+
+.pastrt-btn {
+  background-color: #e4e9f0;
+  padding: 5px 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: transparent;
+  font-size: 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  max-width: 440px;
+  height: 40px;
+  border-radius: 20px;
+  padding: 5px;
+  background: #e4e9f0;
+  opacity: 1;
+}
+
+.like-button,
+.dislike-button {
+  width: 105px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.like-icon {
+  filter: brightness(50%); /* Adjust the brightness value as needed */
+}
+
+.count {
+  font-weight: bold;
+  margin-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.divider {
+  height: 25px;
+  border-left: 1px solid grey;
+  margin: 0 10px;
+  opacity: 1;
+}
+
+.pastrt-btn {
+  background-color: #e4e9f0;
+  padding: 5px 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: transparent;
+  font-size: 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.arrowLeft {
+  width: 30px;
+}
+
+.recommend-rt-parent {
+  margin-top: 2rem;
+  width: 78%;
+}
+
+@media only screen and (max-width: 600px) {
+  .past-rt-parent {
+    height: 17.5vh;
+  }
+
+  .innerMain {
+    max-height: 100vh;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .search-past-rt {
+    display: none;
+  }
+
+  .header-title-past {
+    display: block;
+  }
+
+  .pastHeader {
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    position: initial;
+  }
+
+  .mainGrid {
+    max-height: 86vh;
+  }
+
+  .leftBottom {
+    /* display: none; */
+    justify-content: start;
+    align-items: center;
+  }
+
+  .leftBottomBtn {
+    margin-top: 1rem;
+  }
+
+  .rightSide {
+    position: initial;
+    width: 98%;
+    margin: 0 auto;
+    background: #fff;
+  }
+
+  .leftSide1 {
+    /* padding: 1rem; */
+    border: none;
+    border-right: none;
+    margin-right: 1rem;
+    aspect-ratio: 16/9;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    min-height: 23rem;
+    width: auto;
+    height: 100%;
+    max-height: 86vh;
+  }
+
+  .rtScroll_div {
+    height: 20vh;
+    bottom: initial;
+    top: 48%;
+    padding: 10px;
+    align-items: flex-end;
+  }
+
+  .rtScroll_img {
+    width: 170px;
+    height: 15vh;
+  }
+
+  .btnTxt {
+    display: none;
+  }
+
+  .hideFullT {
+    height: 92vh !important;
+  }
+
+  .hideSectionT {
+    height: 60vh !important;
+  }
+
+  .hideSectionF {
+    height: 20vh !important;
+  }
+
+  .pastTimers {
+    justify-content: space-around;
+    margin-top: 5px;
+    color: var(--primary-heading-color);
+  }
+
+  .lapHead {
+    display: none;
+  }
+
+  .mobHead {
+    align-items: center;
+    display: flex;
+  }
+
+  .rmrl {
+    visibility: hidden;
+    display: none;
+  }
+
+  .logoImg {
+    display: none;
+    visibility: hidden;
+  }
+
+  .arrowLeft {
+    display: flex;
+  }
+
+  .all12 {
+    visibility: hidden;
+    display: none;
+  }
+
+  .audBtns {
+    display: flex;
+    margin-top: -10px;
+    width: 100%;
+    justify-content: right;
+  }
+
+  .hideSecT {
+    visibility: hidden;
+    height: 42vh;
+  }
+
+  .hideSecF {
+    visibility: visible;
+  }
+
+  .hideFF {
+    visibility: visible;
+  }
+
+  .hrMobile {
+    display: flex;
+  }
+
+  .pastPanel {
+    box-shadow: none;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .past-rt-parent {
+    height: 17.5vh;
+  }
+
+  .innerMain {
+    max-height: 100vh;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .search-past-rt {
+    display: none;
+  }
+
+  .pastHeader {
+    position: initial;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-title-past {
+    display: block;
+  }
+
+  .mainGrid {
+    max-height: 86vh;
+  }
+
+  .rtScroll_div {
+    bottom: initial;
+    top: 48%;
+  }
+
+  .pastPanel {
+    background-color: #fff;
+    display: flex;
+    padding-bottom: 0;
+    height: 40px;
+    padding-left: 5px;
+    box-shadow: none;
+  }
+
+  .rightSide {
+    background: #fff !important;
+    position: initial;
+    margin-left: 0.5rem;
+    width: 100%;
+    width: 98%;
+    margin: 0 auto;
+  }
+
+  .leftSide1 {
+    /* padding: 1rem; */
+    border: none;
+    border-right: none;
+    margin-right: 1rem;
+    width: 100%;
+    height: auto;
+    max-height: 86vh;
+
+    aspect-ratio: 16/9;
+    margin: auto;
+    /* max-height: 60vh; */
+    justify-content: center;
+    align-items: center;
+    min-height: 23rem;
+  }
+
+  .leftBottomBtn {
+    justify-content: start;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .btnTxt {
+    display: none;
+  }
+
+  .hideFullT {
+    height: 92vh !important;
+  }
+
+  .hideSectionT {
+    height: 42vh !important;
+  }
+
+  .hideSectionF {
+    height: 20vh !important;
+  }
+
+  .pastTimers {
+    justify-content: space-around;
+    margin-top: 5px;
+  }
+
+  .lapHead {
+    display: none;
+  }
+
+  .mobHead {
+    align-items: center;
+    display: flex;
+  }
+
+  .rmrl {
+    visibility: hidden;
+    display: none;
+  }
+
+  .rmrlm {
+    padding: 10px;
+  }
+
+  .logoImg {
+    display: none;
+    visibility: hidden;
+  }
+
+  .all12 {
+    visibility: hidden;
+    display: none;
+  }
+
+  .audBtns {
+    display: flex;
+    margin-top: -10px;
+    width: 100%;
+    justify-content: right;
+  }
+
+  .hideSecT {
+    visibility: hidden;
+    height: 42vh;
+  }
+
+  .hideSecF {
+    visibility: visible;
+  }
+
+  .hideFF {
+    visibility: visible;
+  }
+
+  .hrMobile {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .past-rt-parent {
+    height: 17.5vh;
+  }
+
+  .innerMain {
+    max-height: 100vh;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .search-past-rt {
+    display: none;
+  }
+
+  .header-title-past {
+    display: block;
+  }
+
+  .mainGrid {
+    max-height: 100vh;
+  }
+
+  .leftSide1 {
+    border: none;
+    border-right: none;
+    margin-right: 1rem;
+    width: auto;
+    height: 100%;
+    max-height: 86vh;
+
+    aspect-ratio: 16/9;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    min-height: 23rem;
+  }
+
+  .rightSide {
+    position: initial;
+    width: 98%;
+    margin: 0 auto;
+    background: #fff;
+  }
+
+  .rtScroll_div {
+    bottom: 5rem;
+  }
+
+  .pastPanel {
+    box-shadow: none;
+  }
+
+  .pastAudInt {
+    height: 100%;
+  }
+
+  .leftBottomBtn {
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .btnTxt {
+    display: none;
+  }
+
+  .hideFullT {
+    height: 92vh !important;
+  }
+
+  .hideSectionT {
+    height: 46vh !important;
+  }
+
+  .hideSectionF {
+    height: 20vh !important;
+  }
+
+  .pastHeader {
+    position: initial;
+    padding: 0 10px;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .pastTimers {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+  }
+
+  .lapHead {
+    display: none;
+  }
+
+  .mobHead {
+    align-items: center;
+    display: flex;
+  }
+
+  .rmrl {
+    visibility: hidden;
+    display: none;
+  }
+
+  .rmrlm {
+    padding: 10px;
+  }
+
+  .logoImg {
+    display: none;
+    visibility: hidden;
+  }
+
+  .all12 {
+    visibility: hidden;
+    display: none;
+  }
+
+  .audBtns {
+    display: flex;
+    margin-top: -10px;
+    width: 100%;
+    justify-content: right;
+  }
+
+  .hideSecT {
+    visibility: hidden;
+  }
+
+  .hideSecF {
+    visibility: visible;
+  }
+
+  .hideFF {
+    visibility: visible;
+  }
+
+  .hrMobile {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1201px) {
+  .innerMain {
+    max-height: 100vh;
+    padding-top: 0;
+    width: 70%;
+  }
+
+  .header-title-past {
+    display: none;
+  }
+
+  .mainGrid {
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+  }
+
+  .rightSide {
+    width: 30%;
+    height: 93vh;
+    background: #fff;
+  }
+
+  .leftSide1 {
+    border: none;
+    border-right: none;
+    margin-right: 1rem;
+    width: auto;
+    height: 100%;
+    max-height: 86vh;
+
+    aspect-ratio: 16/9;
+    margin: auto;
+
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .leftBottomBtn {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btnTxt {
+    display: none;
+  }
+
+  .pastAudInt {
+    height: 100%;
+  }
+
+  .hideFullT {
+    height: 92vh !important;
+  }
+
+  .hideSectionT {
+    height: 88vh !important;
+  }
+
+  /* .hideSectionF {
+    height: 20vh !important;
+  } */
+
+  .pastHeader {
+    padding: 0px 10px;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .pastTimers {
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+  }
+
+  .mobHead {
+    display: none;
+  }
+
+  .lapHead {
+    align-items: center;
+    display: flex;
+  }
+
+  .rmrl {
+    visibility: hidden;
+    display: none;
+  }
+
+  .rmrlm {
+    padding: 10px;
+  }
+
+  .all12 {
+    visibility: hidden;
+    display: none;
+  }
+
+  .audBtns {
+    /* display: flex;
+    margin-top: -10px;
+    width: 100%;
+    justify-content: right; */
+    display: none;
+  }
+
+  .mobViewAud {
+    visibility: hidden;
+    display: none;
+  }
+
+  .hideSecT {
+    /* visibility: hidden; */
+    bottom: 0 !important;
+  }
+
+  .hideSecF {
+    visibility: visible;
+  }
+
+  .hideFF {
+    visibility: visible;
+  }
+
+  .hrMobile {
+    display: none;
+  }
+
+  .arrowLeft {
+    display: none;
+    visibility: hidden;
+  }
+
+  .recommend-rt-parent {
+    width: 72%;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1439px) {
+  .innerMain {
+    max-height: 100vh;
+    padding-top: 0;
+    width: 75%;
+  }
+
+  .header-title-past {
+    display: none;
+  }
+
+  .mainGrid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-around;
+    padding: 0px 0 30px 0;
+    max-height: 100%;
+    margin-left: 30px;
+  }
+
+  .leftSide1 {
+    border: none;
+    border-right: none;
+    margin-right: 1rem;
+    width: 100%;
+    height: auto;
+    max-height: 86vh;
+
+    aspect-ratio: 16/9;
+    margin: auto;
+
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .leftBottomBtn {
+    width: auto;
+    justify-content: right;
+    align-items: center;
+  }
+
+  .btnTxt {
+    display: none;
+  }
+
+  .pastMain {
+    height: 92.5vh !important;
+    width: 24%;
+    right: 0px;
+    border: 1px solid #f0f4f8;
+  }
+
+  .pastAudInt {
+    height: 100% !important;
+  }
+
+  .pastHeader {
+    padding: 0px 30px;
+    justify-content: space-between;
+  }
+
+  .pastTimers {
+    display: flex;
+    justify-content: flex-end;
+    visibility: visible;
+  }
+
+  .mobHead {
+    display: none;
+  }
+
+  .lapHead {
+    align-items: center;
+    display: flex;
+  }
+
+  .pastAudInt {
+    height: 100% !important;
+  }
+
+  .rmrl {
+    padding: 0px 30px;
+    margin-top: 1rem;
+  }
+
+  .rmrlm {
+    visibility: hidden;
+    display: none;
+  }
+
+  .audBtns {
+    visibility: hidden;
+    display: none;
+  }
+
+  .mobViewAud {
+    visibility: hidden;
+    display: none;
+  }
+
+  .hrMobile {
+    display: none;
+  }
+
+  .arrowLeft {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1700px) {
+  .innerMain {
+    max-height: 100vh;
+    padding-top: 0;
+    width: 71%;
+  }
+
+  .header-title-past {
+    display: none;
+  }
+
+  .mainGrid {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    width: 100%;
+    padding: 0px 0px 10px 0;
+    max-height: 99vh;
+  }
+
+  .leftSide1 {
+    border: none;
+    border-right: none;
+
+    margin-right: 1rem;
+    width: 100%;
+    height: auto;
+    max-height: 86vh;
+
+    aspect-ratio: 16/9;
+    margin: auto;
+
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .leftBottomBtn {
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .btnTxt {
+    display: flex;
+  }
+
+  .pastMain {
+    height: 92.5vh !important;
+    width: 25.8%;
+    right: 0px;
+    border: 1px solid #f0f4f8;
+  }
+
+  .pastHeader {
+    padding: 0px 30px;
+    justify-content: space-between;
+  }
+
+  .pastTimers {
+    display: flex;
+    justify-content: flex-end;
+    visibility: visible;
+  }
+
+  .mobHead {
+    display: none;
+  }
+
+  .lapHead {
+    align-items: center;
+    display: flex;
+  }
+
+  .pastAudInt {
+    height: 100% !important;
+  }
+
+  .rmrl {
+    padding: 0px 50px;
+    width: 74%;
+    margin-top: 1rem;
+  }
+
+  .rmrlm {
+    visibility: hidden;
+    display: none;
+  }
+
+  .audBtns {
+    visibility: hidden;
+    display: none;
+  }
+
+  .mobViewAud {
+    visibility: hidden;
+    display: none;
+  }
+
+  .hrMobile {
+    display: none;
+  }
+
+  .arrowLeft {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@media only screen and (min-width: 1701px) {
+  .innerMain {
+    max-height: 100vh;
+    padding-top: 0;
+    width: 75%;
+  }
+
+  .header-title-past {
+    display: none;
+  }
+
+  .mainGrid {
+    padding: 0px 0px 10px 0;
+    max-height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .leftSide1 {
+    border: none;
+    border-right: none;
+    width: 100%;
+    height: auto;
+    max-height: 86vh;
+    margin-right: 1rem;
+    width: 100%;
+    aspect-ratio: 16/9;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .leftBottomBtn {
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .btnTxt {
+    display: flex;
+  }
+
+  .pastMain {
+    height: 92.5vh !important;
+    width: 24%;
+    right: 0px;
+    border: 1px solid #f0f4f8;
+  }
+
+  .pastHeader {
+    padding: 0px 50px;
+    justify-content: space-between;
+    border: 1px solid #d3d6db;
+  }
+
+  .pastTimers {
+    display: flex;
+    justify-content: flex-end;
+    visibility: visible;
+  }
+
+  .mobHead {
+    display: none;
+  }
+
+  .lapHead {
+    align-items: center;
+    display: flex;
+  }
+
+  .pastAudInt {
+    height: 100% !important;
+  }
+
+  .rmrl {
+    padding: 0px 50px;
+    width: 74%;
+    margin-top: 1rem;
+  }
+
+  .rmrlm {
+    visibility: hidden;
+    display: none;
+  }
+
+  .audBtns {
+    visibility: hidden;
+    display: none;
+  }
+
+  .mobViewAud {
+    visibility: hidden;
+    display: none;
+  }
+
+  .hrMobile {
+    display: none;
+  }
+
+  .arrowLeft {
+    display: none;
+    visibility: hidden;
+  }
+}

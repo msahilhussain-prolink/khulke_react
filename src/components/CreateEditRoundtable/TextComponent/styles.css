@@ -1,0 +1,133 @@
+.text-box-create-rt {
+  border: 1px solid #d3d6db;
+  border-radius: 10px 0 0 10px;
+  box-shadow: none;
+  height: 3rem;
+  padding-right: 2rem;
+  text-overflow: ellipsis;
+  border-right: 0;
+}
+
+.text-box-create-rt:focus {
+  box-shadow: none;
+  border-color: #d3d6db;
+}
+
+.right-btn-text,
+.right-btn-text-done,
+.right-btn-text-pan {
+  color: #7ab788;
+  /* position: relative; */
+  border: 1px solid #d3d6db;
+  box-shadow: none;
+  height: 3rem;
+  border-radius: 0 10px 10px 0;
+  border-left: 0;
+  /* left: 80%; */
+  bottom: 2.3rem;
+  /* width: max-content; */
+  cursor: pointer;
+  justify-content: right;
+  align-items: center;
+}
+
+.right-btn-text-pan {
+  height: initial;
+}
+
+.right-btn-text-done {
+  bottom: 2.75rem;
+  left: 87%;
+}
+
+.create-rt-details {
+  color: var(--muted-light-color);
+  margin-top: 1rem;
+}
+
+.text-box-create-rt-placeholder {
+  color: var(--muted-light-color);
+  position: relative;
+  top: -30px;
+}
+
+.rt-placeholder {
+  position: relative;
+}
+
+.radio-btn-for-create-edit {
+  margin-right: 0.3rem;
+}
+
+/* .rt-placeholder::after {
+  content: "*";
+  color: red
+  position: absolute;
+  top: 10px;
+  left: 55px;
+} */
+
+.text-box-create-rt:focus,
+.parent-text-box:focus-within > .right-btn-text-done,
+.rt-topic-textbox:focus-within > .right-btn-text {
+  border-bottom: 2px solid #66b984;
+}
+
+.align-desc {
+  text-align: end;
+}
+
+@media (max-width: 1201px) {
+  .right-btn-text {
+    left: 74%;
+  }
+  .right-btn-text-done {
+    left: 77%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .right-btn-text {
+    left: 72%;
+  }
+
+  .right-btn-text-done {
+    left: 81%;
+  }
+}
+
+@media (max-width: 768px) {
+  .right-btn-text {
+    left: 75%;
+  }
+
+  .right-btn-text-done {
+    left: 85%;
+  }
+}
+
+@media (max-width: 600px) {
+  .right-btn-text-done {
+    left: 82%;
+  }
+}
+
+@media (max-width: 500px) {
+  .right-btn-text {
+    left: 65%;
+  }
+
+  .right-btn-text-done {
+    left: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  .right-btn-text {
+    left: 63%;
+  }
+
+  .right-btn-text-done {
+    left: 72%;
+  }
+}

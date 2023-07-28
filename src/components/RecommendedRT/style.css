@@ -1,0 +1,41 @@
+.recommendRtJ {
+  padding: 10px;
+  overflow: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .recommendRtJ {
+    position: relative;
+    top: 0rem;
+    left: 0px;
+  }
+}
+
+@media only screen and(min-width: 769px) and (max-width: 1199px) {
+  .recommendRtJ {
+    position: relative;
+    top: 7rem;
+    left: 0px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .recommendRtP {
+    padding: 10px;
+    overflow: auto;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1439px) {
+  .recommendRtP {
+    padding: 10px 30px 10px 20px;
+    overflow: auto;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .recommendRtP {
+    padding: 10px 60px;
+    overflow: auto;
+  }
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51" height="51" viewBox="0 0 51 51">
+  <defs>
+    <filter id="Ellipse_1407" x="0" y="0" width="51" height="51" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="close_web" data-name="close web" transform="translate(-3035.5 -3692.5)">
+    <g transform="matrix(1, 0, 0, 1, 3035.5, 3692.5)" filter="url(#Ellipse_1407)">
+      <g id="Ellipse_1407-2" data-name="Ellipse 1407" transform="translate(0.5 0.5)" fill="#fff" stroke="#e4e9f0" stroke-width="1">
+        <circle cx="24" cy="24" r="24" stroke="none"/>
+        <circle cx="24" cy="24" r="23.5" fill="none"/>
+      </g>
+    </g>
+    <path id="Icon_material-close" data-name="Icon material-close" d="M28.5,9.615,26.385,7.5,18,15.885,9.615,7.5,7.5,9.615,15.885,18,7.5,26.385,9.615,28.5,18,20.115,26.385,28.5,28.5,26.385,20.115,18Z" transform="translate(3042 3699)" fill="#fe534c"/>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+export const BORDER_RADIUS = "20px";
+export const CHAR_LIMIT = 25;
+export const SPEAKER_ROLE = "speaker";
+export const UTC_IST_TIME_DIFFERENCE = 5.5 * 60 * 60 * 1000;
+export const MILISECONDS_TO_MINUTES = 1000 * 60;
+export const MODERATOR_ROLE = "MODERATOR";
+export const PANELIST_ROLE = "PANELIST";
+export const WILDCARD_ROLE = "WILDCARD";
+export const VIDEO_RT = "VIDEO_STREAMING";
+export const AUDIO_RT = "AUDIO_STREAMING";

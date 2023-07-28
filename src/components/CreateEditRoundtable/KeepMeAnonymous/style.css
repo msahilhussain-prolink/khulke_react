@@ -1,0 +1,8 @@
+.anonymous-check-div {
+  cursor: pointer;
+  user-select: none;
+  display: inline;
+  margin-left: 0.5rem;
+  font-size: 14px;
+  font-weight: bold;
+}

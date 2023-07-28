@@ -1,0 +1,62 @@
+.novideo-outer {
+  z-index: 10;
+  height: 100%;
+  background-color: #191919;
+}
+.novideo-outer .inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+.novideo-outer .inner .avatar-middle {
+  height: 90px !important;
+  width: 90px !important;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50% !important;
+}
+
+.icons-cont {
+  z-index: 20;
+  position: absolute;
+  color: white;
+  right: 0;
+  left: 0;
+  bottom: 10px;
+}
+
+#removemeLine {
+  width: 250px;
+  background-color: white;
+  border: 1px solid rgb(221, 220, 220);
+}
+#removemeLine:hover {
+  background-color: rgb(221, 220, 220);
+}
+
+/* ====== AGORA SANBOX - INDEX.JS STYLES HERE ===== */
+
+.agora-sandbox-main-div {
+  user-select: none;
+  width: 100%;
+}
+
+.agora-sandbox-main-full {
+  user-select: none;
+  max-width: 1440px;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .agora-sandbox-main-div {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .agora-sandbox-main-full {
+    width: 100%;
+    overflow: hidden;
+  }
+}

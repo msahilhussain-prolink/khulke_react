@@ -1,0 +1,330 @@
+.main {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+.main .left {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2rem;
+}
+.main .left .lcont {
+  margin-top: 3rem;
+  text-align: center;
+  overflow: hidden;
+}
+.main .left .lcont .heading {
+  font-family: "WorkSans-Bold";
+  margin-top: 1.8rem;
+  font-size: 24px;
+}
+.main .left .lcont .logingif2 {
+  margin-bottom: -1rem;
+}
+.main .right {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main .right .formDiv {
+  height: auto;
+  width: 500px;
+  min-width: 400px;
+  padding: 2rem 4rem;
+  margin-left: 2rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1215686275);
+  border: 1px solid rgba(0, 0, 0, 0.1607843137);
+  border-radius: 16px;
+}
+.main .right .formDiv .loginp {
+  text-align: center;
+  font-size: 24px;
+  font-family: "WorkSans-Bold";
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+  padding-bottom: 1rem;
+}
+.main .right .formDiv .emailField label {
+  font-size: 16px;
+  font-family: "WorkSans-medium";
+  padding-bottom: 0.5rem;
+}
+.main .right .formDiv .emailField input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 14px;
+}
+.main .right .formDiv .emailField input ::-moz-placeholder {
+  /* Edge */
+  background-color: red;
+}
+.main .right .formDiv .emailField input :-ms-input-placeholder {
+  /* Edge */
+  background-color: red;
+}
+.main .right .formDiv .emailField input ::placeholder {
+  /* Edge */
+  background-color: red;
+}
+.main .right .formDiv .radioDiv {
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
+}
+.main .right .formDiv .radioDiv .loginWith {
+  font-size: 16px;
+  font-family: "WorkSans-medium";
+  color: #000;
+  margin: 0 0 1rem 0;
+}
+.main .right .formDiv .radioDiv .otpcont {
+  width: 100px;
+  font-size: 0.95rem;
+  display: flex;
+}
+.main .right .formDiv .radioDiv .otpcont label {
+  margin-left: 6px;
+  font-size: 14px;
+  font-family: "WorkSans-medium";
+  color: #000;
+}
+.main .right .formDiv .radioDiv .passcont {
+  font-size: 0.95rem;
+  /* margin-left: 1rem; */
+  display: flex;
+}
+.main .right .formDiv .radioDiv .passcont label {
+  margin-left: 6px;
+  font-size: 14px;
+  font-family: "WorkSans-medium";
+  color: #000;
+}
+.main .right .formDiv .radioDiv .radiopass {
+  margin-left: 3rem;
+}
+.main .right .formDiv .loginBtn {
+  font-weight: 600;
+}
+.main .right .formDiv .loginBtn:hover {
+  cursor: pointer;
+}
+.main .right .formDiv .otpdivMain {
+  margin-top: 1rem;
+}
+.main .right .formDiv .passwordDiv {
+  margin-top: 1rem;
+}
+.main .right .formDiv .caLine span {
+  color: #54b798;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+.main .right .formDiv .caLine span:hover {
+  color: #3c7c68;
+}
+.main .toggleImg:hover {
+  cursor: pointer;
+}
+.main .forgotLine {
+  font-size: 0.85rem;
+  font-weight: bold;
+  /* color: #222222; */
+  display: block;
+  text-align: right;
+}
+.main .errorLine {
+  display: block;
+  margin-top: "-2.1rem";
+  text-align: end;
+  color: red;
+}
+.main .backLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.6rem;
+  text-decoration: none;
+  font-size: 1.09rem;
+}
+.main .backLine span {
+  font-size: 1.1rem;
+  margin-top: 4rem;
+}
+.main .backLine:hover {
+  cursor: pointer;
+}
+.main .policyDiv {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+}
+.main .policyDiv p {
+  width: 80%;
+}
+.main .policyDiv span {
+  color: #000;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+.main .policyDiv span:hover {
+  text-decoration: underline !important;
+  color: #000;
+}
+.main .entermailP {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.main .use-phone-link {
+  text-align: end;
+  font-size: 0.9rem;
+  color: #3c7c68;
+  font-weight: bold;
+  text-decoration: underline;
+  padding-right: 5px;
+  padding-bottom: 0;
+}
+.main .use-phone-link:hover {
+  cursor: pointer;
+}
+
+.lastLne {
+  font-size: 12px;
+  margin-left: -10px;
+  margin-right: -10px;
+  text-decoration: none !important;
+  text-align: center;
+}
+.lastLne a:hover {
+  text-decoration: underline !important;
+  color: #000;
+}
+
+.alrtClass {
+  border: 2px solid #c94c56;
+}
+
+.errorDivotp {
+  margin-top: -6px;
+  margin-left: 6px;
+}
+
+.ibox {
+  height: 3rem;
+}
+
+.sentoLine {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "WorkSans-Regular";
+  color: rgb(32, 32, 32);
+  padding-bottom: 0.5rem;
+  display: block;
+}
+.sentoLine .usnmInSentLine {
+  font-weight: bolder;
+  font-family: "WorkSans-Bold";
+  font-size: 1rem;
+  margin-left: 0.3rem;
+}
+
+.sentoLine2 {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "WorkSans-Regular";
+  color: rgb(32, 32, 32);
+  display: block;
+}
+
+.timer {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.erorPhonmail {
+  display: block;
+  color: #c94c56;
+  margin-top: -4px;
+}
+
+.erorPhonmailindex {
+  padding-top: 6px;
+  display: block;
+  color: #c94c56;
+  margin-top: -4px;
+}
+.login-primary-button {
+  font-weight: 600;
+  margin: 0.5rem 0 1rem 0;
+}
+
+@media (max-width: 1300px) {
+  .main .right {
+    width: 48%;
+  }
+
+  .main .left {
+    width: 45%;
+  }
+}
+
+@media (max-width: 800px) {
+  .main .right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main .left {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .main .right .formDiv {
+    margin: 0;
+    width: 90%;
+    min-width: 90%;
+    padding: 20px;
+  }
+}
+
+.redirectionContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex: 1;
+}
+
+.animationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 678px;
+  height: 449px;
+  z-index: 6;
+  border-radius: 5px;
+}
+
+.hideContainer {
+  display: none;
+}
+
+.animation {
+  height: 500px;
+  width: 500px
+}
+

@@ -1,0 +1,35 @@
+.start_hour_cont {
+  position: relative;
+  background-color: #f5f7f8;
+  display: flex;
+  align-items: center;
+  width: 68px;
+  border-radius: 8px;
+}
+
+select {
+  border: none !important;
+  outline: none !important;
+}
+
+.abso_m_h {
+  z-index: 99;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 25px;
+  right: 11px;
+  font-weight: bolder;
+}
+
+.abso_h_only {
+  z-index: 99;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 16px;
+  top: 26px;
+}
+/* 
+.panelistFormI {
+  height: 50px;
+  width: 25rem;
+} */

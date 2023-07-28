@@ -1,0 +1,17 @@
+.passwordLink {
+  color: #63779c;
+  font-size: 1.1rem;
+  margin-top: -3px;
+  margin-bottom: 12px;
+}
+.passwordLink :hover {
+  cursor: pointer;
+  color: black;
+  transition: 0.3s;
+  font-weight: bold;
+}
+.passwordBold {
+  font-weight: "workSans-Regular";
+  color: black;
+  transition: 0.3s;
+}

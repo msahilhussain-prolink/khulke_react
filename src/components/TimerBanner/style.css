@@ -1,0 +1,66 @@
+:root {
+  --banner-background-color: #F26632;
+  --time-font-size: 24px;
+  --button-font-size: 12px;
+  --button-width: 106px;
+  --button-height: 26px;
+  --time-color:  #FFFFFF;
+}
+
+.banner {
+  width: 100%;
+  background: var(--banner-background-color) 0% 0% no-repeat padding-box;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: normal normal normal 16px/19px "Work Sans";
+}
+
+.time {
+  width: 80px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--time-color);
+  margin-left: 1rem;
+  font: normal normal 600 var(--time-font-size)/28px "Work Sans";
+}
+
+.banner-button {
+  width: var(--button-width);
+  height: var(--button-height);
+  background: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font: normal normal 600 var(--button-font-size)/24px "Work Sans";
+  letter-spacing: 0px;
+  color: #000000;
+  margin-left: 3rem;
+}
+
+@media (max-width: 767px) {
+  .banner {
+    flex-direction: column;
+  }
+
+  .time {
+    margin: 0;
+    margin-top: 1rem;
+  }
+
+  .banner-button {
+    margin: 0;
+    margin-top: 1.5rem;
+  }
+}
+
+
+
+
+
+
+
+

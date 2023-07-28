@@ -1,0 +1,15 @@
+.share-btn {
+  background-color: #e4e9f0;
+  padding: 5px 20px;
+  width: fit-content;
+  border: transparent;
+  font-size: 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.share-btn-div {
+  text-align: center;
+  width: auto;
+}

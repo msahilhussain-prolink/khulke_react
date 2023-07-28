@@ -1,0 +1,16 @@
+.textColor {
+  color: #009ad3;
+}
+
+.textDecoration {
+  text-decoration: none;
+}
+
+.dialog-title-read {
+  align-items: center;
+}
+
+.dialog-content-children {
+  color: #475376;
+  font-size: 14px;
+}

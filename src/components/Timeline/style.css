@@ -1,0 +1,28 @@
+.timeline-dash {
+  position: absolute;
+  width: 6.5rem;
+  top: 50%;
+  border-top: dashed 1px #e4e9f0;
+  opacity: 0.5;
+}
+
+.incomplete-step {
+  background-color: #f0f4f8;
+  padding: 3px 7px;
+  border: 1px solid transparent;
+  color: #aebdd3;
+  border-radius: 100%;
+}
+.completed-step {
+  background-color: #aebdd3;
+  padding: 3px 7px;
+  border: 1px solid transparent;
+  color: white;
+  border-radius: 100%;
+}
+.current-step {
+  background-color: white;
+  padding: 3px 7px;
+  border: 1px solid var(--primary-heading-color);
+  border-radius: 100%;
+}

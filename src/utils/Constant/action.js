@@ -1,0 +1,9 @@
+export const Action = {
+  LIKE: "LIKE",
+  DISLIKE: "DISLIKE",
+  REPLIED: "REPLIED",
+  CIRCULATED: "REPOST",
+  QUOTED: "REQUOTE",
+  MENTIONED: "MENTION",
+  COMMENT: "COMMENT"
+};

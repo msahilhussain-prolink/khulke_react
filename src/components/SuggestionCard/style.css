@@ -1,0 +1,18 @@
+.suggestedList {
+  max-height: 20vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.suggestedList::-webkit-scrollbar {
+  width: 5px;
+}
+
+.suggestedList::-webkit-scrollbar-track {
+  background-color: #f0f4f8;
+}
+
+.suggestedList::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #aebdd3;
+}

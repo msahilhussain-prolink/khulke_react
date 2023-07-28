@@ -1,0 +1,62 @@
+.SnippetButton {
+  padding: 0.5rem 1.5rem;
+  outline: none;
+  background: #66b984;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 60px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: -0.5rem;
+  margin-right: 0.5rem; */
+}
+
+.tabDiv {
+  display: flex;
+  flex-direction: row;
+  z-index: 100;
+  padding-bottom: 10px;
+}
+
+.tabDiv .buttonForTab {
+  color: black;
+  background-color: #e4e9f0;
+  outline: none;
+  border-radius: 50px;
+  padding: 0.4rem 1.5rem;
+  margin: 5px 0.5rem;
+  cursor: pointer;
+}
+
+.buttonForTab:hover {
+  outline: 1px solid black;
+}
+
+.tabDiv .active {
+  /* border: 1px solid red; */
+  color: white;
+  background-color: black;
+}
+
+.contHeadkk {
+  margin-top: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .contHeadkk {
+    margin-top: 4px;
+  }
+}
+
+.contForTmln::-webkit-scrollbar {
+  width: 8px;
+}
+
+.lowerTabs {
+  position: sticky;
+  top: 0 !important;
+  /* background-color: yellow; */
+}

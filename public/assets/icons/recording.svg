@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="154" height="108" viewBox="0 0 154 108">
+  <g id="Group_24795" data-name="Group 24795" transform="translate(-550 -376)">
+    <g id="Rectangle_7030" data-name="Rectangle 7030" transform="translate(550 376)" fill="#fff" stroke="#aebdd3" stroke-width="1" stroke-dasharray="5">
+      <rect width="154" height="108" rx="10" stroke="none"/>
+      <rect x="0.5" y="0.5" width="153" height="107" rx="9.5" fill="none"/>
+    </g>
+    <g id="Group_24225" data-name="Group 24225" transform="translate(597 400)">
+      <rect id="Rectangle_2896" data-name="Rectangle 2896" width="60" height="60" fill="none"/>
+      <path id="Icon_material-ondemand-video" data-name="Icon material-ondemand-video" d="M41.5,4.5H5.5a3.972,3.972,0,0,0-4,3.972V32.306a3.985,3.985,0,0,0,4,3.972h10V40.25h16V36.278h10a3.981,3.981,0,0,0,3.98-3.972L45.5,8.472A3.985,3.985,0,0,0,41.5,4.5Zm0,27.806H5.5V8.472h36Zm-10-11.917-14,7.944V12.444Z" transform="translate(6.5 7.625)" fill="#b1bdd1"/>
+    </g>
+  </g>
+</svg>

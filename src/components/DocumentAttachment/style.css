@@ -1,0 +1,15 @@
+.doc_texts {
+  font-size: 1rem;
+  font-family: "Work Sans";
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doc_texts:hover {
+  white-space: normal;
+}

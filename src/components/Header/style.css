@@ -1,0 +1,25 @@
+.search-style {
+  width: 40px;
+}
+
+.bar-search {
+  color: #000;
+}
+
+/* .mainBar {
+  flex-basis: 60%;
+} */
+
+@media (max-width: 820px) {
+  #follow-button-mobile {
+    position: absolute;
+    right: 0;
+    margin-right: -110px;
+    top: 0;
+  }
+  .headerSection {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+}

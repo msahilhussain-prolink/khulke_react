@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Check_icon" data-name="Check icon" transform="translate(-269 -113)">
+    <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(269 113)" fill="rgba(255,255,255,0)" stroke="#000" stroke-width="1">
+      <circle cx="16" cy="16" r="16" stroke="none"/>
+      <circle cx="16" cy="16" r="15.5" fill="none"/>
+    </g>
+    <path id="check" d="M22,9,11,20,6,15" transform="translate(271 114.5)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+  </g>
+</svg>

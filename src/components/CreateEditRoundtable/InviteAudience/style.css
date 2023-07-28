@@ -1,0 +1,9 @@
+.value-cont {
+  width: 100%;
+}
+
+.x-delete-button {
+  border: 0.5px solid lightgray;
+  padding: 0.6rem;
+  border-radius: 10px;
+}

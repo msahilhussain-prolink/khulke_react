@@ -1,0 +1,5 @@
+User-agent: * 
+Allow: / 
+ 
+Sitemap: https://khulke.com/main-sitemap.xml 
+Sitemap: https://khulke.com/roundtable-sitemap.xml

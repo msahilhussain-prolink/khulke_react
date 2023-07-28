@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16">
+  <g id="search-24px" transform="translate(-2 -2)">
+    <path id="Path_68" data-name="Path 68" d="M0,0H16V16H0Z" transform="translate(2 2)" fill="none"/>
+    <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M16.233,15.288,19.09,12.43a.67.67,0,1,0-.947-.947l-2.857,2.857-2.857-2.857a.67.67,0,1,0-.947.947l2.857,2.857-2.857,2.857a.67.67,0,0,0,.947.947l2.857-2.857,2.857,2.857a.67.67,0,0,0,.947-.947Z" transform="translate(-5.285 -5.288)" fill="#54b798"/>
+  </g>
+</svg>

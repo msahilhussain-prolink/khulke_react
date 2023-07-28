@@ -1,0 +1,22 @@
+.rt-advance-options-div {
+  display: flex;
+  align-items: center;
+  color: #7ab788;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rt-advance-options {
+  border: 1px solid #e4e9f0;
+  box-shadow: 6px 6px 18px #0000000a;
+  border-radius: 16px;
+}
+
+.rt-advance-upload-title {
+  color: #63779c;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  width: max-content;
+}

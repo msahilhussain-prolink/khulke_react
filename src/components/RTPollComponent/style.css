@@ -1,0 +1,38 @@
+.img_avatar {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.poll_tooltip {
+  /* position: relative; */
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.poll_tooltip .polltooltiptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: #fff;
+  color: #293146;
+  border: 1px solid #e4e9f0;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.5rem 0.5rem;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left: 48%;
+  margin-left: -100px;
+  text-transform: capitalize;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.poll_tooltip:hover .polltooltiptext {
+  visibility: visible;
+}

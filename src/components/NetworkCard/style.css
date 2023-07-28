@@ -1,0 +1,5 @@
+.hidden-card {
+  display: none;
+  user-select: none;
+  visibility: hidden;
+}

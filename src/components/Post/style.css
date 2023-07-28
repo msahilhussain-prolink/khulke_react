@@ -1,0 +1,229 @@
+.post_img {
+  width: 100%;
+  /* min-height: 220px; */
+  /* max-height: 220px; */
+  border-radius: 0.5rem;
+  cursor: pointer;
+  height: 100%;
+  max-height: 60vh;
+}
+
+.post_img > header {
+  position: relative;
+  bottom: 52px;
+  left: 0;
+  width: 100%;
+  padding: 5px 5px;
+  /* background: #f0f6ff; */
+  background-attachment: fixed;
+  overflow: hidden;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.post_img > header::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 200%;
+  /* height: 200%; */
+  background: #f0f6ff;
+  background-attachment: fixed;
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+
+.post_img > header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(240, 246, 255, 0.5);
+}
+
+.post_img > header > p {
+  margin: 0;
+  color: black;
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.postPreviewImage {
+  width: 100%;
+  /* min-height: 220px; */
+  /* max-height: 220px; */
+  /* border-radius: 0.5rem; */
+  cursor: pointer;
+  /* padding-bottom: 5px !important; */
+}
+
+.postPreviewImage > header {
+  position: relative;
+  /* bottom: 52px; */
+  left: 0;
+  width: 100%;
+  padding: 5px 5px;
+  /* background: #f0f6ff; */
+  background-attachment: fixed;
+  overflow: hidden;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.postPreviewImage > header::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 200%;
+  /* height: 200%; */
+  background: #f0f6ff;
+  background-attachment: fixed;
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+
+.postPreviewImage > header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(240, 246, 255, 0.5);
+}
+
+.postPreviewImage > header > p {
+  margin: 0;
+  color: black;
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.requote_poll_txt {
+  color: #66b984;
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+  margin-top: -10px;
+  margin-bottom: 1rem;
+}
+
+.doc_text_post {
+  font-size: 1rem;
+  font-family: "Work Sans";
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doc_text_post:hover {
+  white-space: normal;
+}
+
+.addDialogCSs {
+  height: 77%;
+}
+
+.postBodkk {
+  /* border: 1px solid red; */
+}
+
+.readMoreSpan:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.videoDiv {
+  position: relative;
+  border: 1px solid rgb(222, 222, 222);
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000000;
+}
+
+.exploreBtn {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  background-color: #000000;
+  color: #fff;
+  border: 1px solid #ffffff1f;
+  padding: 5px;
+  border-radius: 8px;
+  opacity: 0.7;
+  backdrop-filter: blur(41px);
+  -webkit-backdrop-filter: blur(41px);
+}
+
+.watchMoreBtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: #000000;
+  color: #fff;
+  border: 1px solid #ffffff1f;
+  padding: 5px;
+  border-radius: 8px;
+  opacity: 0.7;
+  backdrop-filter: blur(41px);
+  -webkit-backdrop-filter: blur(41px);
+}
+
+/* Video controls for Townhall */
+
+.controlsTownhallVideo {
+  position: absolute;
+  width: 85%;
+  bottom: -12px;
+  left: 50px;
+}
+
+.actionsVideoTownhall {
+  position: relative;
+  width: 85%;
+  top: 2px;
+}
+
+.actionsVideoTownhall button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.actionsVideoTownhall button i {
+  background-color: none;
+  color: #fff;
+  font-size: 30px;
+}
+
+.progressVideoTownhall {
+  width: 100%;
+  accent-color: #bbb;
+}
+
+.muteBtnTownhallVideo {
+  position: relative;
+  bottom: 4rem;
+  left: 95%;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.muteBtnTownhallVideo i {
+  background-color: none;
+  color: white;
+  font-size: 20px;
+}

@@ -1,0 +1,47 @@
+.action-comp-div {
+  justify-content: space-around;
+}
+
+.discard-keep-btn {
+  border: 1px solid #ed4d29;
+  padding: 1rem;
+  margin-top: 1rem;
+  color: #ed4d29;
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discard-no-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+  background-color: 1px solid black;
+  border: 1px solid black;
+  margin-top: 1rem;
+}
+@media only screen and (max-width: 768px) {
+  .discard-keep-btn {
+    width: 120px;
+  }
+  .i_sure {
+    display: none;
+    visibility: hidden;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .i_sure {
+    visibility: visible;
+    display: flex;
+  }
+}

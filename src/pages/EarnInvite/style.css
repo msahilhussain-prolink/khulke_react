@@ -1,0 +1,11 @@
+.invite-count {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-top: 0.8rem;
+  padding: 0px 2%;
+}
+
+.fixed-size {
+  min-width: 7rem;
+  max-width: 7rem;
+}

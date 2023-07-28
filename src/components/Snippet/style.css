@@ -1,0 +1,356 @@
+.snippetCenterDiv {
+  margin-top: 0.3vh;
+  margin-bottom: 1.977vh;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+  align-items: center;
+  height: fit-content;
+  position: relative;
+}
+
+.snippetContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  border-left: none;
+}
+
+.snippet {
+  width: 100%;
+  height: auto;
+}
+
+.snippetVideo-wrapper {
+  width: auto;
+  max-width: 700px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+  height: 88vh;
+}
+
+.snippetVideo-wrapper:hover .controls {
+  transform: translateY(0%);
+}
+
+.controlssnippet {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  flex-direction: column-reverse;
+  position: absolute;
+  /* bottom: 30px; */
+  padding: 14px;
+  width: 100%;
+  max-width: 600px;
+  flex-wrap: wrap;
+  /* background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transform: translateY(150%); */
+  transition: all 0.3s ease-in-out;
+  /* display: none; */
+}
+
+.actions button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.actions button i {
+  background-color: none;
+  color: white;
+  font-size: 30px;
+}
+
+.controlssnippet input[type="range"] {
+  /* -webkit-appearance: none !important; */
+  /* background: rgba(255, 255, 255, 0.2); */
+  border-radius: 20px;
+  height: 4px;
+  width: 100%;
+  accent-color: #ccc;
+  background: #ffff;
+}
+
+.controlssnippet input[type="range"]::-webkit-slider-thumb {
+  /* -webkit-appearance: none !important; */
+  cursor: pointer;
+  height: 6px;
+  background: #fff;
+}
+
+.controlssnippet input[type="range"]::-moz-range-.controlssnippet {
+  background: #fff;
+}
+
+.velocity {
+  appearance: none;
+  background: none;
+  color: white;
+  outline: none;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+}
+
+.mute-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+}
+
+.mute-btn i {
+  background-color: none;
+  color: white;
+  font-size: 20px;
+}
+
+.snippetComment {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 0.8rem;
+  /* border: 1px solid green; */
+  margin-left: 1rem;
+}
+
+.snippetLike {
+  font-size: 2rem;
+  /* margin-left: 1.5rem; */
+  color: #ccc;
+  cursor: pointer;
+}
+
+.snippetComment span {
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.snippetOption {
+  margin-left: 1.5rem;
+  font-size: 1.5rem;
+  /* position: absolute;
+  top: 8rem; */
+  color: #ccc;
+}
+
+.progresssnippet {
+  background-color: #ffff !important;
+}
+
+.snippetContent {
+  position: absolute;
+  bottom: 1rem;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.snippetDetails {
+  display: flex;
+}
+
+.snippetTags {
+  color: #fff;
+  font-size: 12px;
+  padding-bottom: 0rem;
+  padding-left: 0.8rem;
+  margin-bottom: 10px;
+  width: 96%;
+}
+
+.snippetRow {
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.8rem;
+}
+
+.snippetCol {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 0;
+}
+
+.snippetImageContainer {
+  width: 3rem;
+}
+
+.snippetImage {
+  width: 100%;
+  height: auto;
+}
+
+.snippetUsername {
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  margin: 0;
+  margin-left: 0.5rem;
+  margin-top: 4px;
+}
+
+.snippetUserLink {
+  color: #fff;
+  text-decoration: none;
+}
+
+.snippetUserLink:hover {
+  text-decoration: none;
+  color: #57d2ff;
+}
+
+.snippetColBtn {
+  display: flex;
+  justify-content: right;
+  padding-right: 0;
+}
+
+.snippetBtn {
+  padding: 0.3rem 1rem;
+  outline: none;
+  background: #66b984;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 60px;
+  border: none;
+}
+
+.snippetSocial {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
+  /* border: 1px dotted black; */
+}
+
+.readMoreSnippet {
+  color: red;
+  font-size: 14px;
+  cursor: pointer;
+  width: max-content;
+}
+
+.topBtnn:hover,
+.bottomBtnn:hover {
+  cursor: pointer;
+}
+
+.topBtnn,
+.bottomBtnn {
+  z-index: 1;
+}
+
+@media only screen and (max-width: 1200px) {
+  .snippetSocial {
+    position: absolute;
+    bottom: 80px;
+    right: 50px;
+  }
+
+  .snippetContainer {
+    display: initial;
+  }
+
+  .snippetVideo-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .snippetTags {
+    width: 90%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .snippetCenterDiv {
+    margin: 0;
+  }
+  .controlssnippet2 {
+    bottom: -0.6rem;
+  }
+
+  .snippetContent {
+    position: absolute;
+    bottom: 2.9rem;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .snippetVideo-wrapper {
+    width: 100%;
+    max-width: 100%;
+    /* overflow: hidden; */
+    border-radius: 0;
+    height: 100vh !important;
+  }
+
+  /* .snippetCenterDiv {
+    height: 100vh !important;
+  } */
+
+  .topBtnn,
+  .bottomBtnn {
+    display: none;
+  }
+
+  .snippetContainer {
+    padding: 0;
+    height: 100vh;
+    position: relative;
+  }
+
+  .snippetSocial {
+    /* display: none; */
+    position: absolute;
+    right: 0.5rem;
+    bottom: 4.2rem;
+  }
+
+  .snippetComment span {
+    color: white !important;
+    font-size: 1rem;
+  }
+
+  .snippetUsername {
+    font-size: 10px;
+  }
+
+  .snippetBtn {
+    font-size: 10px;
+  }
+
+  .snippetTags {
+    font-size: 10px;
+  }
+
+  .snippetLike {
+    font-size: 1.5rem;
+  }
+
+  .snippetComment span {
+    font-size: 10px;
+  }
+
+  .actions button i {
+    font-size: 20px;
+  }
+}

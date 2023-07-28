@@ -1,0 +1,15 @@
+.timer-text {
+    font-size: 18px;
+    color: #161F3A !important;
+    margin-left: 2px;
+}
+
+.timer-text-fullscreen{
+    font-size: 18px;
+    color: #fff !important;
+    margin-left: "5px";
+}
+
+.timer-warn {
+    font-size: 18px;
+}

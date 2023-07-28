@@ -1,0 +1,9 @@
+export const AUTH_START = 'AUTH_START';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_FAIL = 'AUTH_FAIL';
+export const AUTH_LOGOUT = 'AUTH_LOGOUT';
+export const LOAD_SDK_START = 'LOAD_SDK_START';
+export const LOAD_SDK_SUCCESS = 'LOAD_SDK_SUCCESS';
+export const LOAD_SDK_FAIL = 'LOAD_SDK_FAIL';
+
+export const SET_AUTH_REDIRECT_PATH = 'SET_AUTH_REDIRECT_PATH';

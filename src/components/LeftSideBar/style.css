@@ -1,0 +1,14 @@
+.burger-Icon {
+  cursor: pointer;
+  position: absolute;
+  left: 24px;
+  top: 34px;
+}
+
+.head-icon {
+  display: flex;
+  flex-direction: row;
+  /* width: fit-content; */
+  justify-content: space-between;
+  align-items: center;
+}

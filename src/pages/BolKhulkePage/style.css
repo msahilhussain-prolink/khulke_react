@@ -1,0 +1,111 @@
+.headerSnippet {
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0rem;
+  height: 10vh;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  /* border: 2px solid yellow; */
+}
+
+.snippageCont {
+  width: 100%;
+}
+
+.headerSnippetRightCol {
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+
+.headText {
+  font-size: 1.875rem;
+}
+
+.headerSnippetLeftCol {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.addBtn {
+  padding: 0.3rem 1rem;
+  outline: none;
+  background: #66b984;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 60px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.addBtnText {
+  margin-left: 0.4rem;
+}
+
+.centerPuttingHeight {
+  height: 90vh;
+}
+
+.backArrowTop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .centerPuttingHeight {
+    height: 100vh;
+  }
+
+  .snippageCont {
+    width: auto;
+  }
+
+  .headerSnippet {
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border: none;
+    outline: none;
+    padding-bottom: 10px;
+  }
+
+  .headerSnippet .searchBarSnip {
+    display: none;
+    visibility: hidden;
+  }
+
+  .addBtn {
+    margin-right: 0;
+  }
+
+  .backArrowTop {
+    display: block;
+  }
+
+  .headText {
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  .headerSnippet {
+    height: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .d-flex.justify-content-between p {
+    margin: 0 20px;
+  }
+
+  .headerSnippetLeftCol {
+    padding-top: 10px;
+  }
+}

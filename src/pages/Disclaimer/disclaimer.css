@@ -1,0 +1,30 @@
+.disclaimertText {
+  color: white;
+  text-align: center;
+  background: #191919;
+  height: 100%;
+  padding: 5% 3%;
+  overflow-y: auto;
+}
+
+.disclaimertText > h1 {
+  font-size: 32px;
+  margin-bottom: 2.5rem;
+}
+
+.disclaimertText > p {
+  text-align: justify;
+  font-size: 19px;
+}
+
+.disclaimer_link {
+  /* color: rgb(237, 77, 41) !important; */
+  color: #000;
+}
+
+.disclaimer_logo_container {
+  height: 5rem;
+  /* width: 5rem; */
+  display: flex;
+  justify-content: flex-end;
+}

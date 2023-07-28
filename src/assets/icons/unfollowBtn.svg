@@ -1,0 +1,12 @@
+<svg id="Component_364_2" data-name="Component 364 – 2" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="Group_23164" data-name="Group 23164">
+    <g id="Rectangle_113" data-name="Rectangle 113" fill="none" stroke="#66b984" stroke-width="1">
+      <rect width="40" height="40" rx="20" stroke="none"/>
+      <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" fill="none"/>
+    </g>
+    <g id="Icon_ionic-md-person-add" data-name="Icon ionic-md-person-add" transform="translate(11 12)">
+      <path id="Path_21672" data-name="Path 21672" d="M15.875,12.5a4,4,0,1,1,4-4A4.012,4.012,0,0,1,15.875,12.5Zm0,2c2.65,0,8,1.35,8,4v2h-16v-2C7.875,15.85,13.225,14.5,15.875,14.5Z" transform="translate(-7.875 -4.5)" fill="#66b984"/>
+      <path id="Path_21673" data-name="Path 21673" d="M3.792,13.917V11.25H5.125v2.667H7.792V15.25H5.125v2.667H3.792V15.25H1.125V13.917Z" transform="translate(12.208 -7.25)" fill="#66b984"/>
+    </g>
+  </g>
+</svg>

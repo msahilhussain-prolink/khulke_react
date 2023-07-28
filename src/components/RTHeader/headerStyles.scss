@@ -1,0 +1,73 @@
+.participants-link-header {
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.mainOuterHead {
+  min-width: 1060px;
+  width: 1400px;
+  margin: 0 auto;
+  position: relative;
+
+  @media (max-width: 1450px) {
+    width: 1300px;
+  }
+}
+
+.header-title {
+  color: #161f3a;
+  padding-left: 1rem;
+  margin-bottom: 0 !important;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  max-width: 450px;
+  // max-width: 30vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logo-title-cont {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.header-right-cont {
+  display: flex;
+  align-items: center;
+}
+
+hr {
+  margin-top: 5px;
+  color: #242424;
+}
+
+.circle-around-chatIcon {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  top: 4px;
+  left: 5px;
+  border: 1px solid #66b984;
+  border-radius: 50px;
+  // z-index: -1;
+}
+
+.toggleIconDiv {
+  cursor: pointer;
+  padding-left: 8px;
+}
+
+.fontBigNamee {
+  font-size: 1.1rem !important;
+  padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.fontBigNamee:first-letter {
+  text-transform: uppercase !important;
+}

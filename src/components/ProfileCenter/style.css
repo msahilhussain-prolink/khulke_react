@@ -1,0 +1,126 @@
+.user_profile {
+  width: 50%;
+}
+
+.other_profile {
+  width: 100% !important;
+  /* margin-left: 6rem; */
+}
+
+.tab_content {
+  text-align: center;
+  text-transform: "capitalize";
+  color: "black";
+  font-weight: "bold";
+  border-bottom: "1px solid #ed4d29";
+  overflow-y: hidden;
+}
+
+.profile_div {
+ display: flex;
+ justify-content: space-around;
+ flex-wrap: wrap;
+}
+
+.snipsDiv {
+  position: relative;
+}
+
+.snipsDiv :hover {
+  cursor: pointer;
+}
+
+.viewcountdivkk {
+  position: absolute;
+  bottom: 0.9rem;
+  left: 10px;
+  z-index: 10;
+  color: white;
+  font-size: 1rem;
+  font-family: "WorkSans-Regular";
+}
+
+.stickySticker {
+  position: sticky;
+  z-index: 100;
+  background-color: white;
+  /* background-color: yellow; */
+  /* top: 40px; */
+}
+
+.noSaved {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.noSaved img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  margin-top: 1rem;
+}
+.noSaved p {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.noSnipImg {
+  max-height: 220px;
+  width: auto;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.noSnippLine {
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+/* @media screen and (min-width: 1200px) and (max-width: 1700px) {
+  .profile_div {
+    grid-template-columns: 280px 280px;
+    grid-column-gap: 10px;
+    margin-left: -5px;
+    z-index: 0;
+  }
+} */
+
+.noPostFallback {
+  /* border: 1px solid green; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.noPostFallback img {
+  width: 250px;
+  height: auto;
+  object-fit: contain;
+  margin-top: 2rem;
+}
+
+.noPostFallback p {
+  font-size: 0.9rem;
+  margin-top: -1rem;
+}
+
+.noRtProfile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.noRtProfile img {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+}
+
+.noRtProfile p {
+  font-size: 0.9rem;
+  margin-top: -1rem;
+}

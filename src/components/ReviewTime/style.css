@@ -1,0 +1,63 @@
+.durDiv {
+  justify-content: end;
+  position: absolute;
+
+  width: 270px;
+  z-index: 1;
+  box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%),
+    0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+  background-color: white;
+  height: 4rem;
+  padding-top: 15px;
+  padding-right: 10px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .durDiv {
+    bottom: -4.5rem;
+    left: 0%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .durDiv {
+    bottom: -4.5rem;
+    left: 0%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .durDiv {
+    bottom: -4.5rem;
+    right: 0%;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .durDiv {
+    bottom: -4.5rem;
+    right: 0%;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1439px) {
+  .durDiv {
+    bottom: -4.5rem;
+    right: 0%;
+  }
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1700px) {
+  .durDiv {
+    bottom: -4.5rem;
+    right: 0%;
+  }
+}
+
+@media only screen and (min-width: 1701px) {
+  .durDiv {
+    bottom: -4.5rem;
+    right: 0%;
+  }
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="Group_23178" data-name="Group 23178" transform="translate(-264 -560)">
+    <g id="Group_23164" data-name="Group 23164" transform="translate(264 560)">
+      <g id="Group_23166" data-name="Group 23166">
+        <g id="Rectangle_113" data-name="Rectangle 113" fill="none" stroke="#6a779b" stroke-width="1">
+          <rect width="40" height="40" rx="20" stroke="none"/>
+          <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" fill="none"/>
+        </g>
+        <g id="Icon_ionic-md-person-add" data-name="Icon ionic-md-person-add" transform="translate(11 12)">
+          <path id="Path_21672" data-name="Path 21672" d="M15.875,12.5a4,4,0,1,1,4-4A4.012,4.012,0,0,1,15.875,12.5Zm0,2c2.65,0,8,1.35,8,4v2h-16v-2C7.875,15.85,13.225,14.5,15.875,14.5Z" transform="translate(-7.875 -4.5)" fill="#6a779b"/>
+          <path id="Icon_material-done" data-name="Icon material-done" d="M7.645,13.146,5.736,11.266l-.636.627L7.645,14.4,13.1,9.027,12.464,8.4Z" transform="translate(8.9 -4.4)" fill="#6a779b" stroke="#6a779b" stroke-width="0.75"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

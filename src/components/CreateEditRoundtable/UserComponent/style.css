@@ -1,0 +1,19 @@
+.user-comp-parent {
+  align-items: center;
+}
+
+.rt-user-name {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.rt-user-username {
+  color: #707070;
+  margin-bottom: 0;
+}
+
+.user-comp-profile-img {
+  border-radius: 50% !important;
+  width: 100%;
+  height: auto;
+}

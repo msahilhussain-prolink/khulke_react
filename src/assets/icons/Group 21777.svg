@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Group_21736" data-name="Group 21736" transform="translate(-0.204)">
+    <rect id="Rectangle_5768" data-name="Rectangle 5768" width="48" height="48" transform="translate(0.204)" fill="rgba(255,255,255,0)"/>
+    <path id="Icon_feather-maximize" data-name="Icon feather-maximize" d="M15.611,4.5H8.944A4.444,4.444,0,0,0,4.5,8.944v6.667m40,0V8.944A4.444,4.444,0,0,0,40.056,4.5H33.389m0,40h6.667A4.444,4.444,0,0,0,44.5,40.056V33.389m-40,0v6.667A4.444,4.444,0,0,0,8.944,44.5h6.667" transform="translate(-0.296 -0.5)" fill="none" stroke="#54b798" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  </g>
+</svg>

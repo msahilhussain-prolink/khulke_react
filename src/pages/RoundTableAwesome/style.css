@@ -1,0 +1,16 @@
+.sendbtn {
+  /* width: fit-content; */
+  width: 10rem;
+  height: 3rem;
+  background-color: var(--secondary-heading-color);
+  color: white;
+  padding: 0.9rem 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-family: "WorkSans-Light", sans-serif;
+  font-size: 1rem !important;
+  font-weight: bold;
+  margin: 5% 0px;
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      
+    <!--Browser cache prevent -->
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <title>Khul Ke</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+
+    <link rel="shortcut icon" type="image/webp" href="./KhulKe_logo.svg" />
+  </head>
+
+  <body>
+    <section class="my-5 pb-2">
+      <section>
+        <div class="container-fluid px-2">
+          <div class="container d-flex justify-content-start">
+            <div class="row my-5 mx-5">
+              <div class="col">
+                <div style="display: flex">
+                  <img
+                    src="/public/assets/icons/logo.svg"
+                    alt=""
+                    width="75"
+                    height="75"
+                  />
+
+                  <p
+                    class="ml-5 mt-4"
+                    style="font-size: xx-large; font-weight: bolder"
+                  >
+                    Maintenance Break
+                  </p>
+                </div>
+                <p
+                  class="mt-3 mb-3"
+                  style="
+                    font-size: 1.6rem;
+                    font-weight: normal;
+                    text-align: center;
+                  "
+                >
+                  We are under maintenance of application
+                </p>
+
+                <iframe
+                  className="ml-4"
+                  width="500"
+                  height="270"
+                  src="https://www.youtube-nocookie.com/embed/dI58hLpLTgg?controls=0"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  style="
+                    border-radius: 15px;
+                    border: transparent;
+                    margin-top: 25px;
+                  "
+                ></iframe>
+
+                <p
+                  class="ml-2 mt-3"
+                  style="
+                    font-size: 1.6rem;
+                    font-weight: normal;
+                    text-align: center;
+                  "
+                >
+                  We will be back in
+                </p>
+                <p
+                  id="timer"
+                  style="
+                    font-size: 1.6rem;
+                    font-weight: bolder;
+                    text-align: center;
+                  "
+                >
+                  00 : 15 : 00
+                </p>
+              </div>
+              <div class="col ml-5" style="margin-top: 3.7rem">
+                <p
+                  class="mt-5"
+                  style="
+                    margin-left: 30px;
+                    font-size: 1.35rem;
+                    font-weight: normal;
+                  "
+                >
+                  What you can do:
+                </p>
+
+                <ul
+                  style="
+                    list-style-type: disc;
+                    margin-left: 20px;
+                    font-size: 1.1rem;
+                  "
+                >
+                  <li>
+                    Visit our Website:
+                    <a href="https://khulke.com/home" style="color: #3e965e">
+                      https://khulke.com/home
+                    </a>
+                  </li>
+                  <li>
+                    Visit our
+                    <a
+                      href="https://www.youtube.com/channel/UClcH1SszU2xH54IL6Nn9QEw"
+                      style="color: #3e965e; text-decoration: none"
+                    >
+                      YouTube
+                    </a>
+                  </li>
+                </ul>
+
+                <div class="text-center">
+                  <img
+                    src="../src/assets/icons/under_maintenance.svg"
+                    alt="Under Maintenance"
+                    width="250px"
+                    height="250px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <script>
+      document.getElementById("timer").innerHTML = "00" + ":" + 15 + ":" + 00;
+      startTimer();
+
+      function startTimer() {
+        var presentTime = document.getElementById("timer").innerHTML;
+        var timeArray = presentTime.split(/[:]+/);
+        var m = timeArray[1];
+        var s = checkSecond(timeArray[2] - 1);
+        if (s == 00) {
+          s = 60 - 1;
+          m = m - 1;
+        }
+
+        if (m < 00) {
+          return;
+        }
+
+        document.getElementById("timer").innerHTML = "00" + ":" + m + ":" + s;
+        console.log(m);
+        setTimeout(startTimer, 1000);
+      }
+
+      function checkSecond(sec) {
+        if (sec < 10 && sec >= 00) {
+          sec = "0" + sec;
+        } // add zero in front of numbers < 10
+        if (sec < 00) {
+          sec = "59";
+        }
+        return sec;
+      }
+    </script>
+  </body>
+</html>

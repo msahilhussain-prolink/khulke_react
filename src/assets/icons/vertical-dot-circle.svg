@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Component_9_232" data-name="Component 9 – 232" transform="translate(30) rotate(90)">
+    <rect id="Rectangle_2593" data-name="Rectangle 2593" width="30" height="30" fill="none"/>
+    <circle id="Ellipse_801" data-name="Ellipse 801" cx="11.25" cy="11.25" r="11.25" transform="translate(3.75 3.75)" fill="none" stroke="#11141c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <circle id="Ellipse_802" data-name="Ellipse 802" cx="1.172" cy="1.172" r="1.172" transform="translate(13.828 13.828)" fill="#11141c"/>
+    <circle id="Ellipse_803" data-name="Ellipse 803" cx="1.172" cy="1.172" r="1.172" transform="translate(8.203 13.828)" fill="#11141c"/>
+    <circle id="Ellipse_804" data-name="Ellipse 804" cx="1.172" cy="1.172" r="1.172" transform="translate(19.453 13.828)" fill="#11141c"/>
+  </g>
+</svg>

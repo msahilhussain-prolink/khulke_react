@@ -1,0 +1,84 @@
+.pastVideo {
+  width: 100%;
+  height: auto;
+  /* max-height: 90%; */
+  object-fit: fill;
+  position: relative;
+  border-radius: 1rem;
+}
+
+.clickBox {
+  background-color: #303030;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  right: 1rem;
+  bottom: 80px;
+  width: 20%;
+  cursor: pointer;
+}
+
+.settingBtn {
+  display: none;
+}
+
+.leftSide1:hover .settingBtn {
+  display: flex;
+}
+
+.pastVideo::-webkit-media-controls-panel {
+  display: none;
+}
+
+.leftSide1:hover .pastVideo::-webkit-media-controls-panel {
+  display: flex;
+}
+
+.hlsDiv:hover .pastVideo::-webkit-media-controls-panel {
+  display: flex;
+}
+
+.plyr__video-wrapper {
+  height: 100%;
+}
+
+.plyr__control--overlaid {
+  background: #7c7c7c;
+}
+
+.plyr--video .plyr__control:hover {
+  background-color: #66b984;
+}
+
+.plyr--full-ui input[type="range"] {
+  color: #66b984;
+}
+
+.plyr--fullscreen-enabled {
+  height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .hlsDiv {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .hlsDiv {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .hlsDiv {
+    height: 100%;
+  }
+}

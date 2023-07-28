@@ -1,0 +1,53 @@
+.doc_text {
+  font-size: 1rem;
+  font-family: "Work Sans";
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 40px;
+  margin-top: -28px;
+}
+
+.doc_text:hover {
+  white-space: normal;
+}
+
+.docEmbed {
+  width: 100%;
+  height: 755px;
+  border-radius: 10px;
+  overflow-y: auto;
+  margin-top: 0px;
+}
+
+.imgEmbed {
+  width: auto;
+  height: 9rem;
+  border-radius: 10px;
+  margin-bottom: auto;
+  position: relative;
+  top: 4rem;
+}
+
+.docNameIcon {
+  align-self: start;
+  position: relative;
+  top: 25px;
+  left: 0px;
+}
+
+.appPDF {
+  position: absolute;
+  top: 15px;
+  left: 35px;
+}
+
+.noAppPDF {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}

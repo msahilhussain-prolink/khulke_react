@@ -1,0 +1,801 @@
+.shepherd-button {
+  background: #3288e6;
+  border: 0;
+  border-radius: 3px;
+  color: hsla(0, 0%, 100%, 0.75);
+  cursor: pointer;
+  /* margin-right: 1.5rem; */
+  padding: 0.5rem 1.5rem;
+  transition: all 0.5s ease;
+}
+.shepherd-button:not(:disabled):hover {
+  /* background: #196fcc; */
+  color: hsla(0, 0%, 100%, 0.75);
+}
+.shepherd-button.shepherd-button-secondary {
+  background: #f1f2f3;
+  color: rgba(0, 0, 0, 0.75);
+}
+.shepherd-button.shepherd-button-secondary:not(:disabled):hover {
+  background: #d6d9db;
+  color: rgba(0, 0, 0, 0.75);
+}
+.shepherd-button:disabled {
+  cursor: not-allowed;
+}
+.shepherd-footer {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0.75rem 0.75rem;
+}
+/* .shepherd-footer .shepherd-button:last-child {
+  margin-right: 0;
+} */
+.shepherd-cancel-icon {
+  background: transparent;
+  border: none;
+  color: hsla(0, 0%, 50%, 0.75);
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  transition: color 0.5s ease;
+}
+.shepherd-cancel-icon:hover {
+  color: rgba(0, 0, 0, 0.75);
+}
+.shepherd-has-title .shepherd-content .shepherd-cancel-icon {
+  color: hsla(0, 0%, 50%, 0.75);
+}
+.shepherd-has-title .shepherd-content .shepherd-cancel-icon:hover {
+  color: rgba(0, 0, 0, 0.75);
+}
+.shepherd-title {
+  color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex: 1 0 auto;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+.shepherd-header {
+  align-items: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+  line-height: 2em;
+  padding: 0.75rem 0.75rem 0;
+}
+.shepherd-has-title .shepherd-content .shepherd-header {
+  background: #e6e6e6;
+  padding: 1em;
+}
+.shepherd-text {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1.3em;
+  padding: 0.75em;
+  text-align: center;
+  width: max-content;
+}
+.shepherd-text p {
+  margin-top: 0;
+}
+.shepherd-text p:last-child {
+  margin-bottom: 0;
+}
+.shepherd-content {
+  border-radius: 5px;
+  outline: none;
+  padding: 0;
+}
+
+.shepherd-text[id="newPostStep-description"] {
+  margin-left: 3rem;
+}
+
+.shepherd-element {
+  /* background: #fff; */
+  border-radius: 5px;
+  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); */
+  max-width: max-content;
+  opacity: 0;
+  outline: none;
+  transition: opacity 0.3s, visibility 0.3s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 9999;
+  margin-top: 7rem !important;
+}
+.shepherd-enabled {
+  padding: 10px;
+}
+.shepherd-enabled.shepherd-element {
+  opacity: 1;
+  visibility: visible;
+}
+.shepherd-element[data-popper-reference-hidden]:not(.shepherd-centered) {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.shepherd-element,
+.shepherd-element *,
+.shepherd-element :after,
+.shepherd-element :before {
+  box-sizing: border-box;
+}
+.shepherd-arrow,
+.shepherd-arrow:before {
+  height: 16px;
+  position: absolute;
+  width: 16px;
+  z-index: -1;
+}
+.shepherd-arrow:before {
+  background: #fff;
+  content: "";
+  transform: rotate(45deg);
+}
+.shepherd-element[data-popper-placement^="top"] > .shepherd-arrow {
+  bottom: -8px;
+}
+.shepherd-element[data-popper-placement^="bottom"] > .shepherd-arrow {
+  top: -8px;
+}
+.shepherd-element[data-popper-placement^="left"] > .shepherd-arrow {
+  right: -8px;
+}
+.shepherd-element[data-popper-placement^="right"] > .shepherd-arrow {
+  left: -8px;
+}
+.shepherd-element.shepherd-centered > .shepherd-arrow {
+  opacity: 0;
+}
+.shepherd-element.shepherd-has-title[data-popper-placement^="bottom"]
+  > .shepherd-arrow:before {
+  background-color: #e6e6e6;
+}
+.shepherd-target-click-disabled.shepherd-enabled.shepherd-target,
+.shepherd-target-click-disabled.shepherd-enabled.shepherd-target * {
+  pointer-events: none;
+}
+.shepherd-modal-overlay-container {
+  height: 0;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transition: all 0.3s ease-out, height 0ms 0.3s, opacity 0.3s 0ms;
+  width: 100vw;
+  z-index: 9997;
+}
+.shepherd-modal-overlay-container.shepherd-modal-is-visible {
+  height: 100vh;
+  opacity: 0.75;
+  transform: translateZ(0);
+  transition: all 0.3s ease-out, height 0s 0s, opacity 0.3s 0s;
+}
+.shepherd-modal-overlay-container.shepherd-modal-is-visible path {
+  pointer-events: all;
+}
+
+.shepherd-button[data-shepherd-step-id="createPostStep"] {
+  margin-right: 9rem !important;
+}
+
+.tourNextBtn {
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  font-size: larger;
+}
+
+.tourSkipBtn {
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: larger;
+}
+
+.cpostTourNextBtn {
+  position: relative;
+  top: -1rem;
+  /* left: 1.7vw; */
+}
+
+.cpostTourSkipBtn {
+  position: relative;
+  top: -1rem;
+  /* left: 4rem; */
+}
+
+.docTourNextBtn {
+  margin-right: 1rem;
+}
+
+.docTourSkipBtn {
+  margin-right: -2rem;
+}
+
+.shepherd-footer[data-shepherd-step-id="newPostStep"] {
+  position: absolute;
+  top: 5rem !important;
+  left: 19rem !important;
+}
+
+.roundtableTourBtn {
+  position: relative;
+  left: 5.19vw;
+}
+
+.ucTourBtn {
+  position: relative;
+  top: -5rem;
+  /* left: 1.7vw; */
+}
+
+.cpostTourSkipBtn {
+  position: relative;
+  top: -1rem;
+  /* left: 4rem; */
+}
+
+@media screen and (max-width: 600px) {
+  .shepherd-text {
+    width: 100%;
+  }
+
+  .shepherd-element[data-popper-reference-hidden]:not(.shepherd-centered) {
+    opacity: 1;
+    pointer-events: none;
+    visibility: visible !important;
+  }
+
+  .khulkeArrow {
+    position: fixed;
+    top: -8vh;
+    left: 33vw;
+    width: 32vw;
+    transform: rotate(15deg);
+  }
+
+  .townArrow {
+    position: fixed;
+    top: -3vh;
+    right: 6vw;
+    width: 17vw;
+    transform: rotate(50deg);
+  }
+
+  .snippetArrow {
+    position: fixed;
+    top: -2vh;
+    left: 37vw;
+    width: 19vw;
+    transform: rotate(0deg) scaleX(-1);
+  }
+
+  .newPostArrow {
+    width: 24vw;
+    transform: rotate(300deg) scaleY(-1);
+    position: absolute;
+    left: 70vw;
+  }
+
+  .roundtableArrow {
+    width: 19vw;
+    transform: rotate(50deg);
+    position: relative;
+    left: 34vw;
+    top: 0.5vh;
+  }
+
+  .rtTabArrow {
+    width: 15vw;
+    transform: rotate(85deg);
+    position: absolute;
+    left: 40vw;
+    top: -2vh;
+  }
+
+  .newArrow {
+    width: 19vw;
+    transform: rotate(0deg) scaleX(-1);
+    position: absolute;
+    left: 50vw;
+    top: 10vh;
+  }
+
+  .yappArrow {
+    width: 19vw;
+    transform: rotate(5deg);
+    position: absolute;
+    left: 19vw;
+    top: 8vh;
+  }
+
+  .ucArrow {
+    width: 17vw;
+    transform: rotate(245deg);
+    position: relative;
+    left: -5.19vw;
+    top: 0rem;
+  }
+
+  .footerArrow {
+    width: 19vw;
+    transform: rotate(82deg) scaleX(-1) scaleY(-1);
+    position: absolute;
+    top: 18vh;
+  }
+
+  .createPArrow {
+    /* width: 5vw; */
+    transform: rotate(100deg) scaleY(-1);
+    top: 15vh;
+    left: -41vw;
+    position: relative;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .rtTabArrow {
+    width: 17vw;
+    transform: rotate(85deg);
+    position: absolute;
+    left: 25vw;
+    top: 3vh;
+  }
+
+  .townArrow {
+    position: fixed;
+    top: -5vh;
+    left: 12vw;
+    width: 17vw;
+    transform: rotate(6deg);
+  }
+
+  .snippetArrow {
+    position: fixed;
+    top: -2vh;
+    left: 35vw;
+    width: 17vw;
+    transform: rotate(25deg);
+  }
+
+  .newArrow {
+    width: 17vw;
+    transform: rotate(10deg) scaleX(-1);
+    position: absolute;
+    left: 43vw;
+    top: 9vh;
+  }
+
+  .newPostArrow {
+    width: 17vw;
+    transform: rotate(235deg);
+    position: absolute;
+    left: 5.19vw;
+  }
+
+  .ucArrow {
+    width: 17vw;
+    transform: rotate(260deg);
+    position: relative;
+    left: -5.19vw;
+    top: 0rem;
+  }
+
+  .khulkeArrow {
+    position: fixed;
+    top: 3.4vh;
+    left: 1.7vw;
+    width: 17vw;
+    transform: rotate(12deg);
+  }
+
+  .roundtableArrow {
+    width: 17vw;
+    transform: rotate(3deg);
+    position: relative;
+    left: 6.9vw;
+    top: 1.6vh;
+  }
+
+  .yappArrow {
+    width: 17vw;
+    transform: rotate(5deg);
+    position: absolute;
+    left: 19vw;
+    top: 3vh;
+  }
+
+  .footerArrow {
+    width: 17vw;
+    transform: rotate(55deg);
+    position: absolute;
+    left: 40vw;
+    top: -8vh;
+  }
+
+  .createPArrow {
+    width: 5vw;
+    transform: rotate(20deg);
+    top: 2vh;
+    left: -7vw;
+    position: relative;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .townArrow {
+    position: fixed;
+    top: -5vh;
+    left: 1vw;
+    width: 8vw;
+    transform: rotate(6deg);
+  }
+
+  .snippetArrow {
+    position: fixed;
+    top: -6.8vh;
+    left: 25vw;
+    width: 8vw;
+    transform: rotate(155deg) scaleY(-1);
+  }
+
+  .newPostArrow {
+    width: 10vw;
+    transform: rotate(299deg) scaleY(-1);
+    position: absolute;
+    left: 14.5vw;
+    top: 14vh;
+  }
+
+  .rtTabArrow {
+    width: 10vw;
+    transform: rotate(70deg);
+    position: absolute;
+    left: 25vw;
+    top: -5vh;
+  }
+
+  .newArrow {
+    width: 11vw;
+    transform: rotate(95deg);
+    position: absolute;
+    left: 28vw;
+    top: 5vh;
+  }
+
+  .ucArrow {
+    width: 8vw;
+    transform: rotate(260deg);
+    position: relative;
+    left: -5.19vw;
+    top: 0vh;
+  }
+
+  .khulkeArrow {
+    position: fixed;
+    top: -6.6vh;
+    left: 1.7vw;
+    width: 8vw;
+    transform: rotate(20deg);
+  }
+
+  .roundtableArrow {
+    width: 8vw;
+    transform: rotate(40deg);
+    position: relative;
+    left: -20.5vw;
+    top: 0vh;
+  }
+
+  .yappArrow {
+    width: 9vw;
+    transform: rotate(40deg);
+    position: absolute;
+    left: 0vw;
+    top: 6vh;
+  }
+
+  .footerArrow {
+    width: 8vw;
+    transform: rotate(229deg);
+    position: absolute;
+    left: 41vw;
+    top: 10vh;
+  }
+
+  .createPArrow {
+    width: 7vw;
+    transform: rotate(35deg);
+    top: 2vh;
+    left: 19.5vw;
+    position: relative;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1440px) {
+  .ucArrow {
+    width: 8vw;
+    transform: rotate(260deg);
+    position: relative;
+    left: -5.19vw;
+    top: 0vh;
+  }
+
+  .rtTabArrow {
+    width: 10vw;
+    transform: rotate(70deg);
+    position: absolute;
+    left: 25vw;
+    top: -5vh;
+  }
+
+  .newArrow {
+    width: 11vw;
+    transform: rotate(95deg);
+    position: absolute;
+    left: 28vw;
+    top: 5vh;
+  }
+
+  .townArrow {
+    position: fixed;
+    top: -4.8vh;
+    left: 1.7vw;
+    width: 8vw;
+    transform: rotate(6deg);
+  }
+
+  .snippetArrow {
+    position: fixed;
+    top: -6.8vh;
+    left: 23vw;
+    width: 8vw;
+    transform: rotate(155deg) scaleY(-1);
+  }
+
+  .newPostArrow {
+    width: 8vw;
+    transform: rotate(285deg) scaleY(-1);
+    position: absolute;
+    left: 13.5vw;
+  }
+
+  .khulkeArrow {
+    position: absolute;
+    top: -5vh;
+    left: 1.7vw;
+    width: 8vw;
+    transform: rotate(12deg);
+  }
+
+  .roundtableArrow {
+    width: 8vw;
+    transform: rotate(40deg);
+    position: relative;
+    left: -20.5vw;
+    top: 0vh;
+  }
+
+  .yappArrow {
+    width: 9vw;
+    transform: rotate(40deg);
+    position: absolute;
+    left: 0vw;
+    top: 6vh;
+  }
+
+  .footerArrow {
+    width: 6vw;
+    transform: rotate(229deg);
+    position: absolute;
+    left: 41vw;
+    top: 10vh;
+  }
+
+  .createPArrow {
+    width: 7vw;
+    transform: rotate(35deg);
+    top: 2vh;
+    left: 14.5vw;
+    position: relative;
+  }
+}
+
+@media (min-width: 1441px) and (max-width: 1700px) {
+  .ucArrow {
+    width: 8vw;
+    transform: rotate(255deg);
+    position: relative;
+    left: 0vw;
+    top: 1.6vh;
+  }
+
+  .rtTabArrow {
+    width: 8vw;
+    transform: rotate(59deg);
+    position: absolute;
+    left: 25vw;
+    top: -4vh;
+  }
+
+  .newArrow {
+    width: 9vw;
+    transform: rotate(95deg);
+    position: absolute;
+    left: 22vw;
+    top: 5vh;
+  }
+
+  .townArrow {
+    position: fixed;
+    top: -4.8vh;
+    left: 1.7vw;
+    width: 8vw;
+    transform: rotate(6deg);
+  }
+
+  .snippetArrow {
+    position: fixed;
+    top: -5.3vh;
+    left: 1.7vw;
+    width: 8vw;
+    transform: rotate(22deg);
+  }
+
+  .newPostArrow {
+    width: 7vw;
+    transform: rotate(290deg) scaleY(-1);
+    position: absolute;
+    left: 11vw;
+  }
+
+  .khulkeArrow {
+    position: fixed;
+    top: -6.5vh;
+    left: 1.7vw;
+    width: 8vw;
+    transform: rotate(12deg);
+  }
+
+  .roundtableArrow {
+    width: 8vw;
+    transform: rotate(23deg);
+    position: relative;
+    left: -15.9vw;
+    top: -0.4vh;
+  }
+
+  .yappArrow {
+    width: 8vw;
+    transform: rotate(25deg);
+    position: absolute;
+    left: 0vw;
+    top: 3vh;
+  }
+
+  .footerArrow {
+    width: 5.5vw;
+    transform: rotate(300deg) scaleY(-1);
+    position: absolute;
+    left: 19vw;
+    top: 10vh;
+  }
+
+  .createPArrow {
+    width: 7vw;
+    transform: rotate(35deg);
+    top: 2vh;
+    position: relative;
+    left: 1.5vw;
+  }
+}
+
+@media (min-width: 1701px) {
+  .shepherd-element[data-shepherd-step-id="newStep"] {
+    top: 0vh !important;
+    left: -18vw !important;
+  }
+
+  .ucArrow {
+    width: 8vw;
+    transform: rotate(255deg);
+    position: relative;
+    left: 0vw;
+    top: 1.6vh;
+  }
+
+  .rtTabArrow {
+    width: 8vw;
+    transform: rotate(85deg);
+    position: absolute;
+    left: 25vw;
+    top: -4vh;
+  }
+
+  .newArrow {
+    width: 8vw;
+    transform: rotate(90deg);
+    position: absolute;
+    /* left: 12vw; */
+    top: 2vh;
+  }
+
+  .townArrow {
+    position: fixed;
+    top: -4.8vh;
+    left: 1.7vw;
+    width: 8vw;
+    transform: rotate(6deg);
+  }
+
+  .snippetArrow {
+    position: fixed;
+    top: -6vh;
+    left: 0vw;
+    width: 8vw;
+    transform: rotate(24deg);
+  }
+
+  .newPostArrow {
+    width: 6vw;
+    transform: rotate(90deg) scaleX(-1);
+    position: absolute;
+    left: 10vw;
+  }
+
+  .khulkeArrow {
+    position: fixed;
+    top: -6.5vh;
+    left: 1.7vw;
+    width: 8vw;
+    transform: rotate(12deg);
+  }
+
+  .roundtableArrow {
+    width: 8vw;
+    transform: rotate(25deg);
+    position: relative;
+    left: -10vw;
+    top: 0vh;
+  }
+
+  .yappArrow {
+    width: 8vw;
+    transform: rotate(20deg);
+    position: absolute;
+    left: 0vw;
+    top: 2vh;
+  }
+
+  .footerArrow {
+    width: 4.5vw;
+    transform: rotate(300deg) scaleY(-1);
+    position: absolute;
+    left: 19vw;
+    top: 8vh;
+  }
+
+  .createPArrow {
+    width: 5vw;
+    transform: rotate(20deg);
+    top: 2vh;
+    left: -7vw;
+    position: relative;
+  }
+}

@@ -1,0 +1,67 @@
+.outerMost-container {
+  height: 100vh;
+  width: 100%;
+}
+.outerMost-container .inner-container {
+  width: 85%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+.outerMost-container .inner-container .inner-left-container {
+  height: 100%;
+  width: 50%;
+  min-width: 500px;
+  display: flex;
+  align-items: center;
+}
+.outerMost-container .inner-container .inner-left-container .content {
+  width: auto;
+  height: auto;
+}
+.outerMost-container .inner-container .inner-left-container img {
+  margin-left: -1rem;
+  width: auto;
+  -o-object-fit: contain;
+  object-fit: contain;
+  height: 425px;
+}
+.outerMost-container .inner-container .inner-left-container .text-containr {
+  margin-top: -3rem;
+}
+.outerMost-container .inner-container .inner-left-container .text-containr h5 {
+  text-align: center;
+  font-family: "WorkSans-Bold";
+  font-size: 2rem;
+  letter-spacing: 0px;
+  color: #161f3a;
+  opacity: 1;
+}
+.outerMost-container .inner-container .inner-left-container .text-containr p {
+  text-align: center;
+  font-family: "Work Sans";
+  letter-spacing: 0px;
+  font-weight: bold;
+  color: #11141c;
+  opacity: 1;
+}
+.outerMost-container .inner-container .inner-right-container {
+  width: 50%;
+  height: 100%;
+  margin-left: 2rem;
+}
+.outerMost-container .inner-container .inner-right-container .content-right {
+  margin-top: 4rem;
+  width: 500px;
+}
+.outerMost-container
+  .inner-container
+  .inner-right-container
+  .content-right
+  .heading-in-invite {
+  padding-top: 2rem;
+  font-family: "Work Sans";
+  font-weight: bolder;
+  letter-spacing: 0px;
+  color: #11141c;
+}

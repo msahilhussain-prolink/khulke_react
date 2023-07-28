@@ -1,0 +1,17 @@
+.introCount {
+  border: 1px solid #d3d6db;
+  border-radius: 10px;
+  justify-content: space-between;
+  padding: 0.7rem 0.6rem;
+  margin: 0.6rem 0px 0.3rem 0px;
+}
+
+.panelist-mapped-div::first-letter {
+  text-transform: capitalize !important;
+}
+
+.label_txt {
+  color: #63779c;
+  font-weight: bold;
+  height: 2rem;
+}

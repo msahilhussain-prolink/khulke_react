@@ -1,0 +1,48 @@
+.novideo-outer {
+  outline: 1px solid #959591;
+  z-index: 10;
+  height: 100%;
+  background-color: #191919;
+  // border: 2px dotted red;
+  .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    // border: 1px solid pink;
+    position: relative;
+
+    .avatar-middle {
+      height: 120px;
+      width: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      // border:2px solid red;
+    }
+  }
+}
+
+.icons-cont {
+  z-index: 20;
+  position: absolute;
+  color: white;
+  right: 0;
+  left: 0;
+  bottom: 10px;
+  // border:1px dotted green;
+}
+// .such_me {
+//   position: absolute;
+//   top: 0.3rem;
+//   right: 0.3rem;
+// }
+#removemeLine {
+  width: 250px;
+  background-color: white;
+  // box-shadow: 1px 1px 1px 2px #6c6c6c;
+  border: 1px solid rgb(221, 220, 220);
+
+  &:hover {
+    background-color: rgb(221, 220, 220);
+  }
+}

@@ -1,0 +1,160 @@
+.input_text {
+  margin-top: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+#special {
+  display: block;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: "100%";
+}
+
+#special2 {
+  display: block;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: "100%";
+}
+/* 
+#special3 {
+  display: block;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: "100%",
+} */
+
+.txt_area {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.6rem;
+  color: black;
+  font-size: 14px;
+}
+
+textarea:focus {
+  outline: white;
+}
+
+/* .css-11lq3yg-MuiGrid-root {
+  margin-left: 1rem;
+} */
+
+.active {
+  width: fit-content;
+  user-select: none;
+  border: 0px;
+  border-radius: 8px;
+  background-color: #66b984;
+  color: white;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: #f2f3f5;
+  width: fit-content;
+  user-select: none;
+  color: #11141c;
+  border: 0px;
+}
+
+.bioCount {
+  border: 1px solid #d3d6db;
+  border-radius: 10px;
+  justify-content: space-between;
+  padding: 0.7rem 0.6rem;
+  margin: 0.6rem 0px 0.3rem 0px;
+}
+
+.form-control-div-datepicker {
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  border: 0;
+  box-sizing: content-box;
+  background: none;
+  height: 0.4375em;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0;
+  width: 130em;
+  -webkit-animation-name: mui-auto-fill-cancel;
+  animation-name: mui-auto-fill-cancel;
+  -webkit-animation-duration: 10ms;
+  animation-duration: 10ms;
+  padding: 190.5px 14px;
+}
+
+.update_username {
+  background-color: #66b984;
+  text-transform: capitalize !important;
+  color: white !important;
+  width: 45%;
+  padding: 0.9rem 1rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-family: "WorkSans-Light";
+  font-size: 1rem !important;
+  font-weight: lighter;
+  margin: 5% 0px;
+}
+
+.categories-parent-div {
+  margin: 0.4rem 0;
+}
+
+.profileImgs {
+  /* width: 100vw !important; */
+  object-fit: cover;
+  border-radius: 10px !important;
+  height: 12rem !important;
+  width: 12rem !important;
+}
+
+.profile-lang-select .MuiOutlinedInput-notchedOutline {
+  border: 1px solid #66b984 !important;
+}
+
+.MuiSelect-select .done-icon-select {
+  display: none;
+}
+
+/* ===== MOBILE BROWSER COMPATIBILITY ===== */
+
+@media (max-width: 768px) {
+  .top-profile-nav {
+    width: 94vw;
+  }
+
+  .save-personal-details-btn {
+    /* margin-top: -1.2rem; */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+
+  .btn-save-change-div {
+    margin-top: -1.4rem;
+  }
+
+  .personal-details-parent {
+    padding: 0 0.5rem;
+  }
+
+  .dropdown-personal-details {
+    width: 100% !important;
+  }
+
+  .event_container {
+    padding: 0 !important;
+  }
+
+  .update_username {
+    font-size: 14px !important;
+  }
+}

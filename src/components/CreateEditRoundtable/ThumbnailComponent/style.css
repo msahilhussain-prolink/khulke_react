@@ -1,0 +1,36 @@
+.thumbnail-parent {
+  height: 8rem;
+  width: 10rem;
+  border-radius: 10px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thumbnail-text {
+  font-size: 0.8rem;
+  color: rgb(99, 119, 156);
+  margin-top: 4rem;
+}
+
+.rt-doc-preview-parent {
+  border: 1px solid #d3d6db;
+  border-radius: 9px;
+  width: 9.5rem;
+  height: 9rem;
+  padding: 1rem;
+}
+
+.delete-icon-for-thumbnail {
+  width: 23px;
+  height: 23px;
+}
+
+.icon-btn-position {
+  position: absolute !important;
+  top: -7px;
+  right: -7px;
+}

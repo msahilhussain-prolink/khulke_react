@@ -1,0 +1,15 @@
+.yapp_chats_list_items:hover .yapp_name_user,
+.yapp_chats_list_items:hover .yapp_last_msg,
+.active-yapp-chats .yapp_name_user,
+.active-yapp-chats .yapp_last_msg,
+.active-yapp-chats .yapp__timestamp {
+  color: #000 !important;
+}
+
+.yapp_chats_list_items:hover .yapp__timestamp:not(.active-yapp-chats) {
+  color: #000 !important;
+}
+
+.active-yapp-chats {
+  background: #f4f5f8;
+}

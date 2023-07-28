@@ -1,0 +1,6 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "com.khulke.app",
+               "sha256_cert_fingerprints": ["A7:AD:39:07:77:E6:A5:01:63:17:ED:75:FB:83:36:D6:BD:BE:4C:91:EB:09:B0:6A:56:DB:EE:AB:D5:39:29:E1","80:A5:78:E1:2C:35:BE:30:14:C8:C0:F6:5E:A7:A1:D5:7B:1C:94:89:EB:24:5F:93:75:9C:70:2D:66:05:23:F8"
+] }
+}]

@@ -1,0 +1,126 @@
+.user_chat_profile_container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.user_chat_profile_aud_video_container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 8px;
+  cursor: pointer;
+}
+
+.user_chat_follow_btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.user_chat_subcontainer_heading {
+  line-height: 0.5rem;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user_chat_about_desc {
+  line-height: 0rem;
+  font-size: 12px;
+}
+
+.user_chat_see_all {
+  float: right;
+  font-size: 12px;
+}
+
+.user_chat_images_box {
+  width: 33%;
+  background-color: red;
+  height: 80px;
+}
+
+.user_chat_kulb_label {
+  max-width: 85%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.user_chat_restrict_labels {
+  color: #bc0000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.user_chat_gray_div_container {
+  background: #eaecf2;
+  border-radius: 7px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.user_chat_gray_div_container_padding {
+  padding: 20px 10px 10px;
+}
+
+.user_chat_grey_label_container {
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+}
+
+.user_chat_profile_dp {
+  width: 125px;
+  height: 125px;
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0 0 10px 0;
+}
+
+.user_chat_profile_username {
+  text-align: center;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user_chat_profile_name {
+  text-align: center;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user_chat_profile_follow {
+  width: 95%;
+  border-radius: 19px;
+  padding: 5px 0px;
+  background-color: #f15b29;
+  color: white;
+  border: none;
+  font-weight: 500;
+}
+
+.user_chat_profile_following {
+  width: 95%;
+  border-radius: 19px;
+  padding: 5px 0px;
+  background-color: #eaecf2;
+  color: #000000;
+  border: none;
+  font-weight: 500;
+}

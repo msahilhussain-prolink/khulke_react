@@ -1,0 +1,29 @@
+.create-edit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  color: var(--muted-light-color);
+  background-color: var(--disabled-bg-color);
+}
+
+.create-edit-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .create-edit-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 14px;
+  }
+
+  .create-edit-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+  }
+}

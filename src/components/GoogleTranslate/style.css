@@ -1,0 +1,15 @@
+.translate_post {
+  color: #7ab788;
+}
+
+.translate_post:hover {
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.memoized_data_p {
+  width: 83%;
+  white-space: pre-wrap;
+  margin-left: 0rem;
+}

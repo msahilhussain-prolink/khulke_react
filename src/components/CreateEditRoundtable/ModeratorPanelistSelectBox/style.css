@@ -1,0 +1,108 @@
+.rt-moderator-panelist-parent {
+  max-height: 4rem;
+}
+
+/* moderator and panelists is passed through props, check the jsx before making changes */
+.rt-moderator-description-moderator,
+.rt-moderator-description-panelists {
+  width: max-content;
+  cursor: pointer;
+  color: #7ab788;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 2.54rem;
+  padding-right: 0.5rem;
+}
+
+.rt-moderator-description-panelists {
+  left: 55%;
+}
+
+.disabled-click-events {
+  pointer-events: none;
+  opacity: 0.5;
+  border-left: none !important;
+}
+
+.options-parent-box {
+  padding-right: 20px;
+}
+
+.introduction-box {
+  height: 2.54rem;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #d3d6db;
+  border-left: 1px solid transparent !important;
+}
+
+.introduction-parent-both:focus-within > .right-btn-text-done {
+  border-bottom: 2px solid #66b984;
+  border-left-color: transparent;
+}
+
+.options-parent-box {
+  padding-right: 20px;
+}
+
+.introduction-box {
+  border: 1px solid #d3d6db;
+}
+
+@media (max-width: 1201px) {
+  .rt-moderator-description-panelists {
+    left: 50%;
+  }
+
+  .rt-moderator-description-moderator {
+    left: 75%;
+  }
+}
+@media (max-width: 1000px) {
+  .rt-moderator-description-moderator {
+    left: 76%;
+  }
+
+  .rt-moderator-description-panelists {
+    left: 66%;
+  }
+}
+@media (max-width: 768px) {
+  .rt-moderator-description-moderator {
+    left: 80%;
+  }
+
+  .rt-moderator-description-panelists {
+    left: 76%;
+  }
+}
+
+@media (max-width: 600px) {
+  .rt-moderator-description-moderator {
+    left: 75%;
+  }
+
+  .rt-moderator-description-panelists {
+    left: 71%;
+  }
+}
+
+@media (max-width: 500px) {
+  .rt-moderator-description-moderator {
+    left: 70%;
+  }
+
+  .rt-moderator-description-panelists {
+    left: 66%;
+  }
+}
+
+@media (max-width: 400px) {
+  .rt-moderator-description-moderator {
+    left: 63%;
+  }
+
+  .rt-moderator-description-panelists {
+    left: 51%;
+  }
+}

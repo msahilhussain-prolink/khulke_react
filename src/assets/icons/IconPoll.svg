@@ -1,0 +1,21 @@
+<svg id="Group_23426" data-name="Group 23426" xmlns="http://www.w3.org/2000/svg" width="30.222" height="30.222" viewBox="0 0 30.222 30.222">
+  <circle id="Ellipse_806" data-name="Ellipse 806" cx="15.111" cy="15.111" r="15.111" transform="translate(0 0)" fill="#fff"/>
+  <g id="Group_22784" data-name="Group 22784" transform="translate(7.556 6.611)">
+    <rect id="Rectangle_6444" data-name="Rectangle 6444" width="17" height="17" fill="#fff" opacity="0"/>
+    <g id="Group_1" data-name="Group 1" transform="translate(1.7 0.319)">
+      <g id="Rectangle_6" data-name="Rectangle 6" transform="translate(0 11.425)" fill="none" stroke="#191f36" stroke-width="1">
+        <rect width="9.351" height="3.4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="8.351" height="2.4" fill="none"/>
+      </g>
+      <g id="Rectangle_7" data-name="Rectangle 7" transform="translate(0 6.324)" fill="none" stroke="#191f36" stroke-width="1">
+        <rect width="13.601" height="3.825" stroke="none"/>
+        <rect x="0.5" y="0.5" width="12.601" height="2.825" fill="none"/>
+      </g>
+      <g id="Rectangle_8" data-name="Rectangle 8" transform="translate(0 1.648)" fill="none" stroke="#191f36" stroke-width="1">
+        <rect width="6.801" height="3.825" stroke="none"/>
+        <rect x="0.5" y="0.5" width="5.801" height="2.825" fill="none"/>
+      </g>
+      <line id="Line_2" data-name="Line 2" x2="0.159" y2="16.362" transform="translate(0.033)" fill="none" stroke="#191f36" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

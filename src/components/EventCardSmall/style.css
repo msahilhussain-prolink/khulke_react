@@ -1,0 +1,17 @@
+.speaker1 {
+  border: 3.75px solid white;
+  position: absolute;
+  left: 0px;
+}
+
+.speaker2 {
+  border: 3.75px solid white;
+  position: absolute;
+  left: 20px;
+}
+
+.speaker3 {
+  border: 3.75px solid white;
+  position: absolute;
+  left: 40px;
+}

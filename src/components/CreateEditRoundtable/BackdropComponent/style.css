@@ -1,0 +1,9 @@
+.backdropDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backdropTypo {
+  font-weight: bold;
+}

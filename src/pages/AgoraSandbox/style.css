@@ -1,0 +1,508 @@
+.controllerParent {
+  height: calc(100% - 70px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.vc-controls {
+  color: black;
+  background-color: white;
+  padding: 10px;
+  /* border-radius: 10px; */
+  /* box-shadow: -2px 3px 6px 3px #8d8d8dad; */
+  box-shadow: -2px 3px 6px 3px #acacacad;
+  width: fit-content;
+  z-index: 90;
+  position: absolute;
+  /* top: 0; */
+  /* left: -10%; */
+  /* bottom: 1rem; */
+  /* left: 47%; */
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.vc-controls img {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  /* width: 2%; */
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  border: 3px solid white;
+  background-color: green;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -3px;
+  right: -10px;
+}
+
+@media screen and (max-width: 1243px) {
+  .dot {
+    bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 729px) {
+  .dot {
+    bottom: -3px;
+  }
+}
+
+.center {
+  margin: auto;
+  border: 3px solid #66b984;
+  transform: translateY(15rem);
+  height: 30%;
+  width: 30%;
+  padding: 1rem;
+}
+
+.video-group-item {
+  position: relative;
+  border-radius: 20px;
+}
+
+.overlay-item {
+  position: absolute;
+  z-index: 9;
+  user-select: none;
+  color: white;
+  /* mix-blend-mode: difference; */
+}
+
+.uid-overlay {
+  bottom: 10px;
+  left: 10px;
+}
+
+.mic-overlay {
+  bottom: 25px;
+  right: 10px;
+}
+
+.mod-overlay-center {
+  /* border: 1px solid red; */
+  top: -840%;
+  right: 10px;
+  position: absolute;
+}
+
+.options-btn-overlay {
+  top: 10px;
+  right: 10px;
+}
+
+.half {
+  height: 38vh;
+}
+
+.half img {
+  border-radius: 100%;
+  width: 5rem;
+  height: 5rem;
+  margin-top: 6rem;
+  box-shadow: 0 0 35px black;
+}
+
+.full {
+  height: 75vh;
+}
+
+.full img {
+  border-radius: 100%;
+  width: 10rem;
+  height: 10rem;
+  margin-top: 10rem;
+  box-shadow: 0 0 35px black;
+}
+
+.half-viewer {
+  height: 38vh;
+}
+
+.full-viewer {
+  height: 92vh;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.full-viewer::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+.div-1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div-2 {
+  display: grid;
+  /* border: 3px solid yellow; */
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-items: center;
+}
+
+.div-3 {
+  /* border: 2px solid magenta; */
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(33.3333%, 1fr)); */
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div-3 :first-child {
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+}
+
+.div-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div-5 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div-5 :nth-last-child(5) {
+  grid-column: span 2;
+}
+
+.div-5 :nth-last-child(4) {
+  grid-column: span 2;
+}
+
+.div-5 :nth-last-child(3) {
+  grid-column: span 2;
+}
+
+.div-5 :nth-last-child(2) {
+  grid-column: span 3;
+}
+
+.div-5 :last-child {
+  grid-column: span 3;
+}
+
+.div-6 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(33.3333%, 1fr));
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.dropbtn{
+  background-color: transparent;
+  color: white;
+  outline: none;
+  user-select: none;
+  border: none;
+}
+
+.margin-left-50{
+  margin-left: 50px;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  user-select: none;
+  border: none;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0px;
+  background-color: white;
+  width: 5.5rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 12;
+}
+
+.dropdown-content li {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content li:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* .viewers_chat_container::-webkit-scrollbar {
+  display: none;
+} */
+
+.viewers_chat_container {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.viewers_chat_container::-webkit-scrollbar {
+  width: 0;
+}
+
+.parent-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  background-color: #1e1d1e;
+  padding: 0.1rem;
+  z-index: 100;
+  gap: 0rem;
+  overflow: hidden;
+  opacity: 0; /* Initially hidden */
+  transform: scale(0.8); /* Initially scaled down */
+  transition: opacity 0.3s ease, transform 0.3s ease-in-out; /* Updated transition timing function */
+}
+
+.parent-controls.show {
+  opacity: 1; /* Show the controls */
+  transform: scale(1); /* Scale up to the original size */
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls-container .video-btn {
+  margin-right: -0.5rem;
+  color: #fff;
+}
+.controls-container .mic-btn {
+  margin-right: -0.5rem;
+  color: #fff;
+}
+.controls-container .cshare-btn {
+  margin-right: 0.25rem;
+  color: #fff;
+}
+
+.controls-container .volume-container {
+  position: relative;
+  top: -6px;
+  padding: 2px;
+}
+
+.parent-controls .right-icons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  top: 1rem;
+}
+
+.parent-controls .settings-icon,
+.parent-controls .full-screen-icon {
+  height: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* ============ mobile browser compatibility for live rt ============ */
+@media (max-width: 768px) {
+  .vc-controls {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.65) !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+    top: 27vh;
+    left: 42vw !important;
+  }
+
+  .viewers_chat_container {
+    height: 65%;
+    bottom: 2rem;
+  }
+}
+
+.parent-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  background-color: #1e1d1e;
+  padding: 0.1rem;
+  z-index: 96;
+  gap: 0rem;
+  overflow: hidden;
+  opacity: 0; /* Initially hidden */
+  transform: scale(0.8); /* Initially scaled down */
+  transition: opacity 0.3s ease, transform 0.3s ease-in-out; /* Updated transition timing function */
+}
+
+.parent-controls.show {
+  opacity: 1; /* Show the controls */
+  transform: scale(1); /* Scale up to the original size */
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}  
+
+.controls-container .video-btn {
+  margin-right: -0.5rem;
+  color: #fff;
+}
+.controls-container .mic-btn {
+  margin-right: -0.5rem;
+  color: #fff;
+}
+.controls-container .cshare-btn {
+  margin-right: 0.25rem;
+  color: #fff;
+}
+
+.controls-container .volume-container {
+  position: relative;
+  top: -6px;
+  padding: 2px;
+}
+
+.parent-controls .right-icons {
+  display: flex;
+  align-items: center;
+  margin-right: -4rem;
+  top: 1rem;
+}
+
+.parent-controls .settings-icon,
+.parent-controls .full-screen-icon {
+  height: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* ============ mobile browser compatibility for live rt ============ */
+
+@media (max-width: 768px) {
+  .vc-controls {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.65) !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+    top: 27vh;
+    left: 42vw !important;
+  }
+
+  .viewers_chat_container {
+    height: 65%;
+    bottom: 2rem;
+  }
+
+  .parent-controls .right-icons {
+    margin-left: auto;
+  }
+
+  .parent-controls .settings-icon,
+  .parent-controls .full-screen-icon {
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .parent-controls .right-icons {
+    margin-left: auto;
+  }
+
+  .parent-controls .settings-icon,
+  .parent-controls .full-screen-icon {
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .parent-controls .right-icons {
+    margin-left: auto;
+  }
+
+  .parent-controls .settings-icon,
+  .parent-controls .full-screen-icon {
+    height: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .parent-controls .right-icons {
+    margin-left: auto;
+  }
+
+  .parent-controls .settings-icon,
+  .parent-controls .full-screen-icon {
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .parent-controls .right-icons {
+    margin-left: auto;
+  }
+
+  .parent-controls .settings-icon,
+  .parent-controls .full-screen-icon {
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .parent-controls .right-icons {
+    margin-left: auto;
+  }
+
+  .parent-controls .settings-icon,
+  .parent-controls .full-screen-icon {
+    height: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .parent-controls .right-icons {
+    margin-left: auto;
+  }
+
+  .parent-controls .settings-icon,
+  .parent-controls .full-screen-icon {
+    height: 16px;
+  }
+}

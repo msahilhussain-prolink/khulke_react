@@ -1,0 +1,108 @@
+.popularRT {
+  display: flex;
+  column-gap: 10px;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow-x: scroll;
+}
+
+.popularRT::-webkit-scrollbar {
+  display: none;
+}
+
+.popularShow {
+  column-gap: 10px;
+  row-gap: 15px;
+  overflow-y: scroll;
+  max-height: 75vh;
+}
+
+.popularShow::-webkit-scrollbar {
+  display: none;
+}
+
+.popularShowDiv {
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  width: 348px;
+  column-gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+.popularShowDiv::-webkit-scrollbar {
+  display: none;
+}
+
+.popular_card {
+  width: 100%;
+  overflow: hidden; /* otherwise header image won't respect rounded corners */
+  background: white;
+  padding: 10px 16px 10px 16px;
+  border-radius: 16px;
+  border: 1px solid #e4e9f0;
+  text-align: -webkit-center;
+}
+
+.popular_card:hover {
+  z-index: 100;
+}
+
+.popular_card:hover .popularRT {
+  z-index: 20;
+}
+
+.popularHide {
+  display: none;
+}
+
+.popular_card:hover .popularHide {
+  display: block;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.popular_card:hover .rt_img_div {
+  max-height: 11.1rem;
+}
+
+.popular_card:hover .rt_tags {
+  overflow: visible;
+  width: 324px;
+  white-space: normal;
+}
+
+.popular_card:hover .pastRT {
+  right: "30px";
+}
+
+.popular_card:hover .video_img {
+  display: none;
+  max-width: 19.5rem;
+  max-height: 8rem;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.popular_card:hover .video-wrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px 10px 0px 0px;
+  max-width: 19.5rem;
+  max-height: 11.1rem;
+  background-size: 19.5rem 11.1rem;
+}
+
+.populars {
+  visibility: hidden;
+}
+
+.popular_card:hover .populars {
+  visibility: visible;
+}
+
+.snip-it-text {
+  margin-left: 0.4rem;
+}

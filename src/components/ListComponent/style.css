@@ -1,0 +1,27 @@
+.avatar-badge {
+  position: relative;
+}
+
+.icon-badge {
+  background-color: white;
+  border-radius: 100%;
+  position: absolute;
+  top: -2px;
+  right: -7px;
+  height: 15px;
+  width: 15px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.username__div {
+  max-height: 80;
+  border-radius: 4;
+  border: 1px solid lightgray;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.username__div:hover {
+  background-color: #e4e9f0;
+}

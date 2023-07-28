@@ -1,0 +1,26 @@
+.simpleModalMain {
+  background: #121212 !important;
+  padding: 1rem 1rem 2rem 1rem;
+}
+
+.rtBell {
+  width: 2rem;
+  background: #121212;
+}
+
+.modalText {
+  color: #fff;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.btnMainModal {
+  margin: 1.3rem 0 1rem 0;
+  justify-content: center;
+}
+
+.skipBtn {
+  margin-bottom: 0;
+  color: #7ab788;
+  cursor: pointer;
+}
