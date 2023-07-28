@@ -56,25 +56,9 @@ import OpenImage from "./ViewImages/OpenImage";
 import PostVideo from "./PostVideo";
 import PostImages from "./ViewImages/PostImages";
 const useStyles = makeStyles(() => ({ dialog: { height: 500 } }));
-const Post = ({
-  post_quote_count,
-  singlePost,
-  post_id,
-  imgSrc,
-  imgData,
-  title = "",
-  className = "",
-  hideIconContainer,
-  video,
-  videoFile,
-  totalComment,
-  totalLike,
-  totalDislike,
-  username,
-  name,
-  formatted_created_at,
-  audio,
-  pdf,
+const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",className = "",hideIconContainer,
+  video,videoFile,totalComment,totalLike,totalDislike,username,name,
+  formatted_created_at, audio, pdf,
   excel,
   ppt,
   doc,
@@ -1727,8 +1711,7 @@ const Post = ({
             )}
           </div>
         </div>
-
-        {showAllReplies && (
+      {showAllReplies && (
           <>
             <span
               onClick={() => {
@@ -2101,13 +2084,8 @@ const Post = ({
               <div
                 key={item?.username}
                 className="user__container"
-                style={{
-                  maxHeight: 80,
-                  display: "flex",
-                  borderRadius: 4,
-                  border: "1px solid lightgray",
-                  padding: "0.5rem",
-                  marginTop: "0.5rem",
+                style={{ maxHeight: 80, display: "flex", borderRadius: 4,
+                  border: "1px solid lightgray",padding: "0.5rem",marginTop: "0.5rem",
                   cursor: "pointer",
                 }}
                 onClick={() => {
@@ -2115,12 +2093,8 @@ const Post = ({
                 }}
               >
                 <UserProfile username={item.username} />
-
-                <div
-                  style={{
-                    marginLeft: "1rem",
-                    display: "flex",
-                    flexDirection: "column",
+                  <div
+                  style={{ marginLeft: "1rem", display: "flex",flexDirection: "column",
                   }}
                 >
                   <span style={{ fontWeight: "bold" }}>{item?.name}</span>
@@ -2176,8 +2150,7 @@ const Post = ({
           </Dialog>
         </>
       )}
-
-      {circulatedUser && (
+    {circulatedUser && (
         <>
           <Dialog
             title={"Circulated By"}
