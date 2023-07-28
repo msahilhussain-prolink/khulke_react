@@ -1,7 +1,20 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { FiberManualRecord, Pause, PlayArrow, ShareOutlined, VolumeOff, VolumeUp,} from "@material-ui/icons";
+import {
+  FiberManualRecord,
+  Pause,
+  PlayArrow,
+  ShareOutlined,
+  VolumeOff,
+  VolumeUp,
+} from "@material-ui/icons";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
-import {Divider,Grid,IconButton,Menu as CustomMenu,MenuItem,} from "@mui/material";
+import {
+  Divider,
+  Grid,
+  IconButton,
+  Menu as CustomMenu,
+  MenuItem,
+} from "@mui/material";
 import axios from "axios";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import TagManager from "react-gtm-module";
@@ -23,12 +36,25 @@ import LikeIcon from "../../components/IconsComponents/LikeIcon";
 import RepliedIconComp from "../../components/IconsComponents/RepliedIconComponent";
 import ReTweetIcon from "../../components/IconsComponents/ReTweetIcon";
 import ShowLikedIcon from "../../components/IconsComponents/ShowLikedIcon";
-import {POST_API_BASE_URL,REACT_APP_BASE_URL_FOR_USER,} from "../../constants/env";
+import {
+  POST_API_BASE_URL,
+  REACT_APP_BASE_URL_FOR_USER,
+} from "../../constants/env";
 import { FullName, Username } from "../../global_styles/style";
 import logger from "../../logger";
-import {circulatePost,getPostData,postDeleteData,} from "../../redux/actions/postAction";
+import {
+  circulatePost,
+  getPostData,
+  postDeleteData,
+} from "../../redux/actions/postAction";
 import ToastHandler from "../../utils/ToastHandler";
-import { auto_login_continue, filterDateTrans, filterURLs, moengageEvent, replaceURLs,} from "../../utils/utils";
+import {
+  auto_login_continue,
+  filterDateTrans,
+  filterURLs,
+  moengageEvent,
+  replaceURLs,
+} from "../../utils/utils";
 import Dialog from "../common/Dialog";
 import GoogleTranslate from "../GoogleTranslate";
 import BookmarkIcon from "../IconsComponents/BookmarkIcon";
@@ -49,7 +75,17 @@ import ListItem from "./ListItem";
 import "./newpoststyle.css";
 import QuotedCard from "./QuotedCard";
 import RtButton from "./RtButton";
-import { Body, Footer, Header, Menu, MenuContainer, PostDiv, PostTitle, SubHeader, SubHeaderMain, UserNameContainer,
+import {
+  Body,
+  Footer,
+  Header,
+  Menu,
+  MenuContainer,
+  PostDiv,
+  PostTitle,
+  SubHeader,
+  SubHeaderMain,
+  UserNameContainer,
 } from "./style";
 import "./style.css";
 import OpenImage from "./ViewImages/OpenImage";
@@ -114,7 +150,9 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
   user_type,
   lang,
   src,
+  setUserAction,
 }) => {
+  console.log(setUserAction, "setUserAction_post")
   const imgRef = useRef();
   const [imgPreview, setImgPreview] = useState([]);
   const [addComment, setAddComment] = useState(false);
@@ -139,7 +177,10 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
   const [dislike, setDislike] = useState(false);
   let [favourite, setFavourite] = useState(favorite);
   const [videoElement, setVideoElement] = useState();
-  const [videoState, setVideoState] = useState({ isPlaying: true, progress: 0,});
+  const [videoState, setVideoState] = useState({
+    isPlaying: true,
+    progress: 0,
+  });
   const likeD = useSelector((state) => state.likeDislike);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -183,6 +224,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
       setTextData("");
     }
   }, [post_res]);
+
   function getHashTags(inputText, symbol) {
     const hash_regex = /(?:^|\s)(?:#)([a-zA-Z\d]+)/gm;
     const at_regex = /(?:^|\s)(?:@)([a-zA-Z._-\d]+)/gm;
@@ -264,31 +306,10 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
     setPostReply(true);
   };
   const handleCirculate = (e) => {
-  gtmEvent("circulate icon click", "circulate");
+    setactiontype("gtmEventCirculateIcon");
     setAddComment(false);
     handleClickUncirculate(e);
   };
-   
-  // const handleLikeDislike = (action,id) => {
-  //   const status=action=="LIKE"?like:dislike
-  //   console.log("status12__",status)
-  //   addLike(id, action).then((res) => {
-  //     if (res.data.code === 200) {
-  //       setLike(action=="LIKE"?!like:false);
-  //       setDislike(action=="LIKE"?false:!dislike);
-
-  //       setLikeCount(res?.data?.data?.likes);
-  //           const status=action=="LIKE"?like:dislike
-  //           console.log("status12__",status)
-  //       moengageEvent(action, "Post", {
-  //         ...data,
-  //         Status: status ? 0 : 1,
-  //       });
-  //     }
-  //   });
-  // };
-  // handleLikeDislike("LIKE",1)
-
   const handleLike = (id) => {
     addLike(id, "LIKE").then((res) => {
       if (res.data.code === 200) {
@@ -317,6 +338,15 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
       }
     });
   };
+
+  // console.log(
+  //   "title && !videoFile && !audioFile && !docsFile && !imgData",
+  //   ppt,
+  //   videoFile,
+  //   audioFile,
+  //   docsFile,
+  //   imgData
+  // );
 
   const handleShare = async () => {
     navigator.clipboard
@@ -350,11 +380,16 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
 
   const [metaRecieved, setMetaRecieved] = useState(false);
   const getMetaData = async (target_url) => {
-    const data = JSON.stringify({ target_url: target_url});
+    const data = JSON.stringify({
+      target_url: target_url,
+    });
     let access = null;
- const anonymous_user = JSON.parse(localStorage.getItem("anonymous_user"));
- access = localStorage.access || anonymous_user.token;
-   const config = {
+
+    const anonymous_user = JSON.parse(localStorage.getItem("anonymous_user"));
+
+    access = localStorage.access || anonymous_user.token;
+
+    const config = {
       method: "post",
       url: `${REACT_APP_BASE_URL_FOR_USER}/${
         localStorage.anonymous_user
@@ -415,45 +450,13 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
     }
   }, [title, complete_url]);
 
-  // const handleBookmark = () => {
-  //   const FormData = require("form-data");
-  //   const data = new FormData();
-  //   data.append("post_id", post_id);
-  //   data.append("type", "FAVORITE");
-  //     axios({
-  //     method: "post",
-  //     url: `${POST_API_BASE_URL}/post/${post_id}/favourite`,
-  //     headers: {
-  //       "device-type": "android",
-  //       "user-id": JSON.parse(localStorage.getItem("current_user"))["_id"],
-  //     },
-  //     data: data,
-  //   })
-  //     .then((res) => {
-  //       if (res?.status === 200) {
-  //         if (window.location.pathname.includes("/profile")) {
-  //           GetAllPostDataProfile(true);
-  //         } else {
-  //           setFavourite(1);
-  //         }
-  //         moengageEvent("Save", "Post", {
-  //           PostID: post_id,
-  //           "K Type": post_type,
-  //           "Media type": post_media_type,
-  //         });
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       ToastHandler("dan", "somethings went wrong! try again.");
-  //     });
-  // };
-
-  const Bookmark = (action) => {
+  const handleBookmark = () => {
     const FormData = require("form-data");
     const data = new FormData();
     data.append("post_id", post_id);
     data.append("type", "FAVORITE");
-      axios({
+
+    axios({
       method: "post",
       url: `${POST_API_BASE_URL}/post/${post_id}/favourite`,
       headers: {
@@ -463,8 +466,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
       data: data,
     })
       .then((res) => {
-        if(action=="Bookmark"){
-           if (res?.status === 200) {
+        if (res?.status === 200) {
           if (window.location.pathname.includes("/profile")) {
             GetAllPostDataProfile(true);
           } else {
@@ -476,40 +478,35 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
             "Media type": post_media_type,
           });
         }
-      }
-      else{
-        if (profile === true) return getBookmark();
-        setFavourite(0);
-      }
       })
       .catch((err) => {
         ToastHandler("dan", "somethings went wrong! try again.");
       });
   };
 
+  const handleUnBookmark = () => {
+    const FormData = require("form-data");
+    const data = new FormData();
+    data.append("post_id", post_id);
+    data.append("type", "FAVORITE");
 
-//  const handleUnBookmark = () => {
-//     const FormData = require("form-data");
-//     const data = new FormData();
-//     data.append("post_id", post_id);
-//     data.append("type", "FAVORITE");
-//      axios({
-//       method: "post",
-//       url: `${POST_API_BASE_URL}/post/${post_id}/favourite`,
-//       headers: {
-//         "device-type": "android",
-//         "user-id": JSON.parse(localStorage.getItem("current_user"))["_id"],
-//       },
-//       data: data,
-//     })
-//       .then(() => {
-//         if (profile === true) return getBookmark();
-//         setFavourite(0);
-//       })
-//       .catch(() => {
-//         ToastHandler("dan", "Somethings went wrong! try again.");
-//       });
-//   };
+    axios({
+      method: "post",
+      url: `${POST_API_BASE_URL}/post/${post_id}/favourite`,
+      headers: {
+        "device-type": "android",
+        "user-id": JSON.parse(localStorage.getItem("current_user"))["_id"],
+      },
+      data: data,
+    })
+      .then(() => {
+        if (profile === true) return getBookmark();
+        setFavourite(0);
+      })
+      .catch(() => {
+        ToastHandler("dan", "Somethings went wrong! try again.");
+      });
+  };
 
   // next
   const handleNext = () => {
@@ -589,17 +586,15 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
       })
       .catch(function () {});
   }
-  // const [actionlike, setactionlike] = useState("");
-  // useEffect(() => {
-  //   if (actionlike == "getLikes") {
-  //     getLikes("like");
-  //   }
-  //   if (actionlike == "getDislikes") {
-  //     getLikes("dislike");
-  //   }
-  // }, [actionlike]);
-  // getLikes("dislike");
-  //     getLikes("like");
+  const [actionlike, setactionlike] = useState("");
+  useEffect(() => {
+    if (actionlike == "getLikes") {
+      getLikes("like");
+    }
+    if (actionlike == "getDislikes") {
+      getLikes("dislike");
+    }
+  }, [actionlike]);
   function getLikes(actiotype) {
     const data = new FormData();
     data.append("post_id", `${post_id}`);
@@ -639,12 +634,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
     if (singlePost) {
       // Likes
       if (likeCount > 0) {
-      getLikes("like");
+        setactionlike("getLikes");
       }
       // DisLikes
       if (totalDislike > 0) {
-        getLikes("dislike");
-    
+        setactionlike("getDislikes");
       }
       // Interaction
       getUserInteraction();
@@ -671,44 +665,43 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
   }, [circulateData]);
 
   const postRef = useRef();
-  // const [actiontype, setactiontype] = useState("");
+  const [actiontype, setactiontype] = useState("");
 
-  // useEffect(() => {
-    // if (actiontype == "gtmEventReply") {
-    //   gtmEvent("reply", "reply");
-    //   return;
-    // }
-    // if (actiontype == "gtmEventCirculateIcon") {
-    //   gtmEvent("circulate icon click", "circulate");
-    //   return;
-    // }
-    // if (actiontype == "gtmEventCirculateOption1") {
-    //   gtmEventCirculateOption("circulate option1 click", "circulate option1");
-    //   return;
-    // }
-    // if (actiontype == "gtmEventCirculateOption2") {
-    //   gtmEventCirculateOption("circulate option2 click", "circulate option2");
-    //   return;
-    // }
-    // if (actiontype == "gtmEventCirculateUncirculate") {
-    //   gtmEventCirculateOption(
-    //     "circulate uncirculate click",
-    //     "circulate uncirculate"
-    //   );
-      
-    // }
-    // if (actiontype == "gtmEventlike") {
-    //   gtmEvent("like gtm", "like");
-    //   return;
-    // }
-    // if (actiontype == "gtmEventdislike") {
-    //   gtmEvent("dislike", "dislike");
-    //   return;
-    // }
-    // if (actiontype == "gtmEventShare") {
-    //   gtmEvent("share", "share");
-    // }
-  // }, [actiontype]);
+  useEffect(() => {
+    if (actiontype == "gtmEventReply") {
+      gtmEvent("reply", "reply");
+      return;
+    }
+    if (actiontype == "gtmEventCirculateIcon") {
+      gtmEvent("circulate icon click", "circulate");
+      return;
+    }
+    if (actiontype == "gtmEventCirculateOption1") {
+      gtmEventCirculateOption("circulate option1 click", "circulate option1");
+      return;
+    }
+    if (actiontype == "gtmEventCirculateOption2") {
+      gtmEventCirculateOption("circulate option2 click", "circulate option2");
+      return;
+    }
+    if (actiontype == "gtmEventCirculateUncirculate") {
+      gtmEventCirculateOption(
+        "circulate uncirculate click",
+        "circulate uncirculate"
+      );
+    }
+    if (actiontype == "gtmEventlike") {
+      gtmEvent("like gtm", "like");
+      return;
+    }
+    if (actiontype == "gtmEventdislike") {
+      gtmEvent("dislike", "dislike");
+      return;
+    }
+    if (actiontype == "gtmEventShare") {
+      gtmEvent("share", "share");
+    }
+  }, [actiontype]);
   function gtmEvent(info, action) {
     logger.info(info);
     TagManager.dataLayer({
@@ -851,13 +844,21 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
         <>
           {post_circulated_count > 0 ? (
             <div
-              style={{marginTop: "0.2rem",marginBottom: "-0.8rem",fontSize: "0.9rem",}}
+              style={{
+                marginTop: "0.2rem",
+                marginBottom: "-0.8rem",
+                fontSize: "0.9rem",
+              }}
               className="d-flex"
-             >
+            >
               {!singlePost && (
                 <div
-                  style={{ color: "#4a5982", fontSize: "0.88rem", fontWeight: "bold",
-                    width: "100%",marginLeft: "2rem",
+                  style={{
+                    color: "#4a5982",
+                    fontSize: "0.88rem",
+                    fontWeight: "bold",
+                    width: "100%",
+                    marginLeft: "2rem",
                   }}
                 >
                   {circulate_user && <ReTweetIcon />}
@@ -881,13 +882,16 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                       <>
                         {circulate_user && (
                           <Link
-                            to={`/profile/${circulate_user || timeline_users?.[0]}/posts`}
+                            to={`/profile/${
+                              circulate_user || timeline_users?.[0]
+                            }/posts`}
                             target="_blank"
                             style={{ textDecoration: "none", color: "#4a5982" }}
                           >
                             {circulate_user === current_user["username"] ||
                             timeline_users?.[0] === current_user["username"]
-                              ? "You" : "@" + circulate_user || timeline_users?.[0]}
+                              ? "You"
+                              : "@" + circulate_user || timeline_users?.[0]}
                           </Link>
                         )}
                       </>
@@ -902,18 +906,23 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
           )}
         </>
       )}
-       {window.location.pathname == "/home" &&
+
+      {window.location.pathname == "/home" &&
         liked_usernameTF &&
         !circulate_user &&
         itemType !== "COMMENT" && (
           <div
-            style={{  color: "#4a5982",fontSize: "0.88rem",fontWeight: "bold",marginLeft: "2rem",
+            style={{
+              color: "#4a5982",
+              fontSize: "0.88rem",
+              fontWeight: "bold",
+              marginLeft: "2rem",
               marginBottom: "-10px",
               cursor: "pointer",
             }}
             onClick={() => {
               if (liked_usernameTF?.length > 1) {
-                 getLikes("like");
+                setactionlike("getLikes");
                 setLikedUser(true);
               }
             }}
@@ -932,7 +941,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
         nested_parent &&
         itemType !== "COMMENT" && (
           <div
-            style={{  color: "#4a5982",  fontSize: "0.88rem",  fontWeight: "bold",  marginLeft: "2rem",
+            style={{
+              color: "#4a5982",
+              fontSize: "0.88rem",
+              fontWeight: "bold",
+              marginLeft: "2rem",
             }}
           >
             <RepliedIconComp /> {`${nextItem} replied`}
@@ -965,12 +978,19 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
           <>
             {timeline_action === "LIKE" && (
               <div
-                style={{ marginTop: "0.7rem", marginLeft: "0.5rem", color: "#4a5982", fontSize: "0.88rem",
-                  fontWeight: "bold", width: "100%",
+                style={{
+                  marginTop: "0.7rem",
+                  marginLeft: "0.5rem",
+                  color: "#4a5982",
+                  fontSize: "0.88rem",
+                  fontWeight: "bold",
+                  width: "100%",
                 }}
               >
                 <span
-                  style={{  cursor: "pointer", }}
+                  style={{
+                    cursor: "pointer",
+                  }}
                 >
                   {likeCount === 1 ? (
                     <>
@@ -982,14 +1002,15 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                       >
                         {timeline_users &&
                         timeline_users?.[0] === current_user?.["username"]
-                          ? "You": "@" + timeline_users?.[0]}
+                          ? "You"
+                          : "@" + timeline_users?.[0]}
                       </Link>{" "}
                     </>
                   ) : (
                     <span
                       onClick={() => {
                         if (likeCount > 1) {
-                          getLikes("like");
+                          setactionlike("getLikes");
                           setLikedUser(true);
                         }
                       }}
@@ -1021,7 +1042,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
           <>
             {timeline_action === "DISLIKE" && (
               <div
-                style={{  marginTop: "0.7rem",  marginLeft: "0.5rem",  color: "#4a5982",  fontSize: "0.88rem",
+                style={{
+                  marginTop: "0.7rem",
+                  marginLeft: "0.5rem",
+                  color: "#4a5982",
+                  fontSize: "0.88rem",
                   fontWeight: "bold",
                 }}
               >
@@ -1035,15 +1060,17 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                         style={{ textDecoration: "none", color: "#4a5982" }}
                       >
                         {timeline_users &&
-                        timeline_users?.[0] === current_user?.["username"] ? "You" : "@" + timeline_users?.[0]}
+                        timeline_users?.[0] === current_user?.["username"]
+                          ? "You"
+                          : "@" + timeline_users?.[0]}
                       </Link>{" "}
                     </>
                   ) : (
                     <span
                       onClick={() => {
                         if (totalDislike > 1) {
-                          getLikes("dislike");
-                           setDislikedUser(true);
+                          setactionlike("getDislikes");
+                          setDislikedUser(true);
                         }
                       }}
                     >
@@ -1109,12 +1136,13 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
             {favourite > 0 && (
               <IconButton
                 style={{ width: 50, height: 50 }}
-                onClick={()=>Bookmark("handleUnBookmark")}
+                onClick={handleUnBookmark}
               >
                 <BookmarkIcon />
               </IconButton>
             )}
-                <MenuContainer
+
+            <MenuContainer
               id="basic-button"
               aria-controls="basic-menu"
               aria-haspopup="true"
@@ -1133,7 +1161,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
               {!show_below_line ? (
                 <div
                   className="vl"
-                  style={{height: showAllReplies  ? "calc(100% + 28px)"  : "calc(100% + 45px)",}}
+                  style={{
+                    height: showAllReplies
+                      ? "calc(100% + 28px)"
+                      : "calc(100% + 45px)",
+                  }}
                 ></div>
               ) : (
                 <div></div>
@@ -1145,7 +1177,12 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                 <>
                   <div
                     className="vl"
-                    style={{ height: totalComment >= 2? "calc(100% + 20px)": "calc(100% + 50px)" }}
+                    style={{
+                      height:
+                        totalComment >= 2
+                          ? "calc(100% + 20px)"
+                          : "calc(100% + 50px)",
+                    }}
                   ></div>
                   {!prnt && <div className="small_box"></div>}
                 </>
@@ -1188,7 +1225,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                 <div className="yeWaliDvi">
                   {!metaRecieved && (
                     <div
-                      style={{ color: "#009AD3",height: "25px",overflow: "hidden",}}
+                      style={{
+                        color: "#009AD3",
+                        height: "25px",
+                        overflow: "hidden",
+                      }}
                     >
                       <a
                         rel="noreferrer"
@@ -1224,7 +1265,12 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                       <span
                         className="readMoreSpan"
                         onClick={() => readMoreFunc()}
-                        style={{fontWeight: "bold",fontSize: "0.9rem",color: "#66B984",marginLeft: "5px", }}
+                        style={{
+                          fontWeight: "bold",
+                          fontSize: "0.9rem",
+                          color: "#66B984",
+                          marginLeft: "5px",
+                        }}
                       >
                         {!full
                           ? allWords.misc.readmore
@@ -1256,7 +1302,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                               <Grid item xs={12}>
                                 <img
                                   alt=""
-                                  style={{width: "100%",maxHeight: "350px",objectFit: "cover", }}
+                                  style={{
+                                    width: "100%",
+                                    maxHeight: "350px",
+                                    objectFit: "cover",
+                                  }}
                                   src={metadata?.image_url}
                                 />
                               </Grid>
@@ -1270,8 +1320,14 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                             <p className="meta_content">{metadata?.content}</p>
                           )}
                           <span
-                            style={{  fontSize: "0.80rem",color: "#536471",fontWeight: "bold", display: "block",
-                              marginLeft: "8px",marginBottom: "8px",marginTop: "6px",
+                            style={{
+                              fontSize: "0.80rem",
+                              color: "#536471",
+                              fontWeight: "bold",
+                              display: "block",
+                              marginLeft: "8px",
+                              marginBottom: "8px",
+                              marginTop: "6px",
                             }}
                           >
                             {extractDomain(filterURLs(title)?.[0])}
@@ -1296,7 +1352,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
               )}
               {title !== "undefined" && type !== "POLL" && (
                 <PostTitle
-                  style={{whiteSpace: "pre-wrap", width: "83%", marginLeft: "0rem",}}
+                  style={{
+                    whiteSpace: "pre-wrap",
+                    width: "83%",
+                    marginLeft: "0rem",
+                  }}
                   onClick={() => {
                     navigate(`/post/${post_id}`);
                   }}
@@ -1354,22 +1414,13 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                 <></>
               )}
               {/* pdf */}
-              {/* {pdf && ( */}
+              {pdf && (
                 <div style={{ marginBottom: "1.3rem" }}>
                   <DocsContainer
                     docsFilePath={`${POST_API_BASE_URL}/post-media/media/${docsFile}`}
                     docsFile={
                       post_media ? post_media[0]?.extra?.orignalFilename : null
                     }
-                    pptDoc={
-                      post_media ? post_media[0]?.extra?.orignalFilename : null
-                    }
-                    excelDoc={
-                      post_media ? post_media[0]?.extra?.orignalFilename : null
-                    }
-                    wordDoc={
-                      post_media ? post_media[0]?.extra?.orignalFilename : null
-                    }
                     orignalFilename={
                       post_media ? post_media[0]?.extra?.orignalFilename : null
                     }
@@ -1379,8 +1430,8 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                     }
                   />
                 </div>
-            {/* )} */}
-              {/* {ppt && (
+              )}
+              {ppt && (
                 <div style={{ marginBottom: "1.3rem" }}>
                   <DocsContainer
                     docsFilePath={`${POST_API_BASE_URL}/post-media/media/${docsFile}`}
@@ -1396,8 +1447,8 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                     }
                   />
                 </div>
-              )} */}
-              {/* {excel && (
+              )}
+              {excel && (
                 <div style={{ marginBottom: "1.3rem" }}>
                   <DocsContainer
                     docsFilePath={`${POST_API_BASE_URL}/post-media/media/${docsFile}`}
@@ -1413,8 +1464,8 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                     }
                   />
                 </div>
-              )} */}
-              {/* {doc && (
+              )}
+              {doc && (
                 <div style={{ marginBottom: "1.3rem" }}>
                   <DocsContainer
                     docsFilePath={`${POST_API_BASE_URL}/post-media/media/${docsFile}`}
@@ -1430,7 +1481,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                     }
                   />
                 </div>
-              )} */}
+              )}
               {video ? (
                 <PostVideo
                   src={src}
@@ -1465,11 +1516,20 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                 <>
                   <>
                     <div
-                      style={{ fontSize: "0.8rem", paddingTop: "10px", color: "#606060",}}
+                      style={{
+                        fontSize: "0.8rem",
+                        paddingTop: "10px",
+                        color: "#606060",
+                      }}
                     >
                       <Moment format="hh:mm A">{created_at}</Moment>
                       <span
-                        style={{  marginLeft: "8px",  marginRight: "8px",  fontSize: "0.9rem",  color: "#606060",}}
+                        style={{
+                          marginLeft: "8px",
+                          marginRight: "8px",
+                          fontSize: "0.9rem",
+                          color: "#606060",
+                        }}
                       >
                         •
                       </span>
@@ -1485,7 +1545,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                   </>
                   <Divider style={{ marginTop: "2px" }} />
                   <div
-                    style={{ width: "98%", display: "flex",justifyContent: "space-between",margin: "0.5rem 0.5rem 0.5rem 0.3rem",
+                    style={{
+                      width: "98%",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      margin: "0.5rem 0.5rem 0.5rem 0.3rem",
                       fontSize: "0.95rem",
                     }}
                   >
@@ -1568,12 +1632,21 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
             ) : (
               <Footer
                 className="postFotkk footerStep"
-                style={{ marginLeft: "0rem", width: "100%", }}
-                disabled={ mute_id?.includes(current_user?.username) ? true : false }
+                style={{
+                  marginLeft: "0rem",
+                  width: "100%",
+                }}
+                disabled={
+                  mute_id?.includes(current_user?.username) ? true : false
+                }
               >
                 <div
                   id="post_footer_container"
-                  style={{ display: "flex",width: "99%",alignItems: "center !important", }}
+                  style={{
+                    display: "flex",
+                    width: "99%",
+                    alignItems: "center !important",
+                  }}
                 >
                   <ListItem
                     num={totalComment || "0"}
@@ -1593,8 +1666,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                         return;
                       }
                       handleReply();
-                     gtmEvent("reply", "reply");
-                      set;
+                      setactiontype("gtmEventReply");
                     }}
                     onNumClick={handleReplyClick}
                   />
@@ -1658,7 +1730,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                         return;
                       }
                       handleLike(post_id);
-                          gtmEvent("like gtm", "like");
+                      setactiontype("gtmEventlike");
                     }}
                   />
                   {/* dislikes */}
@@ -1691,7 +1763,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                         return;
                       }
                       handleDislike(post_id);
-                      gtmEvent("dislike", "dislike");
+                      setactiontype("gtmEventdislike");
                     }}
                   />
                 </div>
@@ -1704,7 +1776,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                       "Media type": post_media_type,
                     });
                     handleShare();
-                    gtmEvent("share", "share");
+                    setactiontype("gtmEventShare");
                   }}
                 />
               </Footer>
@@ -1839,6 +1911,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
           title={title}
           GetAllPostDataProfile={GetAllPostDataProfile}
           src={src}
+          setUserAction={setUserAction}
         />
       )}
       {/* menu */}
@@ -1849,7 +1922,8 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
         onClick={handleClose}
         PaperProps={{
           elevation: 0,
-          sx: { overflow: "visible",
+          sx: {
+            overflow: "visible",
             filter: "drop-shadow(0px 1px 2px rgba(0,0,0,0.32))",
             mt: 1.5,
             "& .MuiAvatar-root": {
@@ -1876,7 +1950,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <div
-          style={{ width: 200, display: "flex", flexDirection: "column",}}
+          style={{
+            width: 200,
+            display: "flex",
+            flexDirection: "column",
+          }}
         >
           {favourite ? (
             <>
@@ -1884,7 +1962,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                 style={{ width: "100%", padding: "0.5rem", margin: "0" }}
                 onClick={() => {
                   handleClose();
-                  Bookmark("handleUnBookmark")
+                  handleUnBookmark();
                 }}
               >
                 {allWords.misc.unsave}
@@ -1915,7 +1993,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                     return;
                   }
                   handleClose();
-                  Bookmark("Bookmark")
+                  handleBookmark();
                 }}
               >
                 {allWords.misc.save}
@@ -2031,7 +2109,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
         onClick={handleCloseUncirculate}
       >
         <div
-          style={{  width: 200,  display: "flex",  flexDirection: "column",}}
+          style={{
+            width: 200,
+            display: "flex",
+            flexDirection: "column",
+          }}
         >
           {circulate_user === current_user?.["username"] ||
           timeline_users?.[0] === current_user?.["username"] ||
@@ -2041,10 +2123,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
               onClick={() => {
                 dispatch(circulatePost(post_id, 0, post_type, post_media_type));
                 setCirculateFlag(true);
-                gtmEventCirculateOption(
-                  "circulate uncirculate click",
-                  "circulate uncirculate"
-                );
+                setactiontype("gtmEventCirculateUncirculate");
               }}
             >
               {allWords.misc.uncirc}
@@ -2055,7 +2134,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
               onClick={() => {
                 dispatch(circulatePost(post_id, 1, post_type, post_media_type));
                 setCirculateFlag(true);
-                gtmEventCirculateOption("circulate option1 click", "circulate option1");
+                setactiontype("gtmEventCirculateOption1");
               }}
             >
               {allWords.misc.livert.circ}
@@ -2066,7 +2145,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
             style={{ width: "100%", padding: "0.5rem", margin: "0" }}
             onClick={() => {
               setAddComment(true);
-              gtmEventCirculateOption("circulate option2 click", "circulate option2");
+              setactiontype("gtmEventCirculateOption2");
             }}
           >
             {allWords.misc.livert.quote}
@@ -2157,7 +2236,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
             open={circulatedUser}
             setOpen={setCirculatedUser}
             classes={{ paper: classes.dialog }}
-           >
+          >
             {circulated_username?.length > 0 ? (
               <>
                 <ListComponent

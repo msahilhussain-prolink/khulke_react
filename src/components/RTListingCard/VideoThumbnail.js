@@ -23,7 +23,7 @@ export default function VideoThumbnail(props) {
     rt_details,
     pauseVid,
     muteFlag,
-    upcoming
+    upcoming,
   } = props;
 
   let current_user = null;
@@ -35,33 +35,30 @@ export default function VideoThumbnail(props) {
   const [isMuted, setIsMuted] = useState(true);
   const [videoData, setVideoData] = useState("");
   const [ext, setExt] = useState("");
-     console.log("props",props)
 
-
-const [id,setrt_id]=useState("")
-const[Flag,setFlag]=useState(false)
-   useEffect(()=>{
+  const [id, setrt_id] = useState("");
+  const [Flag, setFlag] = useState(false);
+  useEffect(() => {
     // console.log("1234",id!==rt_id)
-    if(id!==rt_id){
-
-      setrt_id(rt_id)
+    if (id !== rt_id) {
+      setrt_id(rt_id);
     }
-    if(muteFlag!==Flag){
-      setFlag(muteFlag)
+    if (muteFlag !== Flag) {
+      setFlag(muteFlag);
     }
-   },[rt_id,muteFlag])
+  }, [rt_id, muteFlag]);
 
   useEffect(() => {
     const media = media_recording?.find((item) =>
       item?.metadata?.ext.includes("m3u8")
         ? item?.metadata?.ext.includes("m3u8")
         : item?.metadata?.mimeType.includes("video") ||
-        item?.metadata?.mimeType.includes("audio")
+          item?.metadata?.mimeType.includes("audio")
     );
 
     setVideoData(media?.metadata?.tempFilename);
     setExt(media?.metadata?.mimeType);
-    console.log("media?.metadata?.mimeType",media?.metadata?.mimeType)
+    console.log("media?.metadata?.mimeType", media?.metadata?.mimeType);
   }, []);
 
   const toggleMute = () => {
@@ -100,9 +97,13 @@ const[Flag,setFlag]=useState(false)
               sx={{ borderRadius: "10px 10px 0px 0px" }}
             >
               <div>
-                <img alt="" src={WithoutImage} onError={() => {
-                  setCImg(undefined);
-                }} />
+                <img
+                  alt=""
+                  src={WithoutImage}
+                  onError={() => {
+                    setCImg(undefined);
+                  }}
+                />
                 <div className="rt_img_p">
                   <p>{title}</p>
                 </div>
@@ -119,24 +120,24 @@ const[Flag,setFlag]=useState(false)
             width: "100%",
             height:
               rt_details?.["media_recording"]?.[0]?.["metadata"]?.["ext"] !==
-                "mp4"
+              "mp4"
                 ? "11.5rem"
                 : "100%",
           }}
         >
-       
-
           {!ext?.includes("audio") ? (
             <>
-              {console.log("1234",id,muteFlag,owner_details?.user_id)}
-              {Flag==true && id && owner_details && !upcoming &&(
+              {console.log("1234", id, muteFlag, owner_details?.user_id)}
+              {Flag == true && id && owner_details && !upcoming && (
                 <M3U8Player
                   muteFlag={Flag}
-                  src={`${REACT_APP_BASE_URL_CLOUDFRONT}/uploads/${owner_details?.user_id
-                    }/roundtable/${id}/recording/${videoData}${Math.round(videoElem?.current?.duration) < 330
+                  src={`${REACT_APP_BASE_URL_CLOUDFRONT}/uploads/${
+                    owner_details?.user_id
+                  }/roundtable/${id}/recording/${videoData}${
+                    Math.round(videoElem?.current?.duration) < 330
                       ? `#t=0,31`
                       : `#t=300,331`
-                    }`}
+                  }`}
                   rt_data={rt_details?.[0]}
                   current_user={current_user}
                   label="listing"
@@ -147,8 +148,7 @@ const[Flag,setFlag]=useState(false)
                   isMuted={isMuted}
                   className="videoThumbnail"
                   id={`video_thumb`}
-                /> 
-                  
+                />
               )}
             </>
           ) : (
@@ -184,9 +184,13 @@ const[Flag,setFlag]=useState(false)
                       sx={{ borderRadius: "10px 10px 0px 0px" }}
                     >
                       <div>
-                        <img alt="" src={WithoutImage} onError={() => {
-                          setCImg(undefined);
-                        }} />
+                        <img
+                          alt=""
+                          src={WithoutImage}
+                          onError={() => {
+                            setCImg(undefined);
+                          }}
+                        />
                         <div className="rt_img_p">
                           <p>{title}</p>
                         </div>
@@ -198,14 +202,16 @@ const[Flag,setFlag]=useState(false)
               <audio
                 // preload
                 loop={true}
-               poster={`${REACT_APP_BASE_URL_CLOUDFRONT}/uploads/${rt_details?.owner?.user_id}/roundtable/${rt_details?.["_id"]}/profile/${rt_details?.["media"]?.[0]?.["metadata"]?.["tempFilename"]}`}
+                poster={`${REACT_APP_BASE_URL_CLOUDFRONT}/uploads/${rt_details?.owner?.user_id}/roundtable/${rt_details?.["_id"]}/profile/${rt_details?.["media"]?.[0]?.["metadata"]?.["tempFilename"]}`}
                 id="video_id"
                 className="videoClass"
-                src={`${REACT_APP_BASE_URL_CLOUDFRONT}/uploads/${owner_details?.user_id
-                  }/roundtable/${id}/recording/${videoData}${Math.round(videoElem?.current?.duration) < 330
+                src={`${REACT_APP_BASE_URL_CLOUDFRONT}/uploads/${
+                  owner_details?.user_id
+                }/roundtable/${id}/recording/${videoData}${
+                  Math.round(videoElem?.current?.duration) < 330
                     ? `#t=0,31`
                     : `#t=300,331`
-                  }`}
+                }`}
                 ref={videoElem}
                 onLoadedMetadata={() => {
                   videoElem.current.currentTime =

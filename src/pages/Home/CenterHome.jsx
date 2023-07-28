@@ -65,21 +65,12 @@ export default function CenterHome({
   }, [skip]);
 
   useEffect(() => {
-    if (
-      allPostData.length === 0 ||
-      !updatedPostData ||
-      !updatedPostData?.data ||
-      !updatedPostData?.data?.old_post ||
-      updatedPostData?.data?.old_post?.length === 0
-    )
-      return;
+    const hasOldData = updatedPostData?.data?.old_post;
 
-    const getNewlyaddedPost = async () => {
-      const data = updatedPostData.data.old_post;
-      setAllPostData(data);
-    };
-    getNewlyaddedPost();
-  }, [updatedPostData]);
+    if (hasOldData && allPostData !== hasOldData) {
+      setAllPostData(hasOldData);
+    }
+  }, [allPostData, updatedPostData]);
 
   // new filtering
   let filtey = [];
@@ -96,6 +87,9 @@ export default function CenterHome({
   }
 
   newFilFunc();
+  useEffect(() => {
+    newFilFunc();
+  }, [userAction]);
 
   return (
     <div
