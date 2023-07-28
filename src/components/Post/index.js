@@ -166,7 +166,9 @@ const Post = ({
   user_type,
   lang,
   src,
+  setUserAction,
 }) => {
+  console.log(setUserAction, "setUserAction_post")
   const imgRef = useRef();
   const [imgPreview, setImgPreview] = useState([]);
   const [addComment, setAddComment] = useState(false);
