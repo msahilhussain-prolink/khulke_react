@@ -1820,6 +1820,7 @@ a {
   .rtTabStep {
     width: 23rem;
     overflow-x: auto;
+    padding-left: 0px;
   }
 
   .maidan-content-header {

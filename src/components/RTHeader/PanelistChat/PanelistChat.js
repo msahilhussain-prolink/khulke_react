@@ -293,51 +293,50 @@ export default function PanelistChat(props) {
                   message_area_scroller_ref={message_area_scroller_ref}
                 />
               </div>
-
-              <CommentDiv className="d-flex justify-content-between px-2">
-                <FormInput
-                  custom_styles={{
-                    border: "none",
-                    padding: "4px 0px",
-                    zIndex: "4",
-                    width: "70%",
-                  }}
-                >
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      if (text.trim() !== "") {
-                        sendMessages();
-                      }
-                    }}
-                  >
-                    <input
-                      type="text"
-                      style={{ border: "none", width: "20rem" }}
-                      placeholder={allWords.yapp.writeMessageHere}
-                      onChange={(e) => SetText(e.target.value)}
-                      ref={inputRef}
-                    />
-                  </form>
-                </FormInput>
-                <button
-                  className={text.trim() === "" ? `disabled-button` : ""}
-                  style={{
-                    padding: "3px 8px",
-                    width: "fit-content",
-                    backgroundColor: "black",
-                    color: "white",
-                    outline: "none",
-                    border: "none",
-                    borderRadius: "8px",
-                    height: "45px",
-                  }}
-                  onClick={sendMessages}
-                >
-                  {allWords.misc.livert.send}
-                </button>
-              </CommentDiv>
             </>
+            <CommentDiv className="d-flex justify-content-between px-2">
+              <FormInput
+                custom_styles={{
+                  border: "none",
+                  padding: "4px 0px",
+                  zIndex: "9",
+                  width: "70%",
+                }}
+              >
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (text.trim() !== "") {
+                      sendMessages();
+                    }
+                  }}
+                >
+                  <input
+                    type="text"
+                    style={{ border: "none", width: "20rem" }}
+                    placeholder={allWords.yapp.writeMessageHere}
+                    onChange={(e) => SetText(e.target.value)}
+                    ref={inputRef}
+                  />
+                </form>
+              </FormInput>
+              <button
+                className={text.trim() === "" ? `disabled-button` : ""}
+                style={{
+                  padding: "3px 8px",
+                  width: "fit-content",
+                  backgroundColor: "black",
+                  color: "white",
+                  outline: "none",
+                  border: "none",
+                  borderRadius: "8px",
+                  height: "45px",
+                }}
+                onClick={sendMessages}
+              >
+                {allWords.misc.livert.send}
+              </button>
+            </CommentDiv>
           </DialogContentText>
         </DialogContent>
       </div>

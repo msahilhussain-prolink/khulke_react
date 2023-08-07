@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 export default function Tabs({ activeTab, setActiveTab, setAnonymous }) {
     const navigate = useNavigate();
   return (
-    <>
+    <div className="tabDiv_container">
       <div className="tabDiv">
         <div
           onClick={() => {
@@ -49,6 +49,6 @@ export default function Tabs({ activeTab, setActiveTab, setAnonymous }) {
         </div>
         
       </div>
-    </>
+    </div>
   );
 }

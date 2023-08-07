@@ -10,6 +10,7 @@ export const LeftSideBarDiv = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin-left: 1rem;
+  padding-right:0.5rem;
   border-right: 1px solid #e4e9f0;
   overflow-y: auto;
   ::-webkit-scrollbar {

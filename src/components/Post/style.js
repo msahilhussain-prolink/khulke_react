@@ -37,6 +37,7 @@ export const UserNameContainer = styled.div`
   .dot_icon {
     opacity: 0.8;
     margin-top: 0.4rem;
+    margin-left: 0.2rem;
     font-size: 10px;
   }
   p {

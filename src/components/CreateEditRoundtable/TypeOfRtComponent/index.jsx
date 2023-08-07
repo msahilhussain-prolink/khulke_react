@@ -10,7 +10,7 @@ const TypeOfRtComponent = () => {
 
   return (
     <div className="row mx-0">
-      <div className="col-6 col-md-4 col-xl-3 px-0">
+      <div className="col-6 col-md-4 col-xl-3 px-0 mt-2">
         <h6 className="thumbnail-recording-class">
           {allWords.misc.thumbnail}
           <InfoIcon
@@ -23,7 +23,7 @@ const TypeOfRtComponent = () => {
         <ThumbnailComponent fileType="image" uploadType="rtImage" />
       </div>
       {selector === `${allWords.rt.opt3.toLowerCase()}` ? (
-        <div className="col-6 col-md-4 col-xl-3 px-0">
+        <div className="col-6 col-md-4 col-xl-3 px-0 mt-2">
           <h6 className="thumbnail-recording-class">
             {allWords.misc.recording}
             <span className="asterikMark">*</span>

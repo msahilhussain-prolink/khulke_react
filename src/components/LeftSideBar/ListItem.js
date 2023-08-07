@@ -27,7 +27,10 @@ const IconContainer = styled.div`
   } */
 
   .icon_container {
-    padding: 10px 20px 15px 10px;
+    padding: 10px 20px 10px 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
     .selected_icon {
       color: ${(props) => props.theme.color.primary};
     }
@@ -119,40 +122,38 @@ const ListItem = ({
   className,
   txt,
 }) => {
-
   return (
     <IconContainer className={className} onClick={onClick}>
       <div className="icon_container">
-        <Link to={path} style={{ textDecoration: "none" }}>
-          {Icon && !comp && (
-            <>
-              {txt !== "profile" ? (
-                <img
-                  alt=""
-                  src={Icon}
-                  className={`icon  ${selected && "selected_icon"}  ${
-                    iconColor && "iconColor"
-                  }`}
-                  style={{ borderRadius: txt === "profile" ? 8 : 0 }}
-                />
-              ) : (
-                <>
-                  <UserProfile username={username} />{" "}
-                </>
-              )}
-            </>
-          )}
-        </Link>
-        <Link to={path}>
-          {comp && (
+        {Icon && !comp && (
+          <Link to={path} style={{ textDecoration: "none" }}>
+            {txt !== "profile" ? (
+              <img
+                alt=""
+                src={Icon}
+                className={`icon  ${selected && "selected_icon"}  ${
+                  iconColor && "iconColor"
+                }`}
+                style={{ borderRadius: txt === "profile" ? 8 : 0 }}
+              />
+            ) : (
+              <>
+                <UserProfile username={username} />{" "}
+              </>
+            )}
+          </Link>
+        )}
+
+        {comp && (
+          <Link to={path}>
             <Icon
               className={`icon  ${selected && "selected_icon"}  ${
                 iconColor && "iconColor"
               }`}
               style={style}
             />
-          )}
-        </Link>
+          </Link>
+        )}
         <Title
           to={path}
           className={`nav_title ${selected && "selected_title"}`}

@@ -95,7 +95,7 @@ export default function RTListingCard(props) {
     if (checkMuteFlag) {
       setMuteFlag(false);
       setCheckMuteFlag(false);
-      return 
+      return;
     }
     videoElem?.current?.play();
     timer = setInterval(() => {
@@ -123,7 +123,7 @@ export default function RTListingCard(props) {
         flexDirection: window.screen.width < 768 ? "column" : "",
       }}
       onMouseOver={() => {
-      //  yahi hai alert("abc")
+        //  yahi hai alert("abc")
         setMuteFlag(true);
         setTimeout(playVid, 2000);
       }}
@@ -275,9 +275,7 @@ export default function RTListingCard(props) {
               <div>
                 <p className="viewers_count">
                   {past === true ? (
-                    <>
-                      {user_views_count} {allWords.misc.views}
-                    </>
+                    <> {user_views_count} {allWords.misc.views}</>
                   ) : (
                     <>
                       {live && (
@@ -320,8 +318,13 @@ export default function RTListingCard(props) {
                           {upcoming && (
                             <>
                               {invitees_count > 0
-                                ? "+" + invitees_count + allWords.misc.attending
-                                : invitees_count + allWords.misc.attending}
+                                ? "+" +
+                                  invitees_count +
+                                  " " +
+                                  allWords.misc.attending
+                                : invitees_count +
+                                  " " +
+                                  allWords.misc.attending}
                             </>
                           )}
                         </>

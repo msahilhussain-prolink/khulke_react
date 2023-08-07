@@ -12,7 +12,9 @@
   /* margin-top: -0.5rem;
   margin-right: 0.5rem; */
 }
-
+.tabDiv_container {
+  width: 100%;
+}
 .tabDiv {
   display: flex;
   flex-direction: row;
@@ -40,6 +42,10 @@
   background-color: black;
 }
 
+.tabDiv_container::-webkit-scrollbar {
+  height: 2px;
+}
+
 .contHeadkk {
   margin-top: 1.5rem;
   margin-left: 0.5rem;
@@ -59,4 +65,14 @@
   position: sticky;
   top: 0 !important;
   /* background-color: yellow; */
+}
+
+@media (max-width: 560px) {
+  .tabDiv_container {
+    overflow-x: scroll;
+  }
+  
+  .tabDiv {
+    width: 200%;
+  }
 }

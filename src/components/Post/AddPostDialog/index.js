@@ -1191,7 +1191,6 @@ const AddPostDialog = ({
                   variant="contained"
                   component="label"
                   className="add_post_video_icon"
-                  style={{ paddingLeft: "5px" }}
                 >
                   <VideoIcon />
                   <input

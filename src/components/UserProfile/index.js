@@ -17,7 +17,7 @@ export default function UserProfile({
   alt = "",
   id = "pp_img",
   boxShadow = "0px",
-  size = "medium"
+  size = "medium",
 }) {
   const [dp, setDp] = useState(UserDefault);
 
@@ -25,7 +25,7 @@ export default function UserProfile({
     if (username !== "") {
       return profilePhoto({
         username: username,
-        size
+        size,
       })
         .then((res) => {
           if (res.status !== 253) {
@@ -37,7 +37,7 @@ export default function UserProfile({
         .catch(() => {
           setDp(UserDefault);
         });
-      }
+    }
   }, [username]);
 
   return (
@@ -52,7 +52,8 @@ export default function UserProfile({
           height: height,
           borderRadius: borderRadius,
           cursor: "pointer",
-          boxShadow: boxShadow
+          boxShadow: boxShadow,
+          marginRight: "1em",
         }}
         onClick={onClick}
         hidden={hidden}

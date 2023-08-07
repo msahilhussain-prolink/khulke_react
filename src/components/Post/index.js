@@ -92,9 +92,25 @@ import OpenImage from "./ViewImages/OpenImage";
 import PostVideo from "./PostVideo";
 import PostImages from "./ViewImages/PostImages";
 const useStyles = makeStyles(() => ({ dialog: { height: 500 } }));
-const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",className = "",hideIconContainer,
-  video,videoFile,totalComment,totalLike,totalDislike,username,name,
-  formatted_created_at, audio, pdf,
+const Post = ({
+  post_quote_count,
+  singlePost,
+  post_id,
+  imgSrc,
+  imgData,
+  title = "",
+  className = "",
+  hideIconContainer,
+  video,
+  videoFile,
+  totalComment,
+  totalLike,
+  totalDislike,
+  username,
+  name,
+  formatted_created_at,
+  audio,
+  pdf,
   excel,
   ppt,
   doc,
@@ -150,9 +166,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
   user_type,
   lang,
   src,
-  setUserAction,
 }) => {
-  console.log(setUserAction, "setUserAction_post")
   const imgRef = useRef();
   const [imgPreview, setImgPreview] = useState([]);
   const [addComment, setAddComment] = useState(false);
@@ -224,7 +238,6 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
       setTextData("");
     }
   }, [post_res]);
-
   function getHashTags(inputText, symbol) {
     const hash_regex = /(?:^|\s)(?:#)([a-zA-Z\d]+)/gm;
     const at_regex = /(?:^|\s)(?:@)([a-zA-Z._-\d]+)/gm;
@@ -268,6 +281,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
     });
     return text_temp;
   };
+
   const handleBlock = () => {
     let data = JSON.stringify({
       handle: username,
@@ -305,11 +319,13 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
   const handleReply = () => {
     setPostReply(true);
   };
+
   const handleCirculate = (e) => {
-    setactiontype("gtmEventCirculateIcon");
+    gtmEvent("circulate icon click", "circulate");
     setAddComment(false);
     handleClickUncirculate(e);
   };
+
   const handleLike = (id) => {
     addLike(id, "LIKE").then((res) => {
       if (res.data.code === 200) {
@@ -339,15 +355,6 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
     });
   };
 
-  // console.log(
-  //   "title && !videoFile && !audioFile && !docsFile && !imgData",
-  //   ppt,
-  //   videoFile,
-  //   audioFile,
-  //   docsFile,
-  //   imgData
-  // );
-
   const handleShare = async () => {
     navigator.clipboard
       .writeText(`${window.location.origin}/post/${post_id}`)
@@ -362,6 +369,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
         }
       );
   };
+
   useEffect(() => {
     if (like_self > 0) {
       setLike(true);
@@ -380,15 +388,10 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
 
   const [metaRecieved, setMetaRecieved] = useState(false);
   const getMetaData = async (target_url) => {
-    const data = JSON.stringify({
-      target_url: target_url,
-    });
+    const data = JSON.stringify({ target_url: target_url });
     let access = null;
-
     const anonymous_user = JSON.parse(localStorage.getItem("anonymous_user"));
-
     access = localStorage.access || anonymous_user.token;
-
     const config = {
       method: "post",
       url: `${REACT_APP_BASE_URL_FOR_USER}/${
@@ -426,6 +429,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
         setMetadataLoading(false);
       });
   };
+
   let youtubeRegexCheck = new RegExp(
     "^(https?://)?((www.)?youtube.com|youtu.be)/.+$"
   );
@@ -450,12 +454,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
     }
   }, [title, complete_url]);
 
-  const handleBookmark = () => {
+  const Bookmark = (action) => {
     const FormData = require("form-data");
     const data = new FormData();
     data.append("post_id", post_id);
     data.append("type", "FAVORITE");
-
     axios({
       method: "post",
       url: `${POST_API_BASE_URL}/post/${post_id}/favourite`,
@@ -466,45 +469,26 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
       data: data,
     })
       .then((res) => {
-        if (res?.status === 200) {
-          if (window.location.pathname.includes("/profile")) {
-            GetAllPostDataProfile(true);
-          } else {
-            setFavourite(1);
+        if (action == "Bookmark") {
+          if (res?.status === 200) {
+            if (window.location.pathname.includes("/profile")) {
+              GetAllPostDataProfile(true);
+            } else {
+              setFavourite(1);
+            }
+            moengageEvent("Save", "Post", {
+              PostID: post_id,
+              "K Type": post_type,
+              "Media type": post_media_type,
+            });
           }
-          moengageEvent("Save", "Post", {
-            PostID: post_id,
-            "K Type": post_type,
-            "Media type": post_media_type,
-          });
+        } else {
+          if (profile === true) return getBookmark();
+          setFavourite(0);
         }
       })
       .catch((err) => {
         ToastHandler("dan", "somethings went wrong! try again.");
-      });
-  };
-
-  const handleUnBookmark = () => {
-    const FormData = require("form-data");
-    const data = new FormData();
-    data.append("post_id", post_id);
-    data.append("type", "FAVORITE");
-
-    axios({
-      method: "post",
-      url: `${POST_API_BASE_URL}/post/${post_id}/favourite`,
-      headers: {
-        "device-type": "android",
-        "user-id": JSON.parse(localStorage.getItem("current_user"))["_id"],
-      },
-      data: data,
-    })
-      .then(() => {
-        if (profile === true) return getBookmark();
-        setFavourite(0);
-      })
-      .catch(() => {
-        ToastHandler("dan", "Somethings went wrong! try again.");
       });
   };
 
@@ -586,20 +570,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
       })
       .catch(function () {});
   }
-  const [actionlike, setactionlike] = useState("");
-  useEffect(() => {
-    if (actionlike == "getLikes") {
-      getLikes("like");
-    }
-    if (actionlike == "getDislikes") {
-      getLikes("dislike");
-    }
-  }, [actionlike]);
+
   function getLikes(actiotype) {
     const data = new FormData();
     data.append("post_id", `${post_id}`);
-    data.append("type", actiontype);
-    // data.append("type", "like");
+    data.append("type", actiotype);
     const config = {
       method: "post",
       url: `${POST_API_BASE_URL}/action-data`,
@@ -630,15 +605,16 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
     });
   }
 
+
   useEffect(() => {
     if (singlePost) {
       // Likes
       if (likeCount > 0) {
-        setactionlike("getLikes");
+        getLikes("like");
       }
       // DisLikes
       if (totalDislike > 0) {
-        setactionlike("getDislikes");
+        getLikes("dislike");
       }
       // Interaction
       getUserInteraction();
@@ -665,43 +641,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
   }, [circulateData]);
 
   const postRef = useRef();
-  const [actiontype, setactiontype] = useState("");
 
-  useEffect(() => {
-    if (actiontype == "gtmEventReply") {
-      gtmEvent("reply", "reply");
-      return;
-    }
-    if (actiontype == "gtmEventCirculateIcon") {
-      gtmEvent("circulate icon click", "circulate");
-      return;
-    }
-    if (actiontype == "gtmEventCirculateOption1") {
-      gtmEventCirculateOption("circulate option1 click", "circulate option1");
-      return;
-    }
-    if (actiontype == "gtmEventCirculateOption2") {
-      gtmEventCirculateOption("circulate option2 click", "circulate option2");
-      return;
-    }
-    if (actiontype == "gtmEventCirculateUncirculate") {
-      gtmEventCirculateOption(
-        "circulate uncirculate click",
-        "circulate uncirculate"
-      );
-    }
-    if (actiontype == "gtmEventlike") {
-      gtmEvent("like gtm", "like");
-      return;
-    }
-    if (actiontype == "gtmEventdislike") {
-      gtmEvent("dislike", "dislike");
-      return;
-    }
-    if (actiontype == "gtmEventShare") {
-      gtmEvent("share", "share");
-    }
-  }, [actiontype]);
   function gtmEvent(info, action) {
     logger.info(info);
     TagManager.dataLayer({
@@ -717,6 +657,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
     });
   }
   function gtmEventCirculateOption(info, label) {
+    console.log(info, label,"info_label")
     logger.info(info);
     TagManager.dataLayer({
       dataLayer: {
@@ -728,6 +669,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
       },
     });
   }
+  
   const follow_unfollow_driver = async (handle, type) => {
     if (!handle || !type) {
       return;
@@ -858,7 +800,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                     fontSize: "0.88rem",
                     fontWeight: "bold",
                     width: "100%",
-                    marginLeft: "2rem",
+                    marginLeft: "1rem",
                   }}
                 >
                   {circulate_user && <ReTweetIcon />}
@@ -906,7 +848,6 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
           )}
         </>
       )}
-
       {window.location.pathname == "/home" &&
         liked_usernameTF &&
         !circulate_user &&
@@ -916,13 +857,13 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
               color: "#4a5982",
               fontSize: "0.88rem",
               fontWeight: "bold",
-              marginLeft: "2rem",
+              marginLeft: "1rem",
               marginBottom: "-10px",
               cursor: "pointer",
             }}
             onClick={() => {
               if (liked_usernameTF?.length > 1) {
-                setactionlike("getLikes");
+                getLikes("like");
                 setLikedUser(true);
               }
             }}
@@ -987,11 +928,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                   width: "100%",
                 }}
               >
-                <span
-                  style={{
-                    cursor: "pointer",
-                  }}
-                >
+                <span style={{ cursor: "pointer" }}>
                   {likeCount === 1 ? (
                     <>
                       <ShowLikedIcon />
@@ -1010,7 +947,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                     <span
                       onClick={() => {
                         if (likeCount > 1) {
-                          setactionlike("getLikes");
+                          getLikes("like");
                           setLikedUser(true);
                         }
                       }}
@@ -1069,7 +1006,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                     <span
                       onClick={() => {
                         if (totalDislike > 1) {
-                          setactionlike("getDislikes");
+                          getLikes("dislike");
                           setDislikedUser(true);
                         }
                       }}
@@ -1136,12 +1073,11 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
             {favourite > 0 && (
               <IconButton
                 style={{ width: 50, height: 50 }}
-                onClick={handleUnBookmark}
+                onClick={() => Bookmark("handleUnBookmark")}
               >
                 <BookmarkIcon />
               </IconButton>
             )}
-
             <MenuContainer
               id="basic-button"
               aria-controls="basic-menu"
@@ -1410,9 +1346,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                   />
                   {audioCaption && <p>{audioCaption}</p>}
                 </>
-              ) : (
-                <></>
-              )}
+              ) : undefined}
               {/* pdf */}
               {pdf && (
                 <div style={{ marginBottom: "1.3rem" }}>
@@ -1482,6 +1416,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                   />
                 </div>
               )}
+
               {video ? (
                 <PostVideo
                   src={src}
@@ -1575,7 +1510,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                     >
                       <span style={{ fontWeight: "bold" }}>
                         {totalComment + post_circulated_count}
-                      </span>{" "}
+                      </span>
                       {allWords.snip.interactions}
                     </span>
                     <span
@@ -1618,24 +1553,17 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                           </span>{" "}
                           {allWords.snip.dislike}
                         </>
-                      ) : (
-                        <></>
-                      )}
+                      ) : undefined}
                     </span>
                   </div>
                   <Divider />
                 </>
               )}
             </Body>
-            {hideIconContainer ? (
-              ""
-            ) : (
+            {hideIconContainer ? undefined : (
               <Footer
                 className="postFotkk footerStep"
-                style={{
-                  marginLeft: "0rem",
-                  width: "100%",
-                }}
+                style={{ marginLeft: "0rem", width: "100%" }}
                 disabled={
                   mute_id?.includes(current_user?.username) ? true : false
                 }
@@ -1666,12 +1594,13 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                         return;
                       }
                       handleReply();
-                      setactiontype("gtmEventReply");
+                      gtmEvent("reply", "reply");
+                      set;
                     }}
                     onNumClick={handleReplyClick}
                   />
                   <ListItem
-                    num={post_circulated_count + quoteData?.count || 0}
+                    num={post_circulated_count + quoteData?.count || "0"}
                     Icon={
                       circulate_user === current_user?.["username"] ||
                       timeline_users?.[0] === current_user?.["username"] ||
@@ -1730,7 +1659,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                         return;
                       }
                       handleLike(post_id);
-                      setactiontype("gtmEventlike");
+                      gtmEvent("like gtm", "like");
                     }}
                   />
                   {/* dislikes */}
@@ -1763,7 +1692,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                         return;
                       }
                       handleDislike(post_id);
-                      setactiontype("gtmEventdislike");
+                      gtmEvent("dislike", "dislike");
                     }}
                   />
                 </div>
@@ -1776,14 +1705,15 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                       "Media type": post_media_type,
                     });
                     handleShare();
-                    setactiontype("gtmEventShare");
+                    gtmEvent("share", "share");
                   }}
                 />
               </Footer>
             )}
           </div>
         </div>
-      {showAllReplies && (
+
+        {showAllReplies && (
           <>
             <span
               onClick={() => {
@@ -1911,7 +1841,6 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
           title={title}
           GetAllPostDataProfile={GetAllPostDataProfile}
           src={src}
-          setUserAction={setUserAction}
         />
       )}
       {/* menu */}
@@ -1949,20 +1878,14 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <div
-          style={{
-            width: 200,
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
+        <div style={{ width: 200, display: "flex", flexDirection: "column" }}>
           {favourite ? (
             <>
               <MenuItem
                 style={{ width: "100%", padding: "0.5rem", margin: "0" }}
                 onClick={() => {
                   handleClose();
-                  handleUnBookmark();
+                  Bookmark("handleUnBookmark");
                 }}
               >
                 {allWords.misc.unsave}
@@ -1993,7 +1916,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                     return;
                   }
                   handleClose();
-                  handleBookmark();
+                  Bookmark("Bookmark");
                 }}
               >
                 {allWords.misc.save}
@@ -2108,13 +2031,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
         onClose={handleCloseUncirculate}
         onClick={handleCloseUncirculate}
       >
-        <div
-          style={{
-            width: 200,
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
+        <div style={{ width: 200, display: "flex", flexDirection: "column" }}>
           {circulate_user === current_user?.["username"] ||
           timeline_users?.[0] === current_user?.["username"] ||
           circulate_self === 1 ? (
@@ -2123,7 +2040,10 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
               onClick={() => {
                 dispatch(circulatePost(post_id, 0, post_type, post_media_type));
                 setCirculateFlag(true);
-                setactiontype("gtmEventCirculateUncirculate");
+                gtmEventCirculateOption(
+                  "circulate uncirculate click",
+                  "circulate uncirculate"
+                );
               }}
             >
               {allWords.misc.uncirc}
@@ -2134,7 +2054,10 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
               onClick={() => {
                 dispatch(circulatePost(post_id, 1, post_type, post_media_type));
                 setCirculateFlag(true);
-                setactiontype("gtmEventCirculateOption1");
+                gtmEventCirculateOption(
+                  "circulate option1 click",
+                  "circulate option1"
+                );
               }}
             >
               {allWords.misc.livert.circ}
@@ -2145,7 +2068,10 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
             style={{ width: "100%", padding: "0.5rem", margin: "0" }}
             onClick={() => {
               setAddComment(true);
-              setactiontype("gtmEventCirculateOption2");
+              gtmEventCirculateOption(
+                "circulate option2 click",
+                "circulate option2"
+              );
             }}
           >
             {allWords.misc.livert.quote}
@@ -2163,8 +2089,13 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
               <div
                 key={item?.username}
                 className="user__container"
-                style={{ maxHeight: 80, display: "flex", borderRadius: 4,
-                  border: "1px solid lightgray",padding: "0.5rem",marginTop: "0.5rem",
+                style={{
+                  maxHeight: 80,
+                  display: "flex",
+                  borderRadius: 4,
+                  border: "1px solid lightgray",
+                  padding: "0.5rem",
+                  marginTop: "0.5rem",
                   cursor: "pointer",
                 }}
                 onClick={() => {
@@ -2172,8 +2103,12 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
                 }}
               >
                 <UserProfile username={item.username} />
-                  <div
-                  style={{ marginLeft: "1rem", display: "flex",flexDirection: "column",
+
+                <div
+                  style={{
+                    marginLeft: "1rem",
+                    display: "flex",
+                    flexDirection: "column",
                   }}
                 >
                   <span style={{ fontWeight: "bold" }}>{item?.name}</span>
@@ -2229,7 +2164,7 @@ const Post = ({ post_quote_count,singlePost,post_id,imgSrc,imgData,title = "",cl
           </Dialog>
         </>
       )}
-    {circulatedUser && (
+      {circulatedUser && (
         <>
           <Dialog
             title={"Circulated By"}

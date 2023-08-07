@@ -61,7 +61,6 @@ const Reply = ({
   parentType,
   GetAllPostDataProfile,
   src,
-  setUserAction,
 }) => {
   const replyData = useSelector((state) => state.post.replyData);
 
@@ -284,9 +283,6 @@ const Reply = ({
   const handleReply = () => {
     setLike(false);
     setLikeCount(0);
-    let formData = new FormData();
-
-    let str = textInput.replace(/"/g, '\\"');
 
     if (
       textInput === "" &&
@@ -299,98 +295,39 @@ const Reply = ({
       return;
     }
 
-    if (
-      textInput &&
-      !imgArray.length > 0 &&
-      !docsFilePath &&
-      !audioFilePath &&
-      !videoFilePath
-    ) {
-      if (textInput.includes('"')) {
-        formData.append(
-          "message",
-          `{"type":"COMMENT","post_id":"${post_id}","text":"${str}","parent_type":"POST","usernames":"[]"}`
-        );
-      } else {
-        formData.append(
-          "message",
-          `{"type":"COMMENT","post_id":"${post_id}","text":"${textInput}","parent_type":"POST","usernames":"[]"}`
-        );
-      }
-    } else if ((imgArray.length > 0 && textInput) || imgArray.length > 0) {
-      if (imgArray.length === 1) {
-        if (textInput.includes('"')) {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"IMAGE","text":"${str}","caption":["${imageCaption1}"],"tags":[""],"file_type":["IMAGE"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        } else {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"IMAGE","text":"${textInput}","caption":["${imageCaption1}"],"tags":[""],"file_type":["IMAGE"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        }
+    let formData = new FormData();
+    let messageData = {
+      type: "COMMENT",
+      post_id: post_id,
+      text: textInput.includes('"')
+        ? textInput.replace(/"/g, '\\"')
+        : textInput,
+      caption: [],
+      tags: [],
+      file_type: [],
+      start_duration: [],
+      end_duration: [],
+      duration: [],
+      trim: [],
+      is_snap: ["false"],
+      is_recorded: ["false"],
+      parent_type: parentType === "SNIPPET" ? "SNIPPET" : "POST",
+      usernames: "[]",
+    };
 
-        formData.append("image", imgArray[0].file);
-      }
-      if (imgArray.length === 2) {
-        if (textInput.includes('"')) {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"IMAGE","text":"${str}","caption":["${imageCaption1}","${imageCaption2}"],"tags":[""],"file_type":["IMAGE","IMAGE"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        } else {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"IMAGE","text":"${textInput}","caption":["${imageCaption1}","${imageCaption2}"],"tags":[""],"file_type":["IMAGE","IMAGE"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        }
+    if (imgArray.length > 0) {
+      imgArray.forEach((image) => {
+        formData.append("image", image.file);
+        messageData.caption.push(image[`imageCaption${image.index}`]);
+        messageData.file_type.push("IMAGE");
+      });
+    }
 
-        for (let i in imgArray) {
-          formData.append("image", imgArray[i].file);
-        }
-      }
-
-      if (imgArray.length === 3) {
-        if (textInput.includes('"')) {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"IMAGE","text":"${str}","caption":["${imageCaption1}","${imageCaption2}","${imageCaption3}"],"tags":[""],"file_type":["IMAGE","IMAGE","IMAGE"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        } else {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"IMAGE","text":"${textInput}","caption":["${imageCaption1}","${imageCaption2}","${imageCaption3}"],"tags":[""],"file_type":["IMAGE","IMAGE","IMAGE"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        }
-
-        for (let i in imgArray) {
-          formData.append("image", imgArray[i].file);
-        }
-      }
-
-      if (imgArray.length === 4) {
-        if (textInput.includes('"')) {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"IMAGE","text":"${str}","caption":["${imageCaption1}","${imageCaption2}","${imageCaption3}","${imageCaption4}"],"tags":[""],"file_type":["IMAGE","IMAGE","IMAGE","IMAGE"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        } else {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"IMAGE","text":"${textInput}","caption":["${imageCaption1}","${imageCaption2}","${imageCaption3}","${imageCaption4}"],"tags":[""],"file_type":["IMAGE","IMAGE","IMAGE","IMAGE"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        }
-
-        for (let i in imgArray) {
-          formData.append("image", imgArray[i].file);
-        }
-      }
-    } else if ((audioFilePath && textInput) || audioFilePath) {
+    if (audioFilePath) {
       if (replyAudioFile.size / 10 ** 6 > 250) {
         return ToastHandler(
           "warn",
-          "Upload a audio file less than 250 MB with maximum duration as 2min 30sec."
+          "Upload an audio file less than 250 MB with a maximum duration of 2min 30sec."
         );
       }
       if (audioDuration > 150) {
@@ -400,20 +337,16 @@ const Reply = ({
         );
       }
 
-      if (textInput.includes('"')) {
-        formData.append(
-          "message",
-          `{"type":"COMMENT","post_id":"${post_id}","media_type":"AUDIO","text":"${str}","caption":[""],"tags":[""],"file_type":["AUDIO"],"start_duration":["${startAudioTime}"],"end_duration":["${endAudioTime}"],"duration":["${audioDuration}"],"trim":["true"],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST"}`
-        );
-      } else {
-        formData.append(
-          "message",
-          `{"type":"COMMENT","post_id":"${post_id}","media_type":"AUDIO","text":"${textInput}","caption":[""],"tags":[""],"file_type":["AUDIO"],"start_duration":["${startAudioTime}"],"end_duration":["${endAudioTime}"],"duration":["${audioDuration}"],"trim":["true"],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST"}`
-        );
-      }
-
       formData.append("audio", replyAudioFile);
-    } else if ((videoFilePath && textInput) || videoFilePath) {
+      messageData.media_type = "AUDIO";
+      messageData.duration.push(audioDuration);
+      messageData.trim.push("true");
+      messageData.file_type.push("AUDIO");
+      messageData.start_duration.push(startAudioTime);
+      messageData.end_duration.push(endAudioTime);
+    }
+
+    if (videoFilePath) {
       if (videoDuration > 150) {
         return ToastHandler(
           "warn",
@@ -421,70 +354,35 @@ const Reply = ({
         );
       }
 
-      if (textInput.includes('"')) {
-        formData.append(
-          "message",
-          `{"type":"COMMENT","post_id":"${post_id}","media_type":"VIDEO","text":"${str}","caption":[""],"tags":[""],"file_type":["VIDEO"],"start_duration":["${startVideoTime}"],"end_duration":["${endVideoTime}"],"duration":["${videoDuration}"],"trim":["true"],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST"}`
-        );
-      } else if (parentType === "SNIPPET" && textInput.includes('"')) {
-        formData.append(
-          "message",
-          `{"type":"COMMENT","post_id":"${post_id}","media_type":"VIDEO","text":"${textInput}","caption":[""],"tags":[""],"file_type":["VIDEO"],"start_duration":["${startVideoTime}"],"end_duration":["${endVideoTime}"],"duration":["${videoDuration}"],"trim":["true"],"is_snap":["false"],"is_recorded":["false"],"parent_type":"SNIPPET"}`
-        );
-        formData.append("video", quoteVideoFile);
-      } else {
-        formData.append(
-          "message",
-          `{"type":"COMMENT","post_id":"${post_id}","media_type":"VIDEO","text":"${textInput}","caption":[""],"tags":[""],"file_type":["VIDEO"],"start_duration":["${startVideoTime}"],"end_duration":["${endVideoTime}"],"duration":["${videoDuration}"],"trim":["true"],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST"}`
-        );
-      }
-
       formData.append("video", quoteVideoFile);
-    } else if ((docsFilePath && textInput) || docsFilePath) {
+      messageData.media_type = "VIDEO";
+      messageData.duration.push(videoDuration);
+      messageData.trim.push("true");
+      messageData.file_type.push("VIDEO");
+      messageData.start_duration.push(startVideoTime);
+      messageData.end_duration.push(endVideoTime);
+    }
+
+    if (docsFilePath) {
       if (xlFile) {
-        if (textInput.includes('"')) {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"XLS","text":"${str}","caption":["${caption}"],"tags":[""],"file_type":["XLS"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        } else {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"XLS","text":"${textInput}","caption":["${caption}"],"tags":[""],"file_type":["XLS"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        }
-
         formData.append("doc", xlFile);
+        messageData.media_type = "XLS";
+        messageData.file_type.push("XLS");
+        messageData.caption.push(caption);
       } else if (quoteDocsFile) {
-        if (textInput.includes('"')) {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"PDF","text":"${str}","caption":["${caption}"],"tags":[""],"file_type":["PDF"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        } else {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"PDF","text":"${textInput}","caption":["${caption}"],"tags":[""],"file_type":["PDF"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        }
-
         formData.append("doc", quoteDocsFile);
+        messageData.media_type = "PDF";
+        messageData.file_type.push("PDF");
+        messageData.caption.push(caption);
       } else if (wordFile) {
-        if (textInput.includes('"')) {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"DOC","text":"${str}","caption":["${caption}"],"tags":[""],"file_type":["DOC"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        } else {
-          formData.append(
-            "message",
-            `{"type":"COMMENT","post_id":"${post_id}","media_type":"DOC","text":"${textInput}","caption":["${caption}"],"tags":[""],"file_type":["DOC"],"start_duration":[null],"end_duration":[null],"duration":[null],"trim":[null],"is_snap":["false"],"is_recorded":["false"],"parent_type":"POST","usernames":"[]"}`
-          );
-        }
-
         formData.append("doc", wordFile);
+        messageData.media_type = "DOC";
+        messageData.file_type.push("DOC");
+        messageData.caption.push(caption);
       }
     }
+
+    formData.append("message", JSON.stringify(messageData));
 
     dispatch(
       addReplyPost(formData, parentType, (err) => {
@@ -494,9 +392,9 @@ const Reply = ({
         ToastHandler("sus", "Your post has been created");
       })
     );
+
     setPostReply(false);
     setReplyFlg(true);
-    setUserAction((prev) => !prev);
   };
 
   const handleCrop = () => {
@@ -592,22 +490,9 @@ const Reply = ({
     }
   }, [replyData]);
 
-  //   console.log("test123456", audioFile,
-  // pdf,
-  // ppt,
-  // doc,
-  // docsFile,
-  // excel,
-  // imgData,
-  // videoFile,
-  // formatted_created_at,
-  // src
-  // )
-
   return (
     <Dialog
       open={postReply}
-      // onClose={() => setPostReply(false)}
       PaperProps={{
         style: { borderRadius: "0.8rem", width: 600 },
       }}
@@ -655,37 +540,326 @@ const Reply = ({
             <hr />
           </div>
           <div className="reply_body">
-            {/* {title && !videoFile && !audioFile && !docsFile && !imgData && ( */}
-            <Post
-              post_media={post_media}
-              post_id={post_id}
-              hideIconContainer
-              circulate_user={circulate_user}
-              username={username}
-              name={name}
-              title={title}
-              videoFile={videoFile ? videoFile : ""}
-              audioFile={audioFile ? audioFile : ""}
-              docsFile={docsFile ? docsFile : ""}
-              imgData={imgData ? imgData : []}
-              pdf={pdf ? pdf : ""}
-              ppt={ppt ? ppt : ""}
-              excel={excel ? excel : ""}
-              doc={doc ? doc : ""}
-              src={src ? src : ""}
-              formatted_created_at={
-                formatted_created_at ? formatted_created_at : ""
-              }
-              // audio={audio?audio:""}
-              className={"post_card"}
-              totalLike={likeCount}
-              like_self={like_self}
-              dislike_self={dislike_self}
-              post_circulated_count={post_circulated_count}
-              totalComment={totalComment}
-              noShowReplyLine={true}
-            />
-
+            {title && !videoFile && !audioFile && !docsFile && !imgData && (
+              <Post
+                post_media={post_media}
+                post_id={post_id}
+                hideIconContainer
+                circulate_user={circulate_user}
+                username={username}
+                name={name}
+                title={title}
+                className={"post_card"}
+                totalLike={likeCount}
+                like_self={like_self}
+                dislike_self={dislike_self}
+                post_circulated_count={post_circulated_count}
+                totalComment={totalComment}
+                noShowReplyLine={true}
+              />
+            )}
+            {audioFile && title ? (
+              <>
+                <Post
+                  post_media={post_media}
+                  post_id={post_id}
+                  hideIconContainer
+                  circulate_user={circulate_user}
+                  title={title}
+                  username={username}
+                  name={name}
+                  audio
+                  audioFile={audioFile}
+                  className={"post_card"}
+                  totalLike={likeCount}
+                  like_self={like_self}
+                  dislike_self={dislike_self}
+                  post_circulated_count={post_circulated_count}
+                  totalComment={totalComment}
+                  noShowReplyLine={true}
+                />
+              </>
+            ) : (
+              <>
+                {audioFile && (
+                  <Post
+                    post_media={post_media}
+                    post_id={post_id}
+                    hideIconContainer
+                    circulate_user={circulate_user}
+                    username={username}
+                    name={name}
+                    audio
+                    audioFile={audioFile}
+                    className={"post_card"}
+                    totalLike={likeCount}
+                    like_self={like_self}
+                    dislike_self={dislike_self}
+                    post_circulated_count={post_circulated_count}
+                    totalComment={totalComment}
+                    noShowReplyLine={true}
+                  />
+                )}
+              </>
+            )}
+            {pdf && title ? (
+              <Post
+                post_media={post_media}
+                post_id={post_id}
+                hideIconContainer
+                circulate_user={circulate_user}
+                title={title}
+                username={username}
+                name={name}
+                pdf
+                docsFile={docsFile}
+                className={"post_card"}
+                totalLike={likeCount}
+                like_self={like_self}
+                dislike_self={dislike_self}
+                post_circulated_count={post_circulated_count}
+                totalComment={totalComment}
+                noShowReplyLine={true}
+              />
+            ) : (
+              <>
+                {pdf && (
+                  <Post
+                    post_media={post_media}
+                    post_id={post_id}
+                    hideIconContainer
+                    circulate_user={circulate_user}
+                    username={username}
+                    name={name}
+                    pdf
+                    docsFile={docsFile}
+                    className={"post_card"}
+                    totalLike={likeCount}
+                    like_self={like_self}
+                    dislike_self={dislike_self}
+                    post_circulated_count={post_circulated_count}
+                    totalComment={totalComment}
+                    noShowReplyLine={true}
+                  />
+                )}
+              </>
+            )}
+            {ppt && title ? (
+              <Post
+                post_media={post_media}
+                post_id={post_id}
+                hideIconContainer
+                circulate_user={circulate_user}
+                title={title}
+                username={username}
+                name={name}
+                ppt
+                docsFile={docsFile}
+                className={"post_card"}
+                totalLike={likeCount}
+                like_self={like_self}
+                dislike_self={dislike_self}
+                post_circulated_count={post_circulated_count}
+                totalComment={totalComment}
+                noShowReplyLine={true}
+              />
+            ) : (
+              <>
+                {ppt && (
+                  <Post
+                    post_media={post_media}
+                    post_id={post_id}
+                    hideIconContainer
+                    circulate_user={circulate_user}
+                    username={username}
+                    name={name}
+                    ppt
+                    docsFile={docsFile}
+                    className={"post_card"}
+                    totalLike={likeCount}
+                    like_self={like_self}
+                    dislike_self={dislike_self}
+                    post_circulated_count={post_circulated_count}
+                    totalComment={totalComment}
+                    noShowReplyLine={true}
+                  />
+                )}
+              </>
+            )}
+            {excel && title ? (
+              <Post
+                post_media={post_media}
+                post_id={post_id}
+                hideIconContainer
+                circulate_user={circulate_user}
+                title={title}
+                username={username}
+                name={name}
+                excel
+                docsFile={docsFile}
+                className={"post_card"}
+                totalLike={likeCount}
+                like_self={like_self}
+                dislike_self={dislike_self}
+                post_circulated_count={post_circulated_count}
+                totalComment={totalComment}
+                noShowReplyLine={true}
+              />
+            ) : (
+              <>
+                {excel && (
+                  <Post
+                    post_media={post_media}
+                    post_id={post_id}
+                    hideIconContainer
+                    circulate_user={circulate_user}
+                    username={username}
+                    name={name}
+                    excel
+                    docsFile={docsFile}
+                    className={"post_card"}
+                    totalLike={likeCount}
+                    like_self={like_self}
+                    dislike_self={dislike_self}
+                    post_circulated_count={post_circulated_count}
+                    totalComment={totalComment}
+                    noShowReplyLine={true}
+                  />
+                )}
+              </>
+            )}
+            {doc && title ? (
+              <Post
+                post_media={post_media}
+                post_id={post_id}
+                hideIconContainer
+                circulate_user={circulate_user}
+                title={title}
+                username={username}
+                name={name}
+                doc
+                docsFile={docsFile}
+                className={"post_card"}
+                totalLike={likeCount}
+                like_self={like_self}
+                dislike_self={dislike_self}
+                post_circulated_count={post_circulated_count}
+                totalComment={totalComment}
+                noShowReplyLine={true}
+              />
+            ) : (
+              <>
+                {doc && (
+                  <Post
+                    post_media={post_media}
+                    post_id={post_id}
+                    hideIconContainer
+                    circulate_user={circulate_user}
+                    username={username}
+                    name={name}
+                    doc
+                    docsFile={docsFile}
+                    className={"post_card"}
+                    totalLike={likeCount}
+                    like_self={like_self}
+                    dislike_self={dislike_self}
+                    post_circulated_count={post_circulated_count}
+                    totalComment={totalComment}
+                    noShowReplyLine={true}
+                  />
+                )}
+              </>
+            )}
+            {videoFile && title ? (
+              <>
+                <Post
+                  post_media={post_media}
+                  post_id={post_id}
+                  hideIconContainer
+                  circulate_user={circulate_user}
+                  title={title}
+                  username={username}
+                  name={name}
+                  video
+                  videoFile={videoFile}
+                  className={"post_card"}
+                  formatted_created_at={formatted_created_at}
+                  totalLike={likeCount}
+                  like_self={like_self}
+                  dislike_self={dislike_self}
+                  post_circulated_count={post_circulated_count}
+                  totalComment={totalComment}
+                  noShowReplyLine={true}
+                  src={src}
+                />
+              </>
+            ) : (
+              <>
+                {videoFile && (
+                  <Post
+                    post_media={post_media}
+                    post_id={post_id}
+                    hideIconContainer
+                    circulate_user={circulate_user}
+                    username={username}
+                    name={name}
+                    video
+                    videoFile={videoFile}
+                    className={"post_card"}
+                    totalLike={likeCount}
+                    like_self={like_self}
+                    dislike_self={dislike_self}
+                    post_circulated_count={post_circulated_count}
+                    totalComment={totalComment}
+                    noShowReplyLine={true}
+                    src={src}
+                  />
+                )}
+              </>
+            )}
+            {imgData && title ? (
+              <>
+                <Post
+                  post_media={post_media}
+                  post_id={post_id}
+                  hideIconContainer
+                  circulate_user={circulate_user}
+                  title={title}
+                  username={username}
+                  name={name}
+                  imgData={imgData}
+                  className={"post_card"}
+                  formatted_created_at={formatted_created_at}
+                  totalLike={likeCount}
+                  like_self={like_self}
+                  dislike_self={dislike_self}
+                  post_circulated_count={post_circulated_count}
+                  totalComment={totalComment}
+                  noShowReplyLine={true}
+                />
+              </>
+            ) : (
+              <>
+                {imgData && (
+                  <Post
+                    post_media={post_media}
+                    post_id={post_id}
+                    hideIconContainer
+                    circulate_user={circulate_user}
+                    username={username}
+                    name={name}
+                    imgData={imgData}
+                    className={"post_card"}
+                    totalLike={likeCount}
+                    like_self={like_self}
+                    dislike_self={dislike_self}
+                    post_circulated_count={post_circulated_count}
+                    totalComment={totalComment}
+                    noShowReplyLine={true}
+                  />
+                )}
+              </>
+            )}
             <div className="reply_input_container">
               <UserProfile
                 username={current_user?.["username"]}
@@ -730,6 +904,7 @@ const Reply = ({
                 audioFile={replyAudioFile}
               />
             )}
+
             {videoFilePath && (
               <>
                 <Grid item md={12}>
@@ -755,8 +930,61 @@ const Reply = ({
                   imgUpload.push(item);
                   return (
                     <>
-                      {imgArray.length >= 1 && (
+                      {imgArray.length === 1 && (
                         <Grid item md={12} key={item}>
+                          <ImageContainer
+                            imageCaption={imageCaptionPropHandler(index)}
+                            onCaptionChange={(e) => onCaptionChange(e, index)}
+                            setCaption={setCaption}
+                            imageSrc={imageSrc}
+                            setImageSrc={setImageSrc}
+                            editImage={editImage}
+                            setEditImage={setEditImage}
+                            imgArray={imgArray}
+                            setImgArray={setImgArray}
+                            index={index}
+                            imgSrc={item}
+                          />
+                        </Grid>
+                      )}
+                      {imgArray.length === 2 && (
+                        <Grid item md={6} key={item}>
+                          <ImageContainer
+                            imageCaption={imageCaptionPropHandler(index)}
+                            onCaptionChange={(e) => onCaptionChange(e, index)}
+                            setCaption={setCaption}
+                            imageSrc={imageSrc}
+                            setImageSrc={setImageSrc}
+                            editImage={editImage}
+                            setEditImage={setEditImage}
+                            imgArray={imgArray}
+                            setImgArray={setImgArray}
+                            index={index}
+                            imgSrc={item}
+                          />
+                        </Grid>
+                      )}
+                      {imgArray.length === 3 && (
+                        <>
+                          <Grid item md={6} key={item}>
+                            <ImageContainer
+                              imageCaption={imageCaptionPropHandler(index)}
+                              onCaptionChange={(e) => onCaptionChange(e, index)}
+                              setCaption={setCaption}
+                              imageSrc={imageSrc}
+                              setImageSrc={setImageSrc}
+                              editImage={editImage}
+                              setEditImage={setEditImage}
+                              imgArray={imgArray}
+                              setImgArray={setImgArray}
+                              index={index}
+                              imgSrc={item}
+                            />
+                          </Grid>
+                        </>
+                      )}
+                      {imgArray.length === 4 && (
+                        <Grid item md={6} key={item}>
                           <ImageContainer
                             imageCaption={imageCaptionPropHandler(index)}
                             onCaptionChange={(e) => onCaptionChange(e, index)}
@@ -800,10 +1028,10 @@ const Reply = ({
                 />
               </>
             )}
+
           </Grid>
         </ReplyDiv>
       </DialogContent>
-
       <DialogActions>
         {editImage && (
           <div

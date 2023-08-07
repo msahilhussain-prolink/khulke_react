@@ -35,9 +35,9 @@ const QuotedCard = ({
               post_type={post_type}
               name={post_parent?.[0]?.name || ""}
               username={post_parent?.[0]?.username || ""}
+              title={post_parent?.[0]?.text}
               audio
               audioFile={post_parent?.[0]?.media[0]?.name}
-              title={post_parent?.[0]?.text}
               formatted_created_at={post_parent?.[0]?.formatted_created_at}
               type={post_parent?.[0]?.type}
               polling_data={polling_data}

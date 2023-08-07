@@ -103,6 +103,7 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
     option: [],
     duration: "",
   });
+  
   const [msgFlag, setMsgFlag] = useState(false);
   const [addPost, setAddPost] = useState(false);
 
@@ -719,6 +720,7 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
     setVideoFilePath();
     setTextCount(0);
   };
+
   useEffect(() => {
     if (post_res) {
       dispatch(getPostData(20));
@@ -969,7 +971,6 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
       },
     });
   }
-
   const closeModal = () => {
     setImgArray([]);
     setState2(false);
@@ -1012,7 +1013,7 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
           setMsgFlag={setMsgFlag}
         />
       )}
-      <CardContainer className="bg-white createPostStep">
+      <CardContainer className="bg-white createPostStep"> 
         <div
           className="d-flex"
           style={{
@@ -1052,7 +1053,7 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
               variant="contained"
               component="label"
               // onClick={gtmEventVideo}
-              className="videoStep"
+              className="videoStep createPostIcon"
             >
               {/* <VideoIcon /> */}
               <img src={VideoIconSvg} alt="" />
@@ -1076,13 +1077,12 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
                 </Typography>
               )}
             </IconButton>
-
             {/* images */}
             <IconButton
               variant="contained"
               component="label"
               // onClick={gtmEventImage}
-              className="photoStep"
+              className="photoStep createPostIcon"
             >
               <img src={ImageIconSvg} alt="" />
               {/* <PhotoIcon /> */}
@@ -1111,7 +1111,7 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
             <IconButton
               variant="contained"
               component="label"
-              className="docStep"
+              className="docStep createPostIcon"
             >
               <img src={DocIconSvg} alt="" />
               {/* <DocsIcon /> */}
@@ -1139,7 +1139,7 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
             <IconButton
               variant="contained"
               component="label"
-              className="audioStep"
+              className="audioStep createPostIcon"
             >
               <input
                 type="file"
@@ -1163,7 +1163,6 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
               )}
               {/* <AudioIcon /> */}
             </IconButton>
-
             {/* poll icon */}
             <IconButton
               variant="contained"
@@ -1172,7 +1171,7 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
                 setState2(true);
                 setPollState(true);
               }}
-              className="pollStep"
+              className="pollStep createPostIcon"
             >
               <img
                 src={PollIcon}
@@ -1197,6 +1196,7 @@ const CreatePost = ({ setDayDuration, setHourDuration }) => {
             </IconButton>
           </div>
         </IconContainer>
+
       </CardContainer>
       {state2 && (
         <Dialog

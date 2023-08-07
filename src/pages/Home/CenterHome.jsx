@@ -26,6 +26,7 @@ export default function CenterHome({
   const [postError, setPostError] = useState({ message: "", val: false });
   const updatedPostData = useSelector((state) => state.post.posts);
   const circulateData = useSelector((state) => state.post.circulateData);
+  const [useAction, setUserAction]= useState(null)
   const [skip, setSkip] = useState(0);
   const limit = 20;
   const [callingApi, setCallingApi] = useState(false);
@@ -72,6 +73,11 @@ export default function CenterHome({
     }
   }, [allPostData, updatedPostData]);
 
+
+  useEffect(()=>{
+
+  },[useAction])
+
   // new filtering
   let filtey = [];
   function newFilFunc() {
@@ -87,9 +93,6 @@ export default function CenterHome({
   }
 
   newFilFunc();
-  useEffect(() => {
-    newFilFunc();
-  }, [userAction]);
 
   return (
     <div

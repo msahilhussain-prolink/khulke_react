@@ -19,8 +19,6 @@ export const CardHeader = styled.div`
   }
   .dot_icon {
     opacity: 0.5;
-    margin-right: 0.2rem;
-    margin-top: 0.2rem;
   }
   .icon {
     color: ${(props) => props.theme.color.flamingo};

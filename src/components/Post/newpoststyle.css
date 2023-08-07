@@ -136,8 +136,8 @@
   font-weight: bold;
   color: rgb(46, 46, 46);
   padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 2px;
+  padding-right: 6px;
+  padding-top: 4px;
 }
 
 #townhall_post_body .meta_cont_in_post .meta_content {
@@ -152,7 +152,7 @@
   margin-bottom: -2px !important;
   margin-top: 0px !important;
   line-height: 18px !important;
-  padding-left: 4px;
+  padding-left: 6px;
   padding-right: 2px;
   color: #2b3136 !important;
 }
@@ -218,7 +218,7 @@
 .show_all_dotted_line:after {
   content: "";
   position: absolute;
-  z-index: 10;
+  z-index: -1;
   top: 0;
   bottom: 0;
   left: 26px;
