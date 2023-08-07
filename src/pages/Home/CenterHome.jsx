@@ -74,6 +74,24 @@ export default function CenterHome({
   }, [allPostData, updatedPostData]);
 
 
+  const useActionGetData = async () => {
+    setCallingApi(true);
+    var response;
+    try {
+      response = await getTownhallPost(1, skip);
+      setPostLoading(false);
+      setCallingApi(false);
+    } catch (e) {
+      setPostLoading(false);
+      setCallingApi(false);
+      return ToastHandler("dan", allWords.misc.pages.facingDiffi);
+    }
+    const data = response.data.data.old_post;
+    if (data.length < 0 || data[0]?.message)
+      return setPostError({ val: true, message: data[0]?.message });
+    setAllPostData((prev) => [...prev, ...data]);
+  };
+
   useEffect(()=>{
 
   },[useAction])
