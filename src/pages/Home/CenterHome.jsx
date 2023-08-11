@@ -26,7 +26,7 @@ export default function CenterHome({
   const [postError, setPostError] = useState({ message: "", val: false });
   const updatedPostData = useSelector((state) => state.post.posts);
   const circulateData = useSelector((state) => state.post.circulateData);
-  const [useAction, setUserAction]= useState(null)
+  const [useAction, setUserAction] = useState(null);
   const [skip, setSkip] = useState(0);
   const limit = 20;
   const [callingApi, setCallingApi] = useState(false);
@@ -73,7 +73,6 @@ export default function CenterHome({
     }
   }, [allPostData, updatedPostData]);
 
-
   const useActionGetData = async () => {
     setCallingApi(true);
     var response;
@@ -92,14 +91,14 @@ export default function CenterHome({
     setAllPostData((prev) => [...prev, ...data]);
   };
 
-  useEffect(()=>{
-
-  },[useAction])
+  useEffect(() => {}, [useAction]);
 
   // new filtering
   let filtey = [];
   function newFilFunc() {
     for (let i = 0; i < allPostData.length; i++) {
+      // console.log("allPostDataCenter", allPostData[i]);
+
       if (allPostData[i].has_child !== true) {
         filtey.push(allPostData[i]);
       }
@@ -111,7 +110,6 @@ export default function CenterHome({
   }
 
   newFilFunc();
-
   return (
     <div
       style={{
@@ -148,6 +146,7 @@ export default function CenterHome({
                     dislike_self={item?.dislike_self}
                     post_circulated_count={item?.circulate_count}
                     post_quote_count={item?.post_quote}
+                    post_quote_self={item?.post_quote_self}
                     post_id={item?.post_id}
                     post_type={item?.type}
                     video
@@ -206,6 +205,7 @@ export default function CenterHome({
                     post_media={item?.media}
                     audio
                     post_quote_count={item?.post_quote}
+                    post_quote_self={item?.post_quote_self}
                     post_circulated_count={item?.circulate_count}
                     post_id={item?.post_id}
                     post_type={item?.type}
@@ -243,6 +243,7 @@ export default function CenterHome({
                     complete_url={item?.urls?.other}
                     youtube_url={item?.urls?.youtube}
                     post_quote_count={item?.post_quote}
+                    post_quote_self={item?.post_quote_self}
                     circulate_self={item?.circulate_self}
                     circulate_user={item?.circ_username}
                     user_id={item?.user_id}
@@ -288,6 +289,7 @@ export default function CenterHome({
                     complete_url={item?.urls?.other}
                     youtube_url={item?.urls?.youtube}
                     post_quote_count={item?.post_quote}
+                    post_quote_self={item?.post_quote_self}
                     circulate_self={item?.circulate_self}
                     circulate_user={item?.circ_username}
                     user_id={item?.user_id}
@@ -333,6 +335,7 @@ export default function CenterHome({
                     complete_url={item?.urls?.other}
                     youtube_url={item?.urls?.youtube}
                     post_quote_count={item?.post_quote}
+                    post_quote_self={item?.post_quote_self}
                     circulate_self={item?.circulate_self}
                     circulate_user={item?.circ_username}
                     user_id={item?.user_id}
@@ -378,6 +381,7 @@ export default function CenterHome({
                     complete_url={item?.urls?.other}
                     youtube_url={item?.urls?.youtube}
                     post_quote_count={item?.post_quote}
+                    post_quote_self={item?.post_quote_self}
                     circulate_self={item?.circulate_self}
                     circulate_user={item?.circ_username}
                     user_id={item?.user_id}
@@ -425,6 +429,7 @@ export default function CenterHome({
                     complete_url={item?.urls?.other}
                     youtube_url={item?.urls?.youtube}
                     post_quote_count={item?.post_quote}
+                    post_quote_self={item?.post_quote_self}
                     circulate_self={item?.circulate_self}
                     circulate_user={item?.circ_username}
                     user_id={item?.user_id}
@@ -471,6 +476,7 @@ export default function CenterHome({
                     complete_url={item?.urls?.other}
                     youtube_url={item?.urls?.youtube}
                     post_quote_count={item?.post_quote}
+                    post_quote_self={item?.post_quote_self}
                     circulate_self={item?.circulate_self}
                     circulate_user={item?.circ_username}
                     user_id={item?.user_id}

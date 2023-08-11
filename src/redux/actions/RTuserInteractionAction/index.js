@@ -154,7 +154,7 @@ export const quotePost = (formData, callback) => {
     dispatch(quoteStart());
     addQuote(formData)
       .then((res) => {
-        dispatch(quoteSuccess(res.data.data));
+        dispatch((res.data.data));
         callback();
         moengageEvent("Quote", "Post", {
           RoundTableID: rt_id,

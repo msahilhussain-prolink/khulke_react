@@ -116,16 +116,30 @@ return await axios(config);
 };
 // ** Add Quote
 export const addQuote = async (formData) => {
-  const config = {
+
+  const newFormData = formData;
+  newFormData.append("device_info", JSON.stringify(device_info));
+const config = {
     method: "post",
-    url: `${POST_API_BASE_URL}/post-media/`,
+    url: `${POST_API_BASE_URL}/post-media`,
     headers: {
       "device-type": "android",
       "user-id": JSON.parse(localStorage.getItem("current_user"))["_id"],
     },
-    data: formData,
+    data: newFormData,
   };
 return await axios(config);
+
+//   const config = {
+//     method: "post",
+//     url: `${POST_API_BASE_URL}/post-media/`,
+//     headers: {
+//       "device-type": "android",
+//       "user-id": JSON.parse(localStorage.getItem("current_user"))["_id"],
+//     },
+//     data: formData,
+//   };
+// return await axios(config);
 };
 // ** Add Circulate
 export const addCirculate = async (post_id) => {
@@ -159,6 +173,20 @@ const config = {
     data: newFormData,
   };
 return await axios(config);
+
+
+//   const newFormData = formData;
+//   newFormData.append("device_info", JSON.stringify(device_info));
+// const config = {
+//     method: "post",
+//     url: `${POST_API_BASE_URL}/post-media`,
+//     headers: {
+//       "device-type": "android",
+//       "user-id": JSON.parse(localStorage.getItem("current_user"))["_id"],
+//     },
+//     data: newFormData,
+//   };
+// return await axios(config);
 };
 // ** Post Delete
 export const postDelete = async (post_id, is_roundtable) => {

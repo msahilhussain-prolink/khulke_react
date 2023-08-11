@@ -61,6 +61,7 @@ const Reply = ({
   parentType,
   GetAllPostDataProfile,
   src,
+  handlecomment
 }) => {
   const replyData = useSelector((state) => state.post.replyData);
 
@@ -384,17 +385,30 @@ const Reply = ({
 
     formData.append("message", JSON.stringify(messageData));
 
-    dispatch(
-      addReplyPost(formData, parentType, (err) => {
-        if (err) {
-          return logger.error(err);
-        }
-        ToastHandler("sus", "Your post has been created");
-      })
-    );
+    // dispatch(
+    //   addReplyPost(formData, parentType, (err) => {
+    //     if (err) {
+    //       return logger.error(err);
+    //     }
+    //     handlecomment()
+    //     ToastHandler("sus", "Your post has been created");
+    //   })
+    // );
 
+    dispatch(addReplyPost(formData, parentType,({ err, data }) => {
+      if (err) {
+        return logger.info(err);
+      }
+      handlecomment()
+        ToastHandler("sus", "Your post has been created");
+     
+      // setPostReply(false);
+      // setReplyFlg(true);
+      // setAddPost(false);
+    }));
     setPostReply(false);
     setReplyFlg(true);
+
   };
 
   const handleCrop = () => {

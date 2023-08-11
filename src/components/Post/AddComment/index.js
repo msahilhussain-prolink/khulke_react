@@ -28,6 +28,7 @@ import ToastHandler from "../../../utils/ToastHandler";
 import { CancelOutlined } from "@material-ui/icons";
 import UserProfile from "../../UserProfile";
 import { allWords } from "../../../App";
+import { addPostData } from "../../../redux/actions/postAction";
 
 const AddComment = ({
   user_id,
@@ -59,6 +60,7 @@ const AddComment = ({
   polling_data,
   GetAllPostDataProfile,
   src,
+  handleQuote
 }) => {
   const circulateData = useSelector((state) => state.post.circulateData);
   const quoteData = useSelector((state) => state.post);
@@ -454,9 +456,18 @@ const AddComment = ({
     }
 
     formData.append("message", JSON.stringify(messageData));
-    dispatch(quotePost(formData, username, user_id));
-    setAddComment(false);
-    setCirQuoteFlg(true);
+    //  dispatch(quotePost(formData, username, user_id));
+    dispatch(quotePost(formData, username, user_id,({ err, data }) => {
+      if (err) {
+        return logger.info(err);
+      }
+      handleQuote()
+      setAddComment(false);
+      setCirQuoteFlg(true);
+    }));
+    // handleQuote()
+    // setAddComment(false);
+    // setCirQuoteFlg(true);
   }
 
   useEffect(() => {
@@ -498,7 +509,7 @@ const AddComment = ({
       PaperProps={{
         style: { borderRadius: "0.8rem", width: 600 },
       }}
-    >
+      >
       <DialogTitle>
         <div
           style={{
@@ -1179,6 +1190,7 @@ const AddComment = ({
             ) : (
               <>
                 <AddPostBtn onClick={handleQuoteSubmit}>
+            
                   {allWords.th.post}
                 </AddPostBtn>
               </>

@@ -23,7 +23,7 @@ import Moment from "react-moment";
 import ReactPlayer from "react-player";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { addLike } from "../../apis/postApi";
+import { addLike,addCirculate } from "../../apis/postApi";
 import { allWords } from "../../App";
 import Interactions from "../../assets/icons/Group 19646.svg";
 import PostMenuIcon from "../../assets/icons/post_menu.svg";
@@ -94,6 +94,7 @@ import PostImages from "./ViewImages/PostImages";
 const useStyles = makeStyles(() => ({ dialog: { height: 500 } }));
 const Post = ({
   post_quote_count,
+  post_quote_self,
   singlePost,
   post_id,
   imgSrc,
@@ -174,6 +175,7 @@ const Post = ({
   const [openImage, setOpenImage] = useState(false);
   const [likeCount, setLikeCount] = useState(parseInt(totalLike));
   const quoteData = useSelector((state) => state.post.quoteData);
+  // console.log("quoteData",quoteData)
   const quoteLoading = useSelector((state) => state.post.loading);
   const circulateLoading = useSelector((state) => state.post.loading);
   const circulateData = useSelector((state) => state.post.circulateData);
@@ -222,6 +224,13 @@ const Post = ({
   const [likedUser, setLikedUser] = useState(false);
   const [dislikedUser, setDislikedUser] = useState(false);
   const [circulatedUser, setCirculatedUser] = useState(false);
+  // const [postcirculatedcount,setpostcirculatedcount]=useState(post_circulated_count)
+    const [circulateself,setcirculateself]=useState(circulate_self)
+   const [postcirculatedcount,setpostcirculatedcount]=useState(post_circulated_count)
+     const[postquotecount,setpostquotecount]=useState(post_quote_count)
+     const[commentself,setcommentself]=useState(comment_self)
+
+     const[totalcomment,settotalcomment]=useState(totalComment)
   let current_user = JSON.parse(
     localStorage.current_user || localStorage.anonymous_user
   );
@@ -354,6 +363,9 @@ const Post = ({
       }
     });
   };
+   
+  console.log("post_parent",post_parent)
+
 
   const handleShare = async () => {
     navigator.clipboard
@@ -778,6 +790,51 @@ const Post = ({
     }
   }, [full, chars]);
   const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
+  const handleQuote=()=>{
+  // alert("handleQuote")
+  setpostquotecount(postquotecount+1)
+  }
+  const handle=async(post_id, param2, post_type, media_type)=>{
+    addCirculate
+
+    addCirculate(post_id)
+    .then((res) => {
+     setcirculateself(res.data.data.count_self)
+     if(res.data.data.count_self==1){
+      setpostcirculatedcount(postcirculatedcount+1)
+      setCirculateFlag(true);
+        gtmEventCirculateOption(
+          "circulate uncirculate click",
+          "circulate uncirculate"
+        );
+     }
+     else{
+      setpostcirculatedcount(postcirculatedcount-1)
+      setCirculateFlag(true);
+                gtmEventCirculateOption(
+                  "circulate option1 click",
+                  "circulate option1"
+                );
+     }
+      // dispatch(circulateSuccess(res.data.data));
+        moengageEvent("Circulate", "Post", {
+        PostID: res?.data?.data?.["post_id"],
+        "K Type": post_type,
+        "Media type": media_type,
+        Status: param2,
+      });
+      // return res.data.data
+    }
+    )
+    .catch((err) => {
+      dispatch(circulateFail("Error"));
+    });
+    
+  }
+  const handlecomment=()=>{
+    settotalcomment(totalcomment+1) 
+    setcommentself(commentself+1)
+  }
 
   return (
     <>
@@ -913,7 +970,7 @@ const Post = ({
         onContextMenu={(e) => {
           e.preventDefault();
         }}
-      >
+          >
         {/* Liked user data */}
         {likeCount > 0 ? (
           <>
@@ -1115,7 +1172,7 @@ const Post = ({
                     className="vl"
                     style={{
                       height:
-                        totalComment >= 2
+                      totalcomment >= 2
                           ? "calc(100% + 20px)"
                           : "calc(100% + 50px)",
                     }}
@@ -1440,14 +1497,14 @@ const Post = ({
                   "display_language"
                 ] !== lang && <GoogleTranslate lang={lang} post_id={post_id} />}
 
-              <QuotedCard
+               <QuotedCard
                 post_id={post_id}
                 post_media_type={post_media_type}
                 post_parent={post_parent}
                 post_type={post_type}
-              />
-              {/* POST Details */}
-              {singlePost && main_post && (
+                />
+                 {/* POST Details */}
+                {singlePost && main_post && (
                 <>
                   <>
                     <div
@@ -1503,13 +1560,13 @@ const Post = ({
                           );
                           return;
                         }
-                        if (totalComment > 0 || post_circulated_count > 0) {
+                        if (totalcomment > 0 || post_circulated_count > 0) {
                           setInteraction(true);
                         }
                       }}
                     >
                       <span style={{ fontWeight: "bold" }}>
-                        {totalComment + post_circulated_count}
+                        {totalcomment + post_circulated_count}
                       </span>
                       {allWords.snip.interactions}
                     </span>
@@ -1558,27 +1615,27 @@ const Post = ({
                   </div>
                   <Divider />
                 </>
-              )}
-            </Body>
-            {hideIconContainer ? undefined : (
-              <Footer
+                  )}
+                  </Body>
+                  {hideIconContainer ? undefined : (
+                 <Footer
                 className="postFotkk footerStep"
                 style={{ marginLeft: "0rem", width: "100%" }}
                 disabled={
                   mute_id?.includes(current_user?.username) ? true : false
                 }
-              >
+                >
                 <div
                   id="post_footer_container"
                   style={{
                     display: "flex",
                     width: "99%",
                     alignItems: "center !important",
-                  }}
-                >
-                  <ListItem
-                    num={totalComment || "0"}
-                    Icon={comment_self ? RepliedIconComp : CommentIcon}
+                     }}
+                    >
+                   <ListItem
+                     num={totalcomment || "0"}
+                     Icon={commentself>=1 ? RepliedIconComp : CommentIcon}
                     disabled={
                       mute_id?.includes(current_user?.username) ? true : false
                     }
@@ -1588,23 +1645,34 @@ const Post = ({
                         localStorage.anonymous_user
                       ) {
                         setPostOpen(true);
-                        setPostIcon(<RepliedIconComp />);
+                       setPostIcon(<RepliedIconComp />);
                         setPostDec("");
                         setPostTitles(allWords.misc.pages.prelogin.mtext);
                         return;
                       }
-                      handleReply();
+                       handleReply();
                       gtmEvent("reply", "reply");
                       set;
                     }}
                     onNumClick={handleReplyClick}
                   />
+
+                  {/* {console.log("aaa",post_circulated_count )} */}
+
+
+                    {/* undefined */}
+                  {/* {console.log("aaa12345", post_quote_count+post_quote_self)} */}
+                  {/* {console.log("7890","postcirculatedcount",postcirculatedcount,"circulateself",circulateself, "postquotecount",postquotecount)} */}
+
                   <ListItem
-                    num={post_circulated_count + quoteData?.count || "0"}
+                  num={postcirculatedcount+ postquotecount || "0"}
+                  //  num={postcirculatedcount+ circulateself+ postquotecount || "0"}
+
+                    // pahale num={post_circulated_count + quoteData?.count || "0"}
                     Icon={
-                      circulate_user === current_user?.["username"] ||
-                      timeline_users?.[0] === current_user?.["username"] ||
-                      circulate_self === 1
+                      // circulate_user === current_user?.["username"] ||
+                      // timeline_users?.[0] === current_user?.["username"] ||
+                      circulateself == 1
                         ? MemoOrangeTweetIcon
                         : ReTweetIcon
                     }
@@ -1628,9 +1696,9 @@ const Post = ({
                       handleCirculate(e);
                     }}
                     iconColor={
-                      circulate_user === current_user?.["username"] ||
-                      timeline_users?.[0] === current_user?.["username"] ||
-                      circulate_self === 1
+                      // circulate_user === current_user?.["username"] ||
+                      // timeline_users?.[0] === current_user?.["username"] ||
+                      circulateself == 1
                         ? true
                         : false
                     }
@@ -1695,8 +1763,8 @@ const Post = ({
                       gtmEvent("dislike", "dislike");
                     }}
                   />
-                </div>
-                <ListItem
+                 </div>
+                 <ListItem
                   Icon={ShareOutlined}
                   onClick={() => {
                     moengageEvent("Share", "Post", {
@@ -1707,9 +1775,9 @@ const Post = ({
                     handleShare();
                     gtmEvent("share", "share");
                   }}
-                />
-              </Footer>
-            )}
+                 />
+                 </Footer>
+                  )}
           </div>
         </div>
 
@@ -1727,7 +1795,7 @@ const Post = ({
           </>
         )}
 
-        {window.location.pathname == "/home" && totalComment >= 2 && (
+        {window.location.pathname == "/home" && totalcomment >= 2 && (
           <>
             <div
               onClick={() => {
@@ -1769,7 +1837,6 @@ const Post = ({
           imgSrc={imgSrc}
         />
       )}
-      {/*  */}
       {addComment && (
         <AddComment
           user_id={user_id}
@@ -1782,7 +1849,7 @@ const Post = ({
           setRoundTableUrl={setRoundTableUrl}
           setMetadata={setMetadata}
           setYoutubeURL={setYoutubeURL}
-          totalComment={totalComment > 0 && totalComment}
+          totalComment={totalcomment > 0 && totalcomment}
           post_circulated_count={
             post_circulated_count > 0 && post_circulated_count
           }
@@ -1807,6 +1874,7 @@ const Post = ({
           polling_data={polling_data}
           GetAllPostDataProfile={GetAllPostDataProfile}
           src={src}
+          handleQuote={handleQuote}
         />
       )}
       {/* Reply */}
@@ -1820,7 +1888,7 @@ const Post = ({
           post_media={post_media}
           setLike={setLike}
           setLikeCount={setLikeCount}
-          totalComment={totalComment > 0 && totalComment}
+          totalComment={totalcomment > 0 && totalcomment}
           post_circulated_count={
             post_circulated_count > 0 && post_circulated_count
           }
@@ -1841,6 +1909,7 @@ const Post = ({
           title={title}
           GetAllPostDataProfile={GetAllPostDataProfile}
           src={src}
+          handlecomment={handlecomment}
         />
       )}
       {/* menu */}
@@ -2030,21 +2099,26 @@ const Post = ({
         open={openUnCirculate}
         onClose={handleCloseUncirculate}
         onClick={handleCloseUncirculate}
-      >
+          >
         <div style={{ width: 200, display: "flex", flexDirection: "column" }}>
-          {circulate_user === current_user?.["username"] ||
-          timeline_users?.[0] === current_user?.["username"] ||
-          circulate_self === 1 ? (
+          {
+          // circulate_user === current_user?.["username"] ||
+          // timeline_users?.[0] === current_user?.["username"] ||
+          circulateself == 1 ? (
             <MenuItem
               style={{ width: "100%", padding: "0.5rem", margin: "0" }}
-              onClick={() => {
-                dispatch(circulatePost(post_id, 0, post_type, post_media_type));
-                setCirculateFlag(true);
-                gtmEventCirculateOption(
-                  "circulate uncirculate click",
-                  "circulate uncirculate"
-                );
-              }}
+              // onClick={() => {
+              //   //  alert("abc")
+              //  dispatch(circulatePost(post_id, 0, post_type, post_media_type));
+              //  setpostcirculatedcount((pre)=>pre-1)
+              //   setCirculateFlag(true);
+              //   gtmEventCirculateOption(
+              //     "circulate uncirculate click",
+              //     "circulate uncirculate"
+              //   );
+              // }
+             onClick={()=>handle(post_id, 1, post_type, post_media_type)}
+            
             >
               {allWords.misc.uncirc}
             </MenuItem>
@@ -2052,13 +2126,17 @@ const Post = ({
             <MenuItem
               style={{ width: "100%", padding: "0.5rem", margin: "0" }}
               onClick={() => {
-                dispatch(circulatePost(post_id, 1, post_type, post_media_type));
-                setCirculateFlag(true);
-                gtmEventCirculateOption(
-                  "circulate option1 click",
-                  "circulate option1"
-                );
-              }}
+              //  alert("a")
+              handle(post_id, 1, post_type, post_media_type)
+                // dispatch(circulatePost(post_id, 1, post_type, post_media_type));
+                // setpostcirculatedcount((pre)=>pre+1)
+                // setCirculateFlag(true);
+                // gtmEventCirculateOption(
+                //   "circulate option1 click",
+                //   "circulate option1"
+                // );
+              }
+            }
             >
               {allWords.misc.livert.circ}
             </MenuItem>
@@ -2067,6 +2145,7 @@ const Post = ({
           <MenuItem
             style={{ width: "100%", padding: "0.5rem", margin: "0" }}
             onClick={() => {
+              // alert("d")
               setAddComment(true);
               gtmEventCirculateOption(
                 "circulate option2 click",

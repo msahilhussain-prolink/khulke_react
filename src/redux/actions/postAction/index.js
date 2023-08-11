@@ -63,9 +63,8 @@ export const addPostData = (formData, comp, callback) => {
       .then((res) => {
         if (res.status === 200) {
           dispatch(addPostSuccess(res.data.data.post));
-          callback({data: res.data.data.post});
-
-          moengageEvent("Create", comp === "" ? "Post" : "Snip-It", {
+           callback({data: res.data.data.post});
+             moengageEvent("Create", comp === "" ? "Post" : "Snip-It", {
             PostID: res?.data?.data?.post?.["_id"],
             "K Type": res?.data?.data?.post?.["type"],
             "Media type": res?.data?.data?.post?.["media_type"],
@@ -148,6 +147,8 @@ export const quoteStart = () => {
   };
 };
 export const quoteSuccess = (data) => {
+  //  console.log("actionTypes.ADD_QUOTE_SUCCESS123",actionTypes.ADD_QUOTE_SUCCESS)
+
   return {
     type: actionTypes.ADD_QUOTE_SUCCESS,
     payload: data,
@@ -159,21 +160,29 @@ export const quoteFail = (err) => {
     payload: err,
   };
 };
-export const quotePost = (formData, username, user_id) => {
+export const quotePost = (formData, username, user_id,callback) => {
   return async (dispatch) => {
     dispatch(quoteStart());
-    addQuote(formData)
-      .then((res) => {
-        dispatch(quoteSuccess(res.data.data));
-        moengageEvent("Quote", "Post", {
-          PostID: res?.data?.data?.post?.[0]?.["_id"],
-          "K Type": res?.data?.data?.post?.[0]?.["type"],
-          "Media type": res?.data?.data?.post?.[0]?.["media_type"],
-        });
-      })
-      .catch((err) => {
-        dispatch(quoteFail("ERROR"));
-      });
+  addQuote(formData)
+  .then((res) => {
+    if (res.status === 200) {
+      // console.log("formDataadd",res.data.data.post)
+          dispatch(quoteSuccess(res.data.data));
+        // dispatch(addPostSuccess(res.data.data.post));
+       callback({data: res.data.data.post});
+
+       moengageEvent("Quote", "Post", {
+                PostID: res?.data?.data?.post?.[0]?.["_id"],
+                "K Type": res?.data?.data?.post?.[0]?.["type"],
+                "Media type": res?.data?.data?.post?.[0]?.["media_type"],
+              });
+    }
+  })
+  .catch((err) => {
+   dispatch(quoteFail("ERROR"));
+    callback({err});
+  });
+
   };
 };
 // ** Circulate Post
@@ -206,7 +215,9 @@ export const circulatePost = (post_id, param2, post_type, media_type) => {
           "Media type": media_type,
           Status: param2,
         });
-      })
+        return res.data.data
+      }
+      )
       .catch((err) => {
         dispatch(circulateFail("Error"));
       });
@@ -235,17 +246,19 @@ export const addReplyPost = (formData, comp, callback) => {
     dispatch(addReplyStart());
     addReply(formData)
       .then((res) => {
-        dispatch(addReplySuccess(res.data));
-        callback();
-         moengageEvent("Comment", comp === "SNIPPET" ? "Snip-It" : "Post", {
-          PostID: res?.data?.data?.post?.[0]?.["_id"],
-          "K Type": res?.data?.data?.post?.[0]?.["type"],
-          "Media type": res?.data?.data?.post?.[0]?.["media_type"],
-        });
+        if (res.status === 200){
+             dispatch(addReplySuccess(res.data.data.post));
+         callback({data: res.data.data.post});
+          moengageEvent("Comment", comp === "SNIPPET" ? "Snip-It" : "Post", {
+           PostID: res?.data?.data?.post?.[0]?.["_id"],
+           "K Type": res?.data?.data?.post?.[0]?.["type"],
+           "Media type": res?.data?.data?.post?.[0]?.["media_type"],
+         });
+       }
       })
       .catch((err) => {
         dispatch(addReplyFail("Error"));
-        callback(err);
+        callback({err});
       });
   };
 };
@@ -271,7 +284,7 @@ export const postDeleteData = (post_id,label,is_roundtable = false,post_type,pos
 ) => {
   return async (dispatch) => {
     dispatch(postDeleteStart());
-    console.log("1234567",post_id, is_roundtable)
+    // console.log("1234567",post_id, is_roundtable)
     postDelete(post_id, is_roundtable)
       .then((res) => {
        if (res.status === 200) {
