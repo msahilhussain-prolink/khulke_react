@@ -12,58 +12,67 @@ import Button from "../common/Button";
 import SuggestedToYou from "./SuggestedToYou";
 import UserCard from "./UserCard";
 import YappSideBar from "./YappSideBar";
+import SettingsIcon from "@mui/icons-material/Settings";
 import { getPostData } from "../../redux/actions/postAction";
 
+const CommonLeftbarItem = ({
+  condition,
+  isNotItemTtitle,
+  handleClose,
+  setExpanded,
+  rtInvite,
+  rt_count,
+  setRTCount,
+  current_user,
+  notification_count,
+  setNotificationCount,
+  expanded,
+  windowWidth,
+  setModalOpen,
+  hasClickedNotification,
+  setAddPost,
+  icon_menu,
+}) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = window.location.pathname;
 
-const CommonLeftbarItem = ({condition, 
-    isNotItemTtitle,handleClose,setExpanded,
-    rtInvite,rt_count, setRTCount,
-     current_user,
-     notification_count,
-     setNotificationCount,
-     expanded,
-     windowWidth,
-     setModalOpen,
-     hasClickedNotification,
-     setAddPost
-     }) => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const location = window.location.pathname;
-
-
-    return (
-        <LeftSideBarDiv
-        id="leftSide_div"
-        style={{
-          overflowY: "auto",
-        }}
-      >
-        <div>
-          <div style={{position: "relative"}} className="head-icon khulkeLogoHome">
-            <div
-              style={{
-                display: "flex",
-                justifyContent: (windowWidth < 969 || condition) ? "flex-end" : "flex-start",
-              }}
-            >
-              <Link to={"/home"}>
-                <Logo
-                  className="logo-khulke-img"
-                  src={globalImages.logo}
-                  style={{ marginTop: "1rem" }}
-                />
-              </Link>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent:  "flex-end",
-                position: "absolute",
-                right: "0",
-              }}
-            >
-              {
+  return (
+    <LeftSideBarDiv
+      id="leftSide_div"
+      style={{
+        overflowY: "auto",
+      }}
+    >
+      <div>
+        <div
+          style={{ position: "relative" }}
+          className="head-icon khulkeLogoHome"
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent:
+                windowWidth < 969 || condition ? "flex-end" : "flex-start",
+            }}
+          >
+            <Link to={"/home"}>
+              <Logo
+                className="logo-khulke-img"
+                src={globalImages.logo}
+                style={{ marginTop: "1rem" }}
+              />
+            </Link>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              position: "absolute",
+              right: "0",
+            }}
+          >
+            {
               //TODO work on second part of RTListing
             }
             {/* {isNotItemTtitle &&
@@ -71,19 +80,20 @@ const CommonLeftbarItem = ({condition,
               <ArrowBackIosIcon  sx={{width: 42, height: 42, color: "black"}}/>
               </IconButton>
     } */}
-    </div>
-            <div>
-              <Cross src={CloseIcon} onClick={handleClose} />
-            </div>
           </div>
-          {location.split("/")[1] === "yapp" ? (
-            <YappSideBar
-              username={current_user?.["username"]}
-              setModalOpen={setModalOpen}
-              hasClickedNotification={hasClickedNotification}
-              notification_count={notification_count}
-              rtInvite={rtInvite}
-            />):
+          <div>
+            <Cross src={CloseIcon} onClick={handleClose} />
+          </div>
+        </div>
+        {location.split("/")[1] === "yapp" ? (
+          <YappSideBar
+            username={current_user?.["username"]}
+            setModalOpen={setModalOpen}
+            hasClickedNotification={hasClickedNotification}
+            notification_count={notification_count}
+            rtInvite={rtInvite}
+          />
+        ) : (
           <Div style={{ marginTop: ".563rem" }}>
             {location === "/home" || location === "/" ? (
               <ListItem
@@ -96,6 +106,7 @@ const CommonLeftbarItem = ({condition,
                   navigate("/home");
                 }}
                 className="townhallStep"
+                icon_menu={icon_menu}
               />
             ) : (
               <ListItem
@@ -106,6 +117,7 @@ const CommonLeftbarItem = ({condition,
                   dispatch(getPostData(20));
                   navigate("/home");
                 }}
+                icon_menu={icon_menu}
               />
             )}
 
@@ -113,25 +125,23 @@ const CommonLeftbarItem = ({condition,
               <ListItem
                 selected
                 title={isNotItemTtitle ? "" : allWords.th.rt}
-                notifications={
-                  rt_count !== 0 ? rt_count : ""
-                }
+                notifications={rt_count !== 0 ? rt_count : ""}
                 setNotificationCount={setRTCount}
                 Icon={globalImages.si_rt_menu_a}
                 path={"/roundtable/all"}
                 onClick={rtInvite}
+                icon_menu={icon_menu}
               />
             ) : (
               <ListItem
                 title={isNotItemTtitle ? "" : allWords.th.rt}
-                notifications={
-                  rt_count !== 0 ? rt_count : ""
-                }
+                notifications={rt_count !== 0 ? rt_count : ""}
                 setNotificationCount={setRTCount}
                 Icon={globalImages.si_rt_menu}
                 path={"/roundtable/all"}
                 className="roundtableStep"
                 onClick={rtInvite}
+                icon_menu={icon_menu}
               />
             )}
 
@@ -153,6 +163,7 @@ const CommonLeftbarItem = ({condition,
                       `https://meet.khulke.com?token=${localStorage.access}`
                     );
                 }}
+                icon_menu={icon_menu}
               />
             )}
             {localStorage.current_user && !localStorage.anonymous_user && (
@@ -160,22 +171,24 @@ const CommonLeftbarItem = ({condition,
                 {location.split("/")[1] === "yapp" ? (
                   <ListItem
                     selected
-                    title={isNotItemTtitle ? "" :allWords.th.yapp}
+                    title={isNotItemTtitle ? "" : allWords.th.yapp}
                     Icon={globalImages.si_yapp_menu_a}
                     path={"/yapp"}
                     onClick={() => {
                       navigate("/yapp");
                     }}
+                    icon_menu={icon_menu}
                   />
                 ) : (
                   <ListItem
-                    title={isNotItemTtitle ? "" :allWords.th.yapp}
+                    title={isNotItemTtitle ? "" : allWords.th.yapp}
                     Icon={globalImages.si_yapp_menu}
                     path={"/yapp"}
                     className="yappStep"
                     onClick={() => {
                       navigate("/yapp");
                     }}
+                    icon_menu={icon_menu}
                   />
                 )}
               </>
@@ -204,6 +217,7 @@ const CommonLeftbarItem = ({condition,
                       })
                     );
                   }}
+                  icon_menu={icon_menu}
                 />
                 {/* )} */}
               </>
@@ -222,6 +236,7 @@ const CommonLeftbarItem = ({condition,
                     onClick={() => {
                       navigate(`/profile/${current_user?.["username"]}`);
                     }}
+                    icon_menu={icon_menu}
                   />
                 ) : (
                   <ListItem
@@ -233,105 +248,127 @@ const CommonLeftbarItem = ({condition,
                     onClick={() => {
                       navigate(`/profile/${current_user?.["username"]}`);
                     }}
+                    icon_menu={icon_menu}
                   />
                 )}
               </>
             )}
           </Div>
-     }
-          <div
-            className="newPostStep"
-            style={{
-              marginTop: (windowWidth <= 968 || condition) && !expanded ? "0" : "1.5rem",
-              display: (windowWidth <= 968 || condition) ? "flex" : "",
-              justifyContent: (windowWidth <= 968 || condition) ? "center" : "",
-            }}
-          >
-            {((windowWidth <= 968 || condition) && !expanded ||
-            location.split("/")[1] === "yapp") ?
-             (
-              <div
-                style={{
-                  cursor: "pointer",
-                  marginLeft:
+        )}
+        <div
+          className="newPostStep"
+          style={{
+            marginTop:
+              (windowWidth <= 968 || condition) && !expanded ? "0" : "1.5rem",
+            display: windowWidth <= 968 || condition ? "flex" : "",
+            justifyContent: windowWidth <= 968 || condition ? "center" : "",
+          }}
+        >
+          {((windowWidth <= 968 || condition) && !expanded) ||
+          location.split("/")[1] === "yapp" ? (
+            <div
+              style={{
+                cursor: "pointer",
+                marginLeft:
                   location.split("/")[1] === "yapp" ? "22px" : "-10px",
-                }}
-              >
-                <AddCircle
-                  onClick={() => setAddPost(true)}
-                  size={30}
-                  style={{
-                    fontSize:
-                      location.split("/")[1] === "yapp" ? "2rem" : "1.5rem",
-                  }}
-                  color="#66B984"
-                  className="mt-3"
-                />
-              </div>
-            ) : (
-              <Button
-                onClick={() => {
-                  setAddPost(true);
-                }}
+              }}
+            >
+              <AddCircle
+                onClick={() => setAddPost(true)}
+                size={30}
                 style={{
-                  width: "100%",
-                  minWidth: "0px",
-                  transition: "all 80ms linear",
+                  fontSize:
+                    location.split("/")[1] === "yapp" ? "2rem" : "1.5rem",
                 }}
-              >
-                {allWords.th.newpost}
-              </Button>
-            )}
-          </div>
-          {
-              //TODO work on second part of RTListing
-            }
-          {/* {!expanded &&
+                color="#66B984"
+                className="mt-3"
+              />
+            </div>
+          ) : icon_menu ? (
+            <Button
+              onClick={() => {
+                setAddPost(true);
+              }}
+              style={{
+                width: "100%",
+                minWidth: "0px",
+                transition: "all 80ms linear",
+              }}
+            >
+              {allWords.th.newpost}
+            </Button>
+          ) : (
+            <AddCircle
+              onClick={() => setAddPost(true)}
+              size={40}
+              style={{
+                fontSize: "3rem",
+                width: "100%",
+                minWidth: "0px",
+                transition: "all 80ms linear",
+                marginLeft: "-0.2em",
+              }}
+              color="#66B984"
+            />
+          )}
+        </div>
+        {
+          //TODO work on second part of RTListing
+        }
+        {/* {!expanded &&
               <IconButton onClick= {() => setExpanded(true)}>
               <ArrowForwardIosIcon  sx={{width: 42, height: 42}}/>
               </IconButton>
     } */}
-          {!localStorage.current_user && localStorage.anonymous_user && (
-            <div
+        {!localStorage.current_user && localStorage.anonymous_user && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <p
               style={{
-                display: "flex",
-                justifyContent: "center",
-                flexWrap: "wrap",
+                margin: "30px 0px 10px 0px",
+                font: "normal normal bold 16px/19px Work Sans",
               }}
             >
-              <p
-                style={{
-                  margin: "30px 0px 10px 0px",
-                  font: "normal normal bold 16px/19px Work Sans",
-                }}
-              >
-                {allWords.th.loginCTA}
-              </p>
-              <Button
-                onClick={() => {
-                  navigate("/login");
-                }}
-                variant={"contained"}
-                style={{
-                  padding: "10px 30px",
-                  backgroundColor: "#66b984",
-                  width: "100%",
-                }}
-              >
-                {allWords.th.loginBtn}
-              </Button>
-            </div>
-          )}
-          {((windowWidth > 968 ) && location.split("/")[1] !== "yapp") && <SuggestedToYou />}
-        </div>
-
-        {localStorage.current_user && !localStorage.anonymous_user &&
-          location.split("/")[1] !== "yapp" &&
-         (
-          <UserCard windowWidth={windowWidth} />
+              {allWords.th.loginCTA}
+            </p>
+            <Button
+              onClick={() => {
+                navigate("/login");
+              }}
+              variant={"contained"}
+              style={{
+                padding: "10px 30px",
+                backgroundColor: "#66b984",
+                width: "100%",
+              }}
+            >
+              {allWords.th.loginBtn}
+            </Button>
+          </div>
         )}
-      </LeftSideBarDiv>
-    )
-}
+        {windowWidth > 968 && location.split("/")[1] !== "yapp" && (
+          <SuggestedToYou icon_menu={icon_menu} />
+        )}
+      </div>
 
-export default  CommonLeftbarItem;
+      {localStorage.current_user &&
+        !localStorage.anonymous_user &&
+        location.split("/")[1] !== "yapp" && (
+          <>
+            {icon_menu ? (
+              <UserCard windowWidth={windowWidth} />
+            ) : (
+              <SettingsIcon style={{ fontSize: "4rem", color: "#63779C" }} />
+            )}
+          </>
+        )}
+    </LeftSideBarDiv>
+  );
+};
+
+export default CommonLeftbarItem;

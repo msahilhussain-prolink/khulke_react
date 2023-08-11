@@ -121,6 +121,7 @@ const ListItem = ({
   comp,
   className,
   txt,
+  icon_menu
 }) => {
   return (
     <IconContainer className={className} onClick={onClick}>
@@ -154,13 +155,15 @@ const ListItem = ({
             />
           </Link>
         )}
-        <Title
-          to={path}
-          className={`nav_title ${selected && "selected_title"}`}
-          activeclassname="active"
-        >
-          {title}
-        </Title>
+        {icon_menu && (
+          <Title
+            to={path}
+            className={`nav_title ${selected && "selected_title"}`}
+            activeclassname="active"
+          >
+            {title}
+          </Title>
+        )}
       </div>
       {notifications && <Notification>{notifications}</Notification>}
     </IconContainer>

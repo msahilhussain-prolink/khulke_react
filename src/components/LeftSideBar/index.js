@@ -19,14 +19,11 @@ import PreloginComp from "../PreLoginComp";
 import "./style.css";
 import { getInvitationData } from "../../redux/actions/InvitationAction";
 import CommonLeftbarItem from "./CommonLeftbarItem";
-import YappSideBar from "./YappSideBar";
-
-
-
 const LeftSideBar = ({
   expanded,
   setExpanded,
   handleClose,
+  icon_menu,
 }) => {
   const live_notifcation_data = useSelector((state) => state?.notification?.data);
   const live_notifcation_err = useSelector((state) => state?.notification?.error);
@@ -273,6 +270,7 @@ const LeftSideBar = ({
       setModalOpen={setModalOpen}
       hasClickedNotification={hasClickedNotification}
       setAddPost={setAddPost}
+      icon_menu={icon_menu}
       />
       {addPost && (
         <AddPostDialog

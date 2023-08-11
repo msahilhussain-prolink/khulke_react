@@ -16,6 +16,7 @@ import VIPComp from "../VipComp";
 const SuggesstionListComponent = ({
   render_points,
   btn_fucntion,
+  icon_menu,
   disable_btn_fucntion = () => {},
 }) => {
   let safe_zone_css = "";
@@ -48,7 +49,8 @@ const SuggesstionListComponent = ({
                   <div
                     key={render_point["username"]}
                     className="d-flex justify-content-between mb-3 mt-2"
-                    style={{ width: "16rem" }}
+                    style={icon_menu ? { width: "16rem" } : { width: "4rem" }}
+                    // style={{ width: "16rem" }}
                   >
                     <div
                       style={{ cursor: "pointer", paddingLeft: "0px" }}
@@ -123,7 +125,7 @@ const SuggesstionListComponent = ({
                                 "unfollow"
                               );
                             }}
-                            style={{ width: "40px", height: "40px" }}
+                            style={icon_menu ?{ width: "40px", height: "40px" }:{ width: "28px", height: "28px", marginTop:"1em" }}
                           />
                         ) : (
                           <img
@@ -141,7 +143,7 @@ const SuggesstionListComponent = ({
                                 index
                               );
                             }}
-                            style={{ width: "40px", height: "40px" }}
+                            style={icon_menu ?{ width: "40px", height: "40px" }:{ width: "28px", height: "28px",marginTop:"1em" }}
                           />
                         )}
                       </div>
@@ -179,23 +181,33 @@ const SuggestionCard = ({
   type,
   disable_btn_fucntion = () => {},
   need_badge,
+  icon_menu,
 }) => {
   return (
-    <CardContainer>
-      <SuggestionTitle
-        style={{
-          lineHeight: "3rem",
-          fontSize: "1.2rem",
-        }}
-      >
-        {allWords.th.suggested.sugTitle}
-      </SuggestionTitle>
+    <CardContainer
+      style={
+        icon_menu
+          ? { padding: "12px 0px 12px 12px", height: "30vh" }
+          : { padding: "0px", height: "fit-content", border: "none" }
+      }
+    >
+      {icon_menu && (
+        <SuggestionTitle
+          style={{
+            lineHeight: "3rem",
+            fontSize: "1.2rem",
+          }}
+        >
+          {allWords.th.suggested.sugTitle}
+        </SuggestionTitle>
+      )}
       <div className="suggestedList mt-1" style={{ paddingRight: "3%" }}>
         <SuggesstionListComponent
           render_points={render_points}
           btn_fucntion={btn_fucntion}
           type={type}
           need_badge={need_badge}
+          icon_menu={icon_menu}
         />
       </div>
     </CardContainer>

@@ -8,7 +8,7 @@ import MemoSuggesstion from "../SuggestionCard";
 import { CardContainer, SuggestionTitle } from "../SuggestionCard/style";
 import { allWords } from "../../App";
 
-export default function SuggestedToYou() {
+export default function SuggestedToYou({ icon_menu }) {
   const suggested_err = useSelector((state) => state.suggestion.error);
   let suggested = useSelector((state) => state.suggestion.interest);
 
@@ -93,6 +93,7 @@ export default function SuggestedToYou() {
               btn_fucntion={follow_unfollow_driver}
               type={"follow"}
               need_badge={false}
+              icon_menu={icon_menu}
             />
           ) : (
             <CardContainer>

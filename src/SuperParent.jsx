@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LeftSideBar from "./components/LeftSideBar";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import "./superparent.css";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -25,6 +27,7 @@ export default function SuperParent({ children }) {
     data: [],
     updated: false,
   });
+  const [icon_menu, setIcon_menu] = useState(false);
   const [successDialog, setSuccessDialog] = useState(false);
   const [userData, setUserData] = useState(null);
   const [showPopup, setShowPopup] = useState(false); // dont show welcome 2nd popup for some screens
@@ -93,12 +96,15 @@ export default function SuperParent({ children }) {
 
     setShowPopup(true);
   }, [loc]);
+
+  const showIconMenuHandler = () => {
+    setIcon_menu((prev) => !prev);
+  };
   return (
     <>
       <div
         className="outerkk1"
         id="outerkk1-id"
-        
         style={{
           width:
             loc.pathname.includes("welcome") ||
@@ -109,21 +115,26 @@ export default function SuperParent({ children }) {
               ? "100%"
               : "",
           justifyContent: loc.pathname.includes("join") ? "center" : "",
-          height: loc.pathname.includes("join") ? "100vh" : ""
+          height: loc.pathname.includes("join") ? "100vh" : "",
         }}
       >
         {(!isMobile && kkpaths) || checkpage ? (
           <div
             className="innerkk1"
             style={{
-              width: location.split("/")[1] === "yapp" ? "fit-content" : "23%",
+              position: "relative",
+              width:
+                location.split("/")[1] === "yapp" || icon_menu
+                  ? "fit-content"
+                  : "6%",
             }}
           >
-            <LeftSideBar />
+            <LeftSideBar icon_menu={icon_menu} />
+            <div className="icon_menu" onClick={showIconMenuHandler}>
+              {icon_menu ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </div>
           </div>
-        ) : (
-          ""
-        )}
+        ) : undefined}
         {children}
       </div>
       {userDialog?.flag !== 0 ||
